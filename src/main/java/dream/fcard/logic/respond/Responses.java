@@ -1,6 +1,7 @@
 package dream.fcard.logic.respond;
 
 import dream.fcard.logic.respond.commands.CreateCommand;
+import dream.fcard.logic.respond.commands.HelpCommand;
 import dream.fcard.logic.storage.StorageManager;
 import dream.fcard.model.Deck;
 import dream.fcard.model.State;
@@ -50,10 +51,10 @@ public enum Responses {
     // Only used for MCQ and FrontBack cards
     // Note that back for MCQ cards will be used for identifying the correct CHOICE
     ADD_CARD(
-            "^((?i)(add)(\\s)+(deck/(.*))\\s+(priority/(.*))?\\s+(front/(.*))\\s+(back/(.*))+\\s+(choice/(.*))?\\s*",
+            RegexUtil.commandFormatRegex("add", new String[]{"deck/", "front/", "back/"}),
             new ResponseGroup[] {ResponseGroup.DEFAULT},
             (i,s) -> {
-                ArrayList<ArrayList<String>> res = RegexUtil.parseCommandFormat("",
+                ArrayList<ArrayList<String>> res = RegexUtil.parseCommandFormat("add",
                         new String[]{"deck/", "priority/", "front/", "back/", "choice/"},
                         i);
                 try {
@@ -94,6 +95,28 @@ public enum Responses {
             new ResponseGroup[]{ResponseGroup.DEFAULT},
             (i,s) -> {
                 //TODO not implemented
+                return true;
+            }
+    ),
+    HELP_W_COMMAND(
+            RegexUtil.commandFormatRegex("", new String[]{"command/"}),
+            new ResponseGroup[]{ResponseGroup.DEFAULT},
+            (i,s) -> {
+                ArrayList<ArrayList<String>> res = RegexUtil.parseCommandFormat("help",
+                        new String[]{"command/"},
+                        i);
+                for (String curr : HelpCommand.allCommands) {
+                    Dispatcher.accept(ConsumerSchema.DISPLAY_MESSAGE, curr);
+                    return true;
+                }
+                return false;
+            }
+    ),
+    HELP(
+            "^((?i)help)(.)*",
+            new ResponseGroup[]{ResponseGroup.DEFAULT},
+            (i,s) -> {
+                //TODO open a window to UserGuide.html
                 return true;
             }
     ),
