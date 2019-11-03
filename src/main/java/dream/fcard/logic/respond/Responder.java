@@ -1,5 +1,6 @@
 package dream.fcard.logic.respond;
 
+import dream.fcard.model.State;
 import java.util.ArrayList;
 
 
@@ -38,15 +39,15 @@ public class Responder {
      * responseFunc to call.
      *
      * @param input A String representing the user input.
+     * @param state The current State of the program.
      */
-    public static void takeInput(String input) {
+    public static void takeInput(String input, State state) {
         generateBuckets();
-        outer: for (int i = 0; i < buckets.size(); i++) {
-            if (ResponseGroup.values()[i].isInGroup(input)) {
+        for (int i = 0; i < buckets.size(); i++) {
+            if (ResponseGroup.values()[i].isInGroup(input, state)) {
                 for (Responses r : buckets.get(i)) {
-                    if (r.call(input)) {
-                        System.out.println(r);
-                        break outer;
+                    if (r.call(input,state)) {
+                        return;
                     }
                 }
             }

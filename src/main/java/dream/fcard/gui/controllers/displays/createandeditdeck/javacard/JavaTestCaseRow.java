@@ -20,10 +20,8 @@ public class JavaTestCaseRow extends HBox {
     private TextArea outputTextArea;
     @FXML
     private Button addRowButton;
-    @FXML
-    private Button deleteRowButton;
 
-    public JavaTestCaseRow(Consumer<Boolean> addNewRow, Consumer<JavaTestCaseRow> deleteThis) {
+    public JavaTestCaseRow(Consumer<Boolean> addNewRow) {
         try {
             FXMLLoader fxmlLoader = new FXMLLoader(MainWindow.class
                     .getResource("/view/Displays/JavaTestCaseRow.fxml"));
@@ -31,29 +29,8 @@ public class JavaTestCaseRow extends HBox {
             fxmlLoader.setRoot(this);
             fxmlLoader.load();
             addRowButton.setOnAction(e -> addNewRow.accept(true));
-            deleteRowButton.setOnAction(e -> deleteThis.accept(this));
         } catch (IOException e) {
             e.printStackTrace();
         }
-    }
-
-    public String getInput() {
-        return inputTextArea.getText();
-    }
-
-    public String getOutput() {
-        return outputTextArea.getText();
-    }
-
-    public void setInput(String inputText) {
-        this.inputTextArea.setText(inputText);
-    }
-
-    public void setOutput(String outputText) {
-        this.outputTextArea.setText(outputText);
-    }
-
-    public boolean hasTestCase() {
-        return !outputTextArea.getText().isBlank();
     }
 }

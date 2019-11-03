@@ -4,15 +4,12 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.function.Consumer;
 
-import dream.fcard.gui.controllers.displays.createandeditdeck.javacard.JavaTestCaseInputBox;
 import dream.fcard.gui.controllers.displays.createandeditdeck.jscard.JsTestCaseInputTextArea;
 import dream.fcard.gui.controllers.displays.createandeditdeck.mcqcard.McqOptionsSetter;
 import dream.fcard.logic.respond.ConsumerSchema;
-import dream.fcard.logic.respond.Consumers;
 import dream.fcard.model.Deck;
-import dream.fcard.model.TestCase;
+import dream.fcard.model.State;
 import dream.fcard.model.cards.FrontBackCard;
-import dream.fcard.model.cards.JavaCard;
 import dream.fcard.model.cards.JavascriptCard;
 import dream.fcard.model.cards.MultipleChoiceCard;
 import javafx.fxml.FXML;
@@ -39,27 +36,20 @@ public class CardCreatingWindow extends VBox {
     @FXML
     private Label addAnswerLabel;
 
-    /**
-     * Strings used to represent card types.
-     */
     private final String frontBack = "Front-back";
     private final String mcq = "MCQ";
     private final String js = "JavaScript";
-    private final String java = "Java";
 
-    /**
-     * Controllers for the card inputs
-     */
     private TextArea frontBackTextArea;
     private McqOptionsSetter mcqOptionsSetter;
     private JsTestCaseInputTextArea jsTestCaseInputTextArea;
-    private JavaTestCaseInputBox javaTestCaseInputBox;
 
     private String cardType = "";
     private Deck tempDeck = new Deck();
     private String testCases;
     private Consumer<Integer> incrementCounterInParent;
-
+    @SuppressWarnings("unchecked")
+    private Consumer<String> displayMessage = State.getState().getConsumer(ConsumerSchema.DISPLAY_MESSAGE);
 
     public CardCreatingWindow(Consumer<Integer> incrementCounterInParent) {
         try {
@@ -68,7 +58,7 @@ public class CardCreatingWindow extends VBox {
             fxmlLoader.setController(this);
             fxmlLoader.setRoot(this);
             fxmlLoader.load();
-            cardTypeSelector.getItems().addAll(frontBack, mcq, js, java);
+            cardTypeSelector.getItems().addAll(frontBack, mcq, js);
             cardTypeSelector.setOnAction(e -> {
                 String currentlySelected = cardTypeSelector.getValue();
                 if (!cardType.equals(currentlySelected)) {
@@ -103,10 +93,6 @@ public class CardCreatingWindow extends VBox {
             jsTestCaseInputTextArea = new JsTestCaseInputTextArea();
             answerContainer.getChildren().add(jsTestCaseInputTextArea);
             addAnswerLabel.setText("Add your asserts");
-        } else if (cardType.equals(java)) {
-            javaTestCaseInputBox = new JavaTestCaseInputBox();
-            answerContainer.getChildren().add(javaTestCaseInputBox);
-            addAnswerLabel.setText("Add your test cases");
         }
     }
 
@@ -118,13 +104,13 @@ public class CardCreatingWindow extends VBox {
         if (cardType.equals(mcq)) {
             //validation - non-empty question, at least one non-empty option, and a designated right answer
             if (questionField.getText().isBlank()) {
-                Consumers.doTask(ConsumerSchema.DISPLAY_MESSAGE, "You need to enter a question!");
+                displayMessage.accept("You need to enter a question!");
                 return;
             } else if (!mcqOptionsSetter.hasAtLeastOneNonEmptyOption()) {
-                Consumers.doTask(ConsumerSchema.DISPLAY_MESSAGE, "You need to enter at least 1 option!");
+                displayMessage.accept("You need to enter at least 1 option!");
                 return;
             } else if (!mcqOptionsSetter.hasDesignatedRightAnswer()) {
-                Consumers.doTask(ConsumerSchema.DISPLAY_MESSAGE, "You need to tell me which answer is correct!");
+                displayMessage.accept("You need to tell me which answer is correct!");
                 return;
             }
 
@@ -145,10 +131,10 @@ public class CardCreatingWindow extends VBox {
         } else if (cardType.equals(frontBack)) {
             // validation - non-empty fields
             if (questionField.getText().isBlank()) {
-                Consumers.doTask(ConsumerSchema.DISPLAY_MESSAGE, "You need to enter a question!");
+                displayMessage.accept("You need to enter a question!");
                 return;
             } else if (frontBackTextArea.getText().isBlank()) {
-                Consumers.doTask(ConsumerSchema.DISPLAY_MESSAGE, "You need to enter an answer!");
+                displayMessage.accept("You need to enter an answer!");
                 return;
             }
 
@@ -158,12 +144,12 @@ public class CardCreatingWindow extends VBox {
             tempDeck.addNewCard(card);
         } else if (cardType.equals(js)) {
             if (questionField.getText().isBlank()) {
-                Consumers.doTask(ConsumerSchema.DISPLAY_MESSAGE, "You need to enter a question!");
+                displayMessage.accept("You need to enter a question!");
                 return;
             }
 
             if (!jsTestCaseInputTextArea.hasTestCase()) {
-                Consumers.doTask(ConsumerSchema.DISPLAY_MESSAGE, "You need to enter a test case!");
+                displayMessage.accept("You need to enter a test case!");
                 return;
             }
             String testCases = jsTestCaseInputTextArea.getAssertions();
@@ -171,20 +157,6 @@ public class CardCreatingWindow extends VBox {
             JavascriptCard card = new JavascriptCard(front, testCases);
             tempDeck.addNewCard(card);
 
-        } else if (cardType.equals(java)) {
-            if (questionField.getText().isBlank()) {
-                Consumers.doTask(ConsumerSchema.DISPLAY_MESSAGE, "You need to enter a question!");
-                return;
-            }
-            if (!javaTestCaseInputBox.hasAtLeastOneTestCase()) {
-                Consumers.doTask(ConsumerSchema.DISPLAY_MESSAGE, "You need to enter a test case!");
-                return;
-            }
-
-            String front = questionField.getText();
-            ArrayList<TestCase> testCases = javaTestCaseInputBox.getTestCases();
-            JavaCard card = new JavaCard(front, testCases);
-            tempDeck.addNewCard(card);
         }
         incrementCounterInParent.accept(1);
         clearFields();
@@ -208,11 +180,11 @@ public class CardCreatingWindow extends VBox {
             answerContainer.getChildren().clear();
             answerContainer.getChildren().add(jsTestCaseInputTextArea);
         }
-        if (javaTestCaseInputBox != null) {
-            javaTestCaseInputBox = new JavaTestCaseInputBox();
-            answerContainer.getChildren().clear();
-            answerContainer.getChildren().add(javaTestCaseInputBox);
-        }
+        //if (testCaseUploader != null) {
+        //    testCaseUploader = new TestCaseUploader();
+        //    answerContainer.getChildren().clear();
+        //    answerContainer.getChildren().add(testCaseUploader);
+        //}
     }
 
     /**

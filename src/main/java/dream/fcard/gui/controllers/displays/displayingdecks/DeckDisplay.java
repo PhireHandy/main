@@ -11,7 +11,6 @@ import dream.fcard.gui.controllers.windows.MainWindow;
 import dream.fcard.logic.exam.Exam;
 import dream.fcard.logic.exam.ExamRunner;
 import dream.fcard.logic.respond.ConsumerSchema;
-import dream.fcard.logic.respond.Consumers;
 import dream.fcard.model.Deck;
 import dream.fcard.model.State;
 import dream.fcard.model.cards.FlashCard;
@@ -42,6 +41,15 @@ public class DeckDisplay extends AnchorPane {
     @FXML
     private Button addQuestionButton;
 
+    /**
+     * Allows deck display to trigger a change of displays in the parent container MainWindow
+     */
+    @SuppressWarnings("unchecked")
+    private Consumer<Pane> swapDisplaysInMain = State.getState().getConsumer(ConsumerSchema.SWAP_DISPLAYS);
+    @SuppressWarnings("unchecked")
+    private Consumer<String> displayMessage = State.getState().getConsumer(ConsumerSchema.DISPLAY_MESSAGE);
+    @SuppressWarnings("unchecked")
+    private Consumer<Boolean> displayDecks = State.getState().getConsumer(ConsumerSchema.DISPLAY_DECKS);
 
     private Consumer<Integer> deleteCard = this::deleteCard;
     private Consumer<Integer> editCard = this::editCard;
@@ -84,7 +92,7 @@ public class DeckDisplay extends AnchorPane {
         ExamRunner.createExam(testArrayListOfCards);
         Exam exam = ExamRunner.getCurrentExam();
         TestDisplay testDisplay = new TestDisplay(exam);
-        Consumers.doTask(ConsumerSchema.SWAP_DISPLAYS, testDisplay);
+        swapDisplaysInMain.accept(testDisplay);
     }
 
     /**
@@ -111,7 +119,7 @@ public class DeckDisplay extends AnchorPane {
      */
     private void deleteCard(int index) {
         if (deck.getCards().size() == 1) {
-            Consumers.doTask(ConsumerSchema.DISPLAY_MESSAGE, "Your deck needs at least 1 card!");
+            displayMessage.accept("Your deck needs at least 1 card!");
             return;
         }
         try {
@@ -125,12 +133,12 @@ public class DeckDisplay extends AnchorPane {
     private void deleteDeck() throws DeckNotFoundException {
         State state = State.getState();
         state.removeDeck(deck.getName());
-        Consumers.doTask(ConsumerSchema.DISPLAY_DECKS, true);
+        displayDecks.accept(true);
     }
 
     private void addQuestion() {
         EditDeckDisplay display = new EditDeckDisplay(deck);
-        Consumers.doTask(ConsumerSchema.SWAP_DISPLAYS, display);
+        swapDisplaysInMain.accept(display);
     }
 
     /**

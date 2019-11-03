@@ -6,15 +6,13 @@ import java.util.function.Consumer;
 import dream.fcard.gui.controllers.cards.backview.McqCardBack;
 import dream.fcard.gui.controllers.cards.backview.SimpleCardBack;
 import dream.fcard.gui.controllers.cards.frontview.BasicFrontBackCard;
-import dream.fcard.gui.controllers.cards.frontview.JavaFront;
 import dream.fcard.gui.controllers.cards.frontview.JsCard;
 import dream.fcard.gui.controllers.cards.frontview.McqCard;
 import dream.fcard.gui.controllers.windows.MainWindow;
 import dream.fcard.logic.exam.Exam;
 import dream.fcard.logic.respond.ConsumerSchema;
-import dream.fcard.logic.respond.Consumers;
+import dream.fcard.model.State;
 import dream.fcard.model.cards.FlashCard;
-import dream.fcard.model.cards.JavaCard;
 import dream.fcard.model.cards.JavascriptCard;
 import dream.fcard.model.cards.MultipleChoiceCard;
 import dream.fcard.model.exceptions.IndexNotFoundException;
@@ -83,10 +81,22 @@ public class TestDisplay extends AnchorPane {
         card.setAttempt(input);
     };
 
+    @SuppressWarnings("unchecked")
+    private Consumer<String> displayMessage = State.getState().getConsumer(ConsumerSchema.DISPLAY_MESSAGE);
+    /**
+     * Imported Consumer: Used by TestDisplay to trigger MainWindow to re-render DeckDisplay
+     */
+    @SuppressWarnings("unchecked")
+    private Consumer<Boolean> displayDecks = State.getState().getConsumer(ConsumerSchema.DISPLAY_DECKS);
+    /**
+     * Imported Consumer: Used by TestDisplay to trigger MainWindow to clear the message bar.
+     */
+    @SuppressWarnings("unchecked")
+    private Consumer<Boolean> clearMessage = State.getState().getConsumer(ConsumerSchema.CLEAR_MESSAGE);
 
     public TestDisplay(Exam exam) {
         try {
-            Consumers.doTask(ConsumerSchema.CLEAR_MESSAGE, true);
+            clearMessage.accept(true);
             FXMLLoader fxmlLoader = new FXMLLoader(MainWindow.class.getResource("/view/Displays"
                     + "/TestDisplay.fxml"));
             fxmlLoader.setController(this);
@@ -97,7 +107,7 @@ public class TestDisplay extends AnchorPane {
             this.cardOnDisplay = exam.getCurrentCard();
             seeFront();
             prevButton.setOnAction(e -> onShowPrevious());
-            endSessionButton.setOnAction(e -> Consumers.doTask(ConsumerSchema.DISPLAY_DECKS, true));
+            endSessionButton.setOnAction(e -> displayDecks.accept(true));
             nextButton.setOnAction(e -> onShowNext());
         } catch (IOException | IndexOutOfBoundsException e) {
             e.printStackTrace();
@@ -123,10 +133,6 @@ public class TestDisplay extends AnchorPane {
             cardDisplay.getChildren().clear();
             JsCard jsCard = new JsCard((JavascriptCard) cardOnDisplay, updateJsUserAttempt, getScore);
             cardDisplay.getChildren().add(jsCard);
-        } else if (typeOfCard.equals("JavaCard")) {
-            cardDisplay.getChildren().clear();
-            JavaFront javaFront = new JavaFront((JavaCard) cardOnDisplay, updateJsUserAttempt, getScore);
-            cardDisplay.getChildren().add(javaFront);
         }
 
     }
@@ -170,10 +176,10 @@ public class TestDisplay extends AnchorPane {
             seeFront();
         } catch (IndexOutOfBoundsException e) {
             //code for a result popup
-            Consumers.doTask(ConsumerSchema.DISPLAY_MESSAGE, "You've ran out of cards in this test!");
+            displayMessage.accept("You've ran out of cards in this test!");
             EndOfTestAlert.display("Results", "Final Score" + exam.getResult());
-            Consumers.doTask(ConsumerSchema.DISPLAY_DECKS, true);
-            Consumers.doTask(ConsumerSchema.CLEAR_MESSAGE, true);
+            displayDecks.accept(true);
+            clearMessage.accept(true);
         }
     }
     //sample renderer for Shawn
