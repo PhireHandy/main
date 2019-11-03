@@ -1,5 +1,9 @@
 package dream.fcard.model;
 
+import dream.fcard.core.commons.core.LogsCenter;
+import dream.fcard.logic.storage.StorageManager;
+import dream.fcard.model.exceptions.DeckNotFoundException;
+
 import java.util.ArrayList;
 
 /**
@@ -10,7 +14,8 @@ public class State {
 
     public StateEnum mode = StateEnum.DEFAULT;
     public ArrayList<Deck> decks;
-    public Deck createModeDeck = null;
+    private StateEnum currState;
+    private Deck currentDeck;
 
     public State() {
         decks = StorageManager.loadDecks();
