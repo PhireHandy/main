@@ -58,8 +58,8 @@ public class MainWindow extends VBox {
     @FXML
     private TextField commandLine;
 
-    // Consumers
     private Consumer<Boolean> displayDecks = b -> render();
+    private Consumer<Boolean> renderList = b -> renderDecks();
     private Consumer<Pane> swapDisplays = p -> {
         displayContainer.getChildren().clear();
         displayContainer.getChildren().add(p);
@@ -69,6 +69,7 @@ public class MainWindow extends VBox {
     };
     private Consumer<Boolean> clearMessage = b -> messageLabel.setText("");
 
+    //Example code
     private Consumer<Boolean> create = b -> showCreateNewDeckForm();
     private Consumer<String> createWDeckName = s -> showCreateNewDeckForm(s);
     private Consumer<Integer> seeDeck = i -> displaySpecificDeck(
@@ -78,9 +79,7 @@ public class MainWindow extends VBox {
 
     private Consumer<Boolean> quitProgram = b -> quit();
 
-    // Attributes
     private CreateDeckDisplay tempCreateDeckDisplay;
-    private State currState;
 
     /**
      * Binds the vertical height of the scroll panes to the size of the Nodes inside them so that the scrollbar
@@ -127,6 +126,7 @@ public class MainWindow extends VBox {
         deckList.setItems(FXCollections.observableArrayList(decks));
         deckList.getSelectionModel().selectFirst();
     }
+
 
     /**
      * Creates the display pane telling the user there are no decks, with a button to start creating one.
@@ -186,6 +186,7 @@ public class MainWindow extends VBox {
      * Changes the deck on display in the display pane to the selected one.
      */
     private void displaySpecificDeck(Deck d) {
+        deckList.getSelectionModel().select(d);
         DeckDisplay deckDisplay = new DeckDisplay(d);
         displayContainer.getChildren().clear();
         displayContainer.getChildren().add(deckDisplay);
@@ -206,25 +207,17 @@ public class MainWindow extends VBox {
      * Registers consumers in State for global access.
      */
     private void registerConsumers() {
-        State.getState().addConsumer(ConsumerSchema.SWAP_DISPLAYS, swapDisplays);
-        State.getState().addConsumer(ConsumerSchema.DISPLAY_DECKS, displayDecks);
-        State.getState().addConsumer(ConsumerSchema.DISPLAY_MESSAGE, displayMessage);
-        State.getState().addConsumer(ConsumerSchema.CLEAR_MESSAGE, clearMessage);
-        State.getState().addConsumer(ConsumerSchema.EXIT_CREATE, exitCreate);
-
-
-        //ignore the duplicates for now, if dispatcher carries all the consumers then transfer over from state
-        Dispatcher.addConsumer(ConsumerSchema.SWAP_DISPLAYS, swapDisplays);
-        Dispatcher.addConsumer(ConsumerSchema.DISPLAY_DECKS, displayDecks);
-        Dispatcher.addConsumer(ConsumerSchema.DISPLAY_MESSAGE, displayMessage);
-        Dispatcher.addConsumer(ConsumerSchema.CLEAR_MESSAGE, clearMessage);
-        Dispatcher.addConsumer(ConsumerSchema.CREATE_NEW_DECK, create);
-        Dispatcher.addConsumer(ConsumerSchema.CREATE_NEW_DECK_W_NAME, createWDeckName);
-        Dispatcher.addConsumer(ConsumerSchema.SEE_SPECIFIC_DECK, seeDeck);
-        Dispatcher.addConsumer(ConsumerSchema.QUIT_PROGRAM, quitProgram);
-        Dispatcher.addConsumer(ConsumerSchema.EXIT_CREATE, exitCreate);
-        Dispatcher.addConsumer(ConsumerSchema.PROCESS_INPUT, processInputCreate);
-
+        Consumers.addConsumer(ConsumerSchema.SWAP_DISPLAYS, swapDisplays);
+        Consumers.addConsumer(ConsumerSchema.DISPLAY_DECKS, displayDecks);
+        Consumers.addConsumer(ConsumerSchema.RENDER_LIST, renderList);
+        Consumers.addConsumer(ConsumerSchema.DISPLAY_MESSAGE, displayMessage);
+        Consumers.addConsumer(ConsumerSchema.CLEAR_MESSAGE, clearMessage);
+        Consumers.addConsumer(ConsumerSchema.CREATE_NEW_DECK, create);
+        Consumers.addConsumer(ConsumerSchema.CREATE_NEW_DECK_W_NAME, createWDeckName);
+        Consumers.addConsumer(ConsumerSchema.SEE_SPECIFIC_DECK, seeDeck);
+        Consumers.addConsumer(ConsumerSchema.QUIT_PROGRAM, quitProgram);
+        Consumers.addConsumer(ConsumerSchema.EXIT_CREATE, exitCreate);
+        Consumers.addConsumer(ConsumerSchema.PROCESS_INPUT, processInputCreate);
     }
 
     /**
@@ -272,6 +265,7 @@ public class MainWindow extends VBox {
      */
     public void processInputCreate(String input) {
         tempCreateDeckDisplay.processInput(input);
+
     }
     /**
      * Quits from the entire program. Saves the decks to a file first.

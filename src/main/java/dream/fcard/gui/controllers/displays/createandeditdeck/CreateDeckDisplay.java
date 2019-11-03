@@ -9,7 +9,7 @@ import dream.fcard.gui.controllers.windows.CardCreatingWindow;
 import dream.fcard.gui.controllers.windows.MainWindow;
 import dream.fcard.logic.respond.ConsumerSchema;
 import dream.fcard.model.Deck;
-import dream.fcard.model.State;
+import dream.fcard.model.StateHolder;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.control.Button;
@@ -124,8 +124,9 @@ public class CreateDeckDisplay extends VBox {
                     return;
                 }
                 deck.setDeckName(deckName);
-                State.getState().addDeck(deck);
-                displayMessage.accept("Your new deck has been created!");
+
+                StateHolder.getState().addDeck(deck);
+                Consumers.doTask(ConsumerSchema.DISPLAY_MESSAGE, "Your new deck has been created!");
             }
             exitEditingMode.accept(true);
         }
@@ -198,7 +199,6 @@ public class CreateDeckDisplay extends VBox {
                 editingWindow.publicAddCard();
             }
 
-            //LogsCenter.getLogger(CreateCommand.class).info("DECK_CREATE_REG_CARD: Card added to " + deckName);
         } catch (NumberFormatException n) {
             displayMessage.accept("Answer not valid.");
         }

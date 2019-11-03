@@ -9,9 +9,9 @@ import dream.fcard.model.StateEnum;
  * belongs to the group.
  */
 public enum ResponseGroup {
-    CREATE((i,s) -> s.getCurrState() == StateEnum.CREATE),
-    DEFAULT((i,s) -> s.getCurrState() == StateEnum.DEFAULT),
-    MATCH_ALL((i,s) -> true);
+    TEST(i -> StateHolder.getState().getCurrState() == StateEnum.TEST),
+    DEFAULT(i -> StateHolder.getState().getCurrState() == StateEnum.DEFAULT),
+    MATCH_ALL(i -> true);
 
     private ResponseFunc func;
 

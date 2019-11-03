@@ -1,5 +1,7 @@
 package dream.fcard.logic.respond;
 
+import java.util.ArrayList;
+
 import dream.fcard.logic.respond.commands.CreateCommand;
 import dream.fcard.logic.respond.commands.HelpCommand;
 import dream.fcard.logic.storage.StorageManager;
@@ -7,7 +9,6 @@ import dream.fcard.model.Deck;
 import dream.fcard.model.State;
 import dream.fcard.model.StateEnum;
 import dream.fcard.model.cards.FrontBackCard;
-import dream.fcard.model.exceptions.DuplicateInChoicesException;
 import dream.fcard.util.RegexUtil;
 import java.util.ArrayList;
 
@@ -26,7 +27,6 @@ import java.util.ArrayList;
  *  In no other class should they take the responsibility.
  */
 public enum Responses {
-    // DEFAULT GROUP STARTS ----------------------------------
     CREATE_NEW_DECK_WITH_NAME(
             "^((?i)create)\\s+((?i)deck/)\\s*\\S",
             new ResponseGroup[]{ResponseGroup.DEFAULT},
@@ -90,14 +90,6 @@ public enum Responses {
                 return true;
             }
     ),
-    ADD_NEW_ROW_MCQ(
-            "^((?i)add)\\s+((?i)option)$",
-            new ResponseGroup[]{ResponseGroup.DEFAULT},
-            (i,s) -> {
-                //TODO not implemented
-                return true;
-            }
-    ),
     HELP_W_COMMAND(
             RegexUtil.commandFormatRegex("", new String[]{"command/"}),
             new ResponseGroup[]{ResponseGroup.DEFAULT},
@@ -148,8 +140,7 @@ public enum Responses {
                 return true;
             }
     ),
-    // CREATE GROUP ENDS ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-    // MATCH ALL GROUP STARTS ---------------------------------
+    // DEFAULT GROUP ----------------------------------------------------------
     QUIT(
             "^((?i)quit)\\s*$",
             new ResponseGroup[]{ResponseGroup.MATCH_ALL},
@@ -161,13 +152,12 @@ public enum Responses {
     UNKNOWN(
             ".*",
             new ResponseGroup[]{ResponseGroup.MATCH_ALL},
-            (i,s) -> {
-                //TODO dispatcher display unknown input
-                return true;
-            }
-    )
-    // MATCH ALL GROUP ENDS ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-    ;
+                i -> {
+                    Consumers.accept(ConsumerSchema.DISPLAY_MESSAGE, "I did not understand that command.");
+                    return true;
+                }
+    );
+    // MATCH ALL GROUP --------------------------------------------------------
 
     private String regex;
     private ResponseGroup[] group;

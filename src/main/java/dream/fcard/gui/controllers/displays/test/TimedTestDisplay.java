@@ -6,27 +6,35 @@ import java.util.function.Consumer;
 import dream.fcard.gui.controllers.cards.backview.McqCardBack;
 import dream.fcard.gui.controllers.cards.backview.SimpleCardBack;
 import dream.fcard.gui.controllers.cards.frontview.BasicFrontBackCard;
+import dream.fcard.gui.controllers.cards.frontview.JavaFront;
 import dream.fcard.gui.controllers.cards.frontview.JsCard;
 import dream.fcard.gui.controllers.cards.frontview.McqCard;
 import dream.fcard.gui.controllers.windows.MainWindow;
 import dream.fcard.logic.exam.Exam;
 import dream.fcard.logic.exam.ExamRunner;
 import dream.fcard.logic.respond.ConsumerSchema;
-import dream.fcard.model.State;
+import dream.fcard.logic.respond.Consumers;
 import dream.fcard.model.cards.FlashCard;
+import dream.fcard.model.cards.JavaCard;
 import dream.fcard.model.cards.JavascriptCard;
 import dream.fcard.model.cards.MultipleChoiceCard;
 import dream.fcard.model.exceptions.IndexNotFoundException;
+import javafx.animation.KeyFrame;
+import javafx.animation.KeyValue;
+import javafx.animation.Timeline;
+import javafx.beans.property.IntegerProperty;
+import javafx.beans.property.SimpleIntegerProperty;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.layout.AnchorPane;
+import javafx.util.Duration;
 
 /**
  * The display for a user to review cards.
  */
-public class TestDisplay extends AnchorPane {
+public class TimedTestDisplay extends AnchorPane {
     @FXML
     private AnchorPane cardDisplay;
     @FXML
@@ -36,7 +44,9 @@ public class TestDisplay extends AnchorPane {
     @FXML
     private Button nextButton;
     @FXML
-    private Label scoreLabel; // for Shawn
+    private Label scoreLabel;
+    @FXML
+    private Label timerLabel;
 
     /**
      * The flashcard that is currently on display in test mode.
@@ -85,43 +95,39 @@ public class TestDisplay extends AnchorPane {
     };
 
     @SuppressWarnings("unchecked")
-    private Consumer<String> displayMessage = State.getState().getConsumer(ConsumerSchema.DISPLAY_MESSAGE);
-    /**
-     * Imported Consumer: Used by TestDisplay to trigger MainWindow to re-render DeckDisplay
-     */
-    @SuppressWarnings("unchecked")
-    private Consumer<Boolean> displayDecks = State.getState().getConsumer(ConsumerSchema.DISPLAY_DECKS);
-    /**
-     * Imported Consumer: Used by TestDisplay to trigger MainWindow to clear the message bar.
-     */
-    @SuppressWarnings("unchecked")
-    private Consumer<Boolean> clearMessage = State.getState().getConsumer(ConsumerSchema.CLEAR_MESSAGE);
-
-    @SuppressWarnings("unchecked")
     private Consumer<Boolean> nextCard = onNext -> {
         onShowNext();
     };
 
-    public TestDisplay(Exam exam) {
+    private Integer durationInSeconds;
+    private IntegerProperty timeSeconds;
+    private Timeline timeline;
+
+    public TimedTestDisplay(Exam exam) {
         try {
-            clearMessage.accept(true);
+            Consumers.doTask(ConsumerSchema.CLEAR_MESSAGE, true);
             FXMLLoader fxmlLoader = new FXMLLoader(MainWindow.class.getResource("/view/Displays"
-                    + "/TestDisplay.fxml"));
+                    + "/TimedTestDisplay.fxml"));
             fxmlLoader.setController(this);
             fxmlLoader.setRoot(this);
             fxmlLoader.load();
             //show the first card - fails if no cards are present
             this.exam = exam;
+            this.durationInSeconds = exam.getDuration();
             this.cardOnDisplay = exam.getCurrentCard();
+            this.timeSeconds = new SimpleIntegerProperty(durationInSeconds);
+            this.timeline = new Timeline();
+            //
             Consumers.addConsumer("GET_SCORE", getScore);
             Consumers.addConsumer("UPDATE_MCQ_ATTEMPT", updateMcqUserAttempt);
             Consumers.addConsumer("UPDATE_STRING_ATTEMPT", updateStringUserAttempt);
             Consumers.addConsumer("SHOW_NEXT", nextCard);
             seeFront();
             prevButton.setOnAction(e -> onShowPrevious());
-
             endSessionButton.setOnAction(e -> onEndSession());
             nextButton.setOnAction(e -> onShowNext());
+            timerLabel.textProperty().bind(timeSeconds.asString());
+            setTimer();
         } catch (IOException | IndexOutOfBoundsException e) {
             e.printStackTrace();
         }
@@ -193,6 +199,7 @@ public class TestDisplay extends AnchorPane {
             seeFront();
         } catch (IndexOutOfBoundsException e) {
             //code for a result popup
+            timeline.stop();
             Consumers.doTask(ConsumerSchema.DISPLAY_MESSAGE, "You've ran out of cards in this test!");
             exam.downIndex();
             try {
@@ -223,15 +230,26 @@ public class TestDisplay extends AnchorPane {
         }
     }
 
+    private void setTimer() {
+        timeSeconds.set(durationInSeconds);
+        timeline = new Timeline(new KeyFrame(Duration.seconds(durationInSeconds + 1),
+                new KeyValue(timeSeconds, 0)));
+        timeline.getKeyFrames().add(new KeyFrame(Duration.seconds(durationInSeconds + 1),
+            event -> ExamRunner.terminateExam()));
+        timeline.play();
+    }
+
     /**
      * Event handler for ending session.
      * Terminates exam if there is an active exam and brings user to deck display.
      */
     private void onEndSession() {
+        timeline.stop();
         if (ExamRunner.getCurrentExam() != null) {
             ExamRunner.terminateExam();
         }
         Consumers.doTask(ConsumerSchema.DISPLAY_DECKS, true);
         Consumers.doTask(ConsumerSchema.CLEAR_MESSAGE, true);
     }
+
 }

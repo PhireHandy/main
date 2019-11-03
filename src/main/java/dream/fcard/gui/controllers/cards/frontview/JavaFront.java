@@ -1,11 +1,13 @@
 package dream.fcard.gui.controllers.cards.frontview;
 
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.function.Consumer;
 
-import dream.fcard.gui.controllers.jsjava.JsTestRunnerApplication;
+import dream.fcard.gui.controllers.jsjava.JavaTestRunnerApplication;
 import dream.fcard.gui.controllers.windows.MainWindow;
-import dream.fcard.model.cards.JavascriptCard;
+import dream.fcard.model.TestCase;
+import dream.fcard.model.cards.JavaCard;
 import dream.fcard.util.datastructures.Pair;
 import javafx.application.Application;
 import javafx.fxml.FXML;
@@ -16,24 +18,24 @@ import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
 
 /**
- * A front view of the JS Card.
+ * A UI element for the JavaCard
  */
-public class JsCard extends AnchorPane {
+public class JavaFront extends AnchorPane {
     @FXML
     private Label questionTextLabel;
     @FXML
     private Button openCoderButton;
 
-    private JavascriptCard card;
-    private Application jsEditor;
-    private Consumer<Pair<String, Pair<Integer, Integer>>> getResult = this::receiveResult;
+    private JavaCard card;
+    private Application javaEditor;
+    private Consumer<Pair<String, ArrayList<TestCase>>> getResult = this::receiveResult;
     private Consumer<String> updateUserAttempt;
     private Consumer<Boolean> getScore;
 
-    public JsCard(JavascriptCard card, Consumer<String> updateUserAttempt, Consumer<Boolean> getScore) {
+    public JavaFront(JavaCard card, Consumer<String> updateUserAttempt, Consumer<Boolean> getScore) {
         try {
             FXMLLoader fxmlLoader = new FXMLLoader(MainWindow.class
-                    .getResource("/view/Cards/Front/JsCard.fxml"));
+                    .getResource("/view/Cards/Front/JavaFront.fxml"));
             fxmlLoader.setController(this);
             fxmlLoader.setRoot(this);
             fxmlLoader.load();
@@ -48,14 +50,14 @@ public class JsCard extends AnchorPane {
     }
 
     /**
-     * Opens up the JsTestRunnerApplication.
+     * Opens up the JavaTestRunnerApplication.
      */
     private void startCoding() {
         final Stage stage = new Stage();
-        stage.setTitle("Js Quiz Code Editor");
+        stage.setTitle("Java Quiz Code Editor");
         try {
-            jsEditor = new JsTestRunnerApplication(getResult, card);
-            jsEditor.start(stage);
+            javaEditor = new JavaTestRunnerApplication(getResult, card);
+            javaEditor.start(stage);
         } catch (IOException e) {
             System.err.println(e);
         } catch (Exception e) {
@@ -69,25 +71,39 @@ public class JsCard extends AnchorPane {
      * @param result user's attempted code, the number of passed and failed attempts.
      * @return
      */
-    private void receiveResult(Pair<String, Pair<Integer, Integer>> result) {
+    private void receiveResult(Pair<String, ArrayList<TestCase>> result) {
+        int failed = 0;
+        boolean compileWrong = false;
         card.setAttempt(result.fst());
+        ArrayList<TestCase> cases = result.snd();
+        for (TestCase tc : cases) {
+            Pair<Boolean, Pair<String, String>> difference = tc.checkDiff(tc.getActualOutput());
+            if (!difference.fst()) {
+                failed++;
+            }
+            if (difference.snd().snd() == null) {
+                compileWrong = true;
+                break;
+            }
+        }
         String pass = "\nPassed!";
         String fail = "\nFailed.";
         String err = "\nCould not compile/run.";
         String front = card.getFront();
         front = front.replaceAll(pass, "").replaceAll(fail, "")
                 .replaceAll(err, "").strip();
-        if (result.snd().snd().equals(0)) {
+
+        if (failed == 0) {
             card.editFront(front + pass);
             questionTextLabel.setText(front + pass);
             getScore.accept(true);
-        } else if (result.snd().fst() != -1) {
-            card.editFront(front + fail);
-            questionTextLabel.setText(front + fail);
-            getScore.accept(false);
-        } else {
+        } else if (compileWrong) {
             card.editFront(front + err);
             questionTextLabel.setText(front + err);
+            getScore.accept(false);
+        } else {
+            card.editFront(front + fail);
+            questionTextLabel.setText(front + fail);
             getScore.accept(false);
         }
     }
