@@ -505,7 +505,10 @@ e.g. <code>stats deck/science_deck</code></p>
 <p>Tests are driven by the main <code>ExamRunner</code> class which ensures that only a single <code>Exam</code> object exists at any point in time.</p>
 </div>
 <div class="paragraph">
-<p><code>Exam</code> objects are where the bulk of the test logic resides. They each will also contain <strong>ONE</strong> <code>Results</code> object that keeps track of score.</p>
+<p><code>Exam</code> objects are where the bulk of the test logic resides. <code>Exam</code> objects are used to control what card the user is currently attempting via the <code>getCurrentCard()</code> method, used to control the AnchorPanes that show up on the GUI and also to keep track of score through the <code>Result</code> object within.</p>
+</div>
+<div class="paragraph">
+<p><code>Exam</code> objects have a <strong>composition</strong> relationship with <code>Result</code> objects, whereby a <code>Result</code> object cannot exist without an <code>Exam</code> object.</p>
 </div>
 <div class="paragraph">
 <p>The sequence diagram of the three classes is as follows:</p>
@@ -514,6 +517,15 @@ e.g. <code>stats deck/science_deck</code></p>
 <div class="content">
 <img src="../images/TestSequenceDiagram.png" alt="TestSequenceDiagram">
 </div>
+</div>
+<div class="paragraph">
+<p>When a user first chooses to start the test, he will call on the <code>createExam()</code> within <code>ExamRunner</code>, which will create an Exam object with the duration specified by the user.</p>
+</div>
+<div class="paragraph">
+<p>Creating an <code>Exam</code> object automatically creates a <code>Result</code> object in the constructor. The <code>Exam</code> object is then able to interact with it via the <code>getResult()</code> method.</p>
+</div>
+<div class="paragraph">
+<p>Responses and Controllers will then be able to get the current instance of <code>Exam</code> via the <code>getCurrentExam()</code> method in <code>ExamRunner</code></p>
 </div>
 <div class="paragraph">
 <p>Given below is an example usage scenario and how the timed/untimed mechanism behaves at each step. The activity diagrams for Timed and Untimed Tests are also as follows:</p>
@@ -555,6 +567,24 @@ e.g. <code>stats deck/science_deck</code></p>
 <p>Step 8. When the user is done reviewing, he can type <code>exit</code> or click <code>Exit Session</code> to exit test mode and go back to the main Deck Display screen. Users can also use this command prematurely to exit test mode mid-test.</p>
 </div>
 </div>
+</div>
+</div>
+<div class="sect3">
+<h4 id="managing-the-cli-and-gui"><a class="link" href="#managing-the-cli-and-gui">Managing the CLI and GUI</a></h4>
+<div class="paragraph">
+<p>CLI is largely driven by the <code>Responses</code> class which can be found above. However, the test mechanism differs slightly as it relies on a greater amount of <code>States</code> in order to control which commands can be used at what time.</p>
+</div>
+<div class="paragraph">
+<p>For example, a <code>correct</code> command cannot be used on a MCQCard.</p>
+</div>
+<div class="paragraph">
+<p>Commands are checked if they belong to a certain <code>ResponseGroup</code> for a <code>State</code>. Only commands that are registered within that state&#8217;s <code>ResponseGroup</code> will be executed.</p>
+</div>
+<div class="paragraph">
+<p>GUI is also controlled by <code>States</code> but does not go through the <code>ResponseGroup</code> class. Instead, it relies on EventHandlers triggered by button clicks. Ideally, one should make GUI go through <code>Responses</code> as well to streamline both the GUI and CLI together.</p>
+</div>
+<div class="paragraph">
+<p>This design choice is reflected on further below.</p>
 </div>
 </div>
 <div class="sect3">
@@ -682,6 +712,111 @@ e.g. <code>stats deck/science_deck</code></p>
 </li>
 </ul>
 </div>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect4">
+<h5 id="aspect-streamlining-of-gui-and-cli"><a class="link" href="#aspect-streamlining-of-gui-and-cli">Aspect: Streamlining of GUI and CLI</a></h5>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>Alternative 1:</strong> Have both GUI and CLI managed by the <code>Response</code> class</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Pros:</p>
+<div class="ulist">
+<ul>
+<li>
+<p>More streamlined</p>
+</li>
+<li>
+<p>Lesser chance of performance glitches since both interfaces rely on the same logic.</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>Cons:</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Limited customization if different behaviours want to be implemented in the GUI and CLI (though unlikely).</p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p><strong>Alternative 2: (Current Choice)</strong> Individual logics for both GUI and CLI:</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Pros:</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Greater customization.</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>Cons:</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Slightly more "spaghetti code"</p>
+</li>
+<li>
+<p>Limited expansion as having many different types of cards will result in many different <code>ResponseGroups</code></p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>While FlashCard Pro went with the "inferior" design choice for <code>v1.4</code>, there is definitely room for expansion by using an external state controller like Redux (see below).</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="sect3">
+<h4 id="future-extensions"><a class="link" href="#future-extensions">Future Extensions</a></h4>
+<div class="sect4">
+<h5 id="relationship-between-gui-and-cli"><a class="link" href="#relationship-between-gui-and-cli">Relationship between GUI and CLI</a></h5>
+<div class="ulist">
+<ul>
+<li>
+<p>Currently GUI and CLI are not implemented ideally because CLI is dependent on the <code>Responses</code> class while GUI relies on button handlers.</p>
+</li>
+<li>
+<p>Ideally, GUI and CLI should both rely on the <code>Responses</code> class which will streamline the back-end logic.</p>
+</li>
+<li>
+<p>However, due to time constraints and the late discovery of the bug, <code>v1.4</code> was made with the GUI and CLI not streamlined.</p>
+</li>
+<li>
+<p>Future enhancements could either streamline the GUI and CLI both rely on <code>Responses</code> class or port over to an external state manager like Redux for better performance.</p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect4">
+<h5 id="exam-interface"><a class="link" href="#exam-interface">Exam Interface</a></h5>
+<div class="ulist">
+<ul>
+<li>
+<p>The Exam interface exists such that the project remains open for extension with various different test modes.</p>
+</li>
+<li>
+<p>One example would be a speed round (whereby specific time limits are set for <strong>each card</strong>).</p>
 </li>
 </ul>
 </div>
