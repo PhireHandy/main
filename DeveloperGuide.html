@@ -16,22 +16,23 @@
 <li><a href="#Design-GUI">2.2. GUI component</a></li>
 <li><a href="#Design-Responder">2.3. Responder component</a></li>
 <li><a href="#Design-Model">2.4. Model component</a></li>
-<li><a href="#Design-Storage">2.5. Storage component</a></li>
-<li><a href="#Design-Util">2.6. Code Component</a></li>
-<li><a href="#Design-Commons">2.7. Common classes</a></li>
+<li><a href="#design-considerations">2.5. Design Considerations</a></li>
+<li><a href="#Design-Storage">2.6. Storage component</a></li>
+<li><a href="#Design-Util">2.7. Code Component</a></li>
+<li><a href="#regex-component">2.8. Regex Component</a></li>
+<li><a href="#Design-Commons">2.9. Common classes</a></li>
+<li><a href="#implementation">2.10. Implementation</a></li>
+<li><a href="#design-considerations-2">2.11. Design Considerations</a></li>
 </ul>
 </li>
-<li><a href="#implementation">3. Implementation</a>
-<ul class="sectlevel3">
-<li><a href="#implementation-2">3.1. Implementation</a></li>
-<li><a href="#design-considerations-2">3.2. Design Considerations</a></li>
-<li><a href="#proposed-saving-user-statistics-feature">3.3. [Proposed] Saving User Statistics feature</a></li>
-<li><a href="#logging">3.4. Logging</a></li>
-<li><a href="#Implementation-Configuration">3.5. Configuration</a></li>
-<li><a href="#ui">3.6. UI</a></li>
-<li><a href="#timed-untimed-test">3.7. Timed/Untimed Test</a></li>
-<li><a href="#running-a-code-flashcard">3.8. Running a code flashcard</a></li>
-<li><a href="#proposed-configure-difficulty-of-test-set-in-code-test-code-mode">3.9. [Proposed] Configure difficulty of test set in <code>test</code> mode</a></li>
+<li><a href="#implementation-2">3. Implementation</a>
+<ul class="sectlevel2">
+<li><a href="#logging">3.1. Logging</a></li>
+<li><a href="#Implementation-Configuration">3.2. Configuration</a></li>
+<li><a href="#ui">3.3. UI</a></li>
+<li><a href="#test">3.4. Test</a></li>
+<li><a href="#running-a-code-flashcard">3.5. Running a code flashcard</a></li>
+<li><a href="#proposed-configure-difficulty-of-test-set-in-code-test-code-mode">3.6. [Proposed] Configure difficulty of test set in <code>test</code> mode</a></li>
 </ul>
 </li>
 <li><a href="#documentation">4. Documentation</a></li>
@@ -39,7 +40,11 @@
 <li><a href="#dev-ops">6. Dev Ops</a></li>
 <li><a href="#product-scope">Appendix A: Product Scope</a></li>
 <li><a href="#user-stories">Appendix B: User Stories</a></li>
-<li><a href="#use-cases">Appendix C: Use Cases</a></li>
+<li><a href="#use-cases">Appendix C: Use Cases</a>
+<ul class="sectlevel2">
+<li><a href="#use-case-creating-a-deck-of-cards">C.1. Use case: Creating a deck of cards</a></li>
+</ul>
+</li>
 <li><a href="#non-functional-requirements">Appendix D: Non Functional Requirements</a></li>
 <li><a href="#glossary">Appendix E: Glossary</a></li>
 <li><a href="#instructions-for-manual-testing">Appendix F: Instructions for Manual Testing</a></li>
@@ -59,15 +64,6 @@
 <div class="sectionbody">
 <div class="sect2">
 <h3 id="Design-Architecture"><a class="link" href="#Design-Architecture">2.1. Architecture</a></h3>
-<div class="imageblock">
-<div class="content">
-<img src="images/ArchitectureDiagram_FlashCardPro.png" alt="ArchitectureDiagram FlashCardPro">
-</div>
-<div class="title">Figure 1. Architecture Diagram</div>
-</div>
-<div class="paragraph">
-<p>The <strong><em>Architecture Diagram</em></strong> given above explains the high-level design of the App. Given below is a quick overview of each component.</p>
-</div>
 <div class="paragraph">
 <p><a href="#Design-Commons"><strong><code>Commons</code></strong></a> represents a collection of classes used by multiple other components.
 The following class plays an important role at the architecture level:</p>
@@ -101,16 +97,6 @@ The following class plays an important role at the architecture level:</p>
 </li>
 </ul>
 </div>
-<h4 id="how-the-architecture-components-interact-with-each-other" class="discrete">How the architecture components interact with each other</h4>
-<div class="paragraph">
-<p>The <em>Sequence Diagram</em> below shows how the components interact with each other for the scenario where the user <a href="#TBC">[TBC]</a>.</p>
-</div>
-<div class="imageblock">
-<div class="content">
-<img src="images/ArchitectureSequenceDiagram_FlashCardPro.png" alt="ArchitectureSequenceDiagram FlashCardPro">
-</div>
-<div class="title">Figure 2. Component interactions for <code>delete 1</code> command</div>
-</div>
 <div class="paragraph">
 <p>The sections below give more details of each component.</p>
 </div>
@@ -121,7 +107,7 @@ The following class plays an important role at the architecture level:</p>
 <div class="content">
 <img src="images/UiClassDiagram_FlashCardPro.png" alt="UiClassDiagram FlashCardPro">
 </div>
-<div class="title">Figure 3. Structure of the UI Component</div>
+<div class="title">Figure 1. Structure of the UI Component</div>
 </div>
 <div class="paragraph">
 <p><strong>API</strong> : <a href="https://github.com/AY1920S1-CS2103-F09-2/main/src/main/java/seedu/address/ui/Ui.java"><code>Ui.java</code></a></p>
@@ -133,7 +119,7 @@ The following class plays an important role at the architecture level:</p>
 <div class="content">
 <img src="images/ResponderClassDiagram.png" alt="ResponderClassDiagram">
 </div>
-<div class="title">Figure 4. Structure of the Responder Component</div>
+<div class="title">Figure 2. Structure of the Responder Component</div>
 </div>
 <div class="paragraph">
 <p><strong>API</strong> :
@@ -146,13 +132,15 @@ The following class plays an important role at the architecture level:</p>
 <div class="content">
 <img src="images/ModelClassDiagram_FlashCardPro.png" alt="ModelClassDiagram FlashCardPro">
 </div>
-<div class="title">Figure 5. Structure of the Model Component</div>
+<div class="title">Figure 3. Structure of the Model Component</div>
 </div>
 <div class="paragraph">
 <p><strong>API</strong> : <a href="https://github.com/AY1920S1-CS2103-F09-2/main/src/main/java/dream/fcard/model"><code>Model</code></a></p>
 </div>
+<div class="paragraph">
+<p><code>FlashCard</code>:</p>
+</div>
 <div class="ulist">
-<div class="title"><code>FlashCard</code>,</div>
 <ul>
 <li>
 <p>There are 3 types of cards used by our App, the <code>JavascriptCard</code>, <code>FrontBackCard</code> and <code>MultipleChoiceCard</code>.</p>
@@ -249,10 +237,11 @@ If a duplicate choice is detected, then the creation of the <code>MultipleChoice
 </li>
 </ul>
 </div>
+</div>
+<div class="sect2">
+<h3 id="design-considerations"><a class="link" href="#design-considerations">2.5. Design Considerations</a></h3>
 <div class="sect3">
-<h4 id="design-considerations"><a class="link" href="#design-considerations">2.4.1. Design Considerations</a></h4>
-<div class="sect4">
-<h5 id="aspect-how-to-store-and-select-the-code-high_priority-code-and-code-low_priority-code-cards"><a class="link" href="#aspect-how-to-store-and-select-the-code-high_priority-code-and-code-low_priority-code-cards">Aspect: how to store and select the <code>HIGH_PRIORITY</code> and <code>LOW_PRIORITY</code> cards</a></h5>
+<h4 id="aspect-how-to-store-and-select-the-code-high_priority-code-and-code-low_priority-code-cards"><a class="link" href="#aspect-how-to-store-and-select-the-code-high_priority-code-and-code-low_priority-code-cards">2.5.1. Aspect: how to store and select the <code>HIGH_PRIORITY</code> and <code>LOW_PRIORITY</code> cards</a></h4>
 <div class="ulist">
 <ul>
 <li>
@@ -291,14 +280,13 @@ If a duplicate choice is detected, then the creation of the <code>MultipleChoice
 </div>
 </div>
 </div>
-</div>
 <div class="sect2">
-<h3 id="Design-Storage"><a class="link" href="#Design-Storage">2.5. Storage component</a></h3>
+<h3 id="Design-Storage"><a class="link" href="#Design-Storage">2.6. Storage component</a></h3>
 <div class="imageblock">
 <div class="content">
 <img src="images/StorageClassDiagram.png" alt="StorageClassDiagram">
 </div>
-<div class="title">Figure 6. Structure of the Storage Component</div>
+<div class="title">Figure 4. Structure of the Storage Component</div>
 </div>
 <div class="paragraph">
 <p><strong>API</strong> : <a href="https://github.com/AY1920S1-CS2103-F09-2/main/src/main/java/dream/fcard/logic/storage/StorageManager.java"><code>StorageManager.java</code></a>
@@ -346,12 +334,12 @@ If a duplicate choice is detected, then the creation of the <code>MultipleChoice
 </div>
 </div>
 <div class="sect2">
-<h3 id="Design-Util"><a class="link" href="#Design-Util">2.6. Code Component</a></h3>
+<h3 id="Design-Util"><a class="link" href="#Design-Util">2.7. Code Component</a></h3>
 <div class="imageblock">
 <div class="content">
 <img src="images/CodeClassDiagram.png" alt="CodeClassDiagram">
 </div>
-<div class="title">Figure 7. Structure of the Code component within Utilities</div>
+<div class="title">Figure 5. Structure of the Code component within Utilities</div>
 </div>
 <div class="paragraph">
 <p>The <code>Code</code> component supports code-running flashcards in Java and Javascript. Cards will take in user input
@@ -393,21 +381,34 @@ and used to run the code in each card.</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="Design-Commons"><a class="link" href="#Design-Commons">2.7. Common classes</a></h3>
+<h3 id="regex-component"><a class="link" href="#regex-component">2.8. Regex Component</a></h3>
+<div class="paragraph">
+<p>Having that we are using the regex approach to parsing, some common parsing and regex creation methods
+are stored in the following class:</p>
+</div>
+<div class="paragraph">
+<p><strong>API</strong> : <a href="https://github.com/AY1920S1-CS2103-F09-2/main/src/main/java/dream/fcard/util/RegexUtil.java"><code>RegexUtil.java</code></a></p>
+</div>
+<div class="paragraph">
+<p>RegexUtil#commandFormatRegex` creates a regex that starts with the <code>command</code> argument and lookaheads
+for the elements of <code>args</code>. Thus a regex for the input <code>create front/asd back/dsa</code> can be created with
+<code>commandFormatRegex("create", new String[]{"front/", "back/"});</code>.</p>
+</div>
+<div class="paragraph">
+<p><code>RegexUtil#parseCommandFormat</code> is an algorithm that parses user input and returns the resulting values
+from the input. Following the previous example, parsing the input will create an arraylist of two arraylists.
+The first arraylist contains one element <code>"asd"</code> and the second arraylist contains one element <code>"dsa"</code>;
+parallel to the arguments of the input.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="Design-Commons"><a class="link" href="#Design-Commons">2.9. Common classes</a></h3>
 <div class="paragraph">
 <p>Classes used by multiple components are in the <code>dream.fcard.datastructures</code> package and root of <code>dream.fcard.util</code></p>
 </div>
 </div>
-</div>
-</div>
-<div class="sect1">
-<h2 id="implementation"><a class="link" href="#implementation">3. Implementation</a></h2>
-<div class="sectionbody">
-<div class="paragraph">
-<p>This section describes some noteworthy details on how certain features are implemented.</p>
-</div>
-<div class="sect3">
-<h4 id="implementation-2"><a class="link" href="#implementation-2">3.1. Implementation</a></h4>
+<div class="sect2">
+<h3 id="implementation"><a class="link" href="#implementation">2.10. Implementation</a></h3>
 <div class="paragraph">
 <p>The parsing is done by <code>JsonParser</code>.
 It takes a string and attempts to read it as one of a <code>JsonValueTypes</code> and create its corresponding object wrapped in <code>JsonValue</code>.
@@ -449,98 +450,27 @@ If all parsing types fail, there must be an error with the string input, thus a 
 </table>
 </div>
 </div>
-<div class="sect3">
-<h4 id="design-considerations-2"><a class="link" href="#design-considerations-2">3.2. Design Considerations</a></h4>
+<div class="sect2">
+<h3 id="design-considerations-2"><a class="link" href="#design-considerations-2">2.11. Design Considerations</a></h3>
 <div class="paragraph">
 <p>The JsonParser is designed to be a utility class with a pure function without any mutation of state.
 Thus it should be self contained within a single function call.</p>
 </div>
 </div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="implementation-2"><a class="link" href="#implementation-2">3. Implementation</a></h2>
+<div class="sectionbody">
 <div class="sect2">
-<h3 id="proposed-saving-user-statistics-feature"><a class="link" href="#proposed-saving-user-statistics-feature">3.3. [Proposed] Saving User Statistics feature</a></h3>
-<div class="sect3">
-<h4 id="proposed-implementation"><a class="link" href="#proposed-implementation">3.3.1. Proposed Implementation</a></h4>
-
-</div>
-<div class="sect3">
-<h4 id="design-considerations-3"><a class="link" href="#design-considerations-3">3.3.2. Design Considerations</a></h4>
-<div class="sect4">
-<h5 id="aspect-how-saving-executes"><a class="link" href="#aspect-how-saving-executes">Aspect: How saving executes</a></h5>
-<div class="ulist">
-<ul>
-<li>
-<p><strong>Alternative 1 (current choice):</strong> Saves the entire address book.</p>
-<div class="ulist">
-<ul>
-<li>
-<p>Pros: Easy to implement.</p>
-</li>
-<li>
-<p>Cons: May have performance issues in terms of memory usage.</p>
-</li>
-</ul>
-</div>
-</li>
-<li>
-<p><strong>Alternative 2:</strong> Individual command knows how to undo/redo by itself.</p>
-<div class="ulist">
-<ul>
-<li>
-<p>Pros: Will use less memory (e.g. for <code>delete</code>, just save the person being deleted).</p>
-</li>
-<li>
-<p>Cons: We must ensure that the implementation of each individual command are correct.</p>
-</li>
-</ul>
-</div>
-</li>
-</ul>
-</div>
-</div>
-<div class="sect4">
-<h5 id="aspect-data-structure-to-support-the-undo-redo-commands"><a class="link" href="#aspect-data-structure-to-support-the-undo-redo-commands">Aspect: Data structure to support the undo/redo commands</a></h5>
-<div class="ulist">
-<ul>
-<li>
-<p><strong>Alternative 1 (current choice):</strong> Use a list to store the history of address book states.</p>
-<div class="ulist">
-<ul>
-<li>
-<p>Pros: Easy for new Computer Science student undergraduates to understand, who are likely to be the new incoming developers of our project.</p>
-</li>
-<li>
-<p>Cons: Logic is duplicated twice. For example, when a new command is executed, we must remember to update both <code>HistoryManager</code> and <code>VersionedAddressBook</code>.</p>
-</li>
-</ul>
-</div>
-</li>
-<li>
-<p><strong>Alternative 2:</strong> Use <code>HistoryManager</code> for undo/redo</p>
-<div class="ulist">
-<ul>
-<li>
-<p>Pros: We do not need to maintain a separate list, and just reuse what is already in the codebase.</p>
-</li>
-<li>
-<p>Cons: Requires dealing with commands that have already been undone: We must remember to skip these commands. Violates Single Responsibility Principle and Separation of Concerns as <code>HistoryManager</code> now needs to do two different things.</p>
-</li>
-</ul>
-</div>
-</li>
-</ul>
-</div>
-</div>
-</div>
-</div>
-<div class="sect2">
-<h3 id="logging"><a class="link" href="#logging">3.4. Logging</a></h3>
+<h3 id="logging"><a class="link" href="#logging">3.1. Logging</a></h3>
 <div class="paragraph">
 <p>We are using <code>java.util.logging</code> package for logging. The <code>LogsCenter</code> class is used to manage the logging levels and logging destinations.</p>
 </div>
 <div class="ulist">
 <ul>
 <li>
-<p>The logging level can be controlled using the <code>logLevel</code> setting in the configuration file (See <a href="#Implementation-Configuration">Section 3.5, &#8220;Configuration&#8221;</a>)</p>
+<p>The logging level can be controlled using the <code>logLevel</code> setting in the configuration file (See <a href="#Implementation-Configuration">Section 3.2, &#8220;Configuration&#8221;</a>)</p>
 </li>
 <li>
 <p>The <code>Logger</code> for a class can be obtained using <code>LogsCenter.getLogger(Class)</code> which will log messages according to the specified logging level</p>
@@ -571,13 +501,13 @@ Thus it should be self contained within a single function call.</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="Implementation-Configuration"><a class="link" href="#Implementation-Configuration">3.5. Configuration</a></h3>
+<h3 id="Implementation-Configuration"><a class="link" href="#Implementation-Configuration">3.2. Configuration</a></h3>
 <div class="paragraph">
 <p>Certain properties of the application can be controlled (e.g user prefs file location, logging level) through the configuration file (default: <code>config.json</code>).</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="ui"><a class="link" href="#ui">3.6. UI</a></h3>
+<h3 id="ui"><a class="link" href="#ui">3.3. UI</a></h3>
 <div class="paragraph">
 <p>The GUI of the application is started up by the <code>UiManager</code> class, when the application is initialised.
 The <code>GUI</code> class handles operations on the GUI, such as rendering nodes to the application window,
@@ -585,64 +515,198 @@ and passing user command input to the <code>Responder</code> class.</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="timed-untimed-test"><a class="link" href="#timed-untimed-test">3.7. Timed/Untimed Test</a></h3>
+<h3 id="test"><a class="link" href="#test">3.4. Test</a></h3>
 <div class="sect3">
-<h4 id="proposed-implementation-2"><a class="link" href="#proposed-implementation-2">3.7.1. Proposed Implementation</a></h4>
+<h4 id="implementation-3"><a class="link" href="#implementation-3">3.4.1. Implementation</a></h4>
 <div class="paragraph">
-<p>The timed/untimed test is a exam mechanism facilitated by the <code>ExamRunner</code> class which extends from the <code>Exam</code> interface.</p>
+<p>The timed/un-timed test is a exam mechanism whereby users can enter a test mode that allows users to test themselves using the various flashcards. Users will then be notified of their results at the end of the test and will also have the chance to review their answers and reattempt questions.</p>
 </div>
 <div class="paragraph">
-<p>Given below is an example usage scenario and how the timed/untimed mechanism behaves at each step.</p>
-</div>
-<div class="paragraph">
-<p>Step 1. User keys in the command <code>test &lt;duration&gt; &lt;deck name&gt;</code> (Eg. test 120 German)</p>
-</div>
-<div class="paragraph">
-<p>Step 2. If <code>&lt;duration&gt;</code> is 0, untimed test will be initiated. Else, a timed test will be initiated.</p>
-</div>
-<div class="paragraph">
-<p>Step 3. User will be showed the card front, and prompted for a String answer.</p>
-</div>
-<div class="paragraph">
-<p>Step 4. Answer will be evaluated against the card back, and if it is correct, score will be updated.</p>
-</div>
-<div class="paragraph">
-<p>The following activity diagram displays the action flow of the test mechanism.</p>
+<p>The overall test architecture is depicted in the class diagram below.</p>
 </div>
 <div class="imageblock">
 <div class="content">
-<img src="images/ExamRunnerActivityDiagram.png" alt="ExamRunnerActivityDiagram">
+<img src="images/TestClassDiagram.png" alt="TestClassDiagram">
+</div>
+</div>
+<div class="paragraph">
+<p>Tests are driven by the main <code>ExamRunner</code> class which ensures that only a single <code>Exam</code> object exists at any point in time.</p>
+</div>
+<div class="paragraph">
+<p><code>Exam</code> objects are where the bulk of the test logic resides. They each will also contain <strong>ONE</strong> <code>Results</code> object that keeps track of score.</p>
+</div>
+<div class="paragraph">
+<p>The sequence diagram of the three classes is as follows:</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/TestSequenceDiagram.png" alt="TestSequenceDiagram">
+</div>
+</div>
+<div class="paragraph">
+<p>Given below is an example usage scenario and how the timed/untimed mechanism behaves at each step. The activity diagrams for Timed and Untimed Tests are also as follows:</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/UntimedTestActivityDiagram.png" alt="UntimedTestActivityDiagram">
+</div>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/TimedTestActivityDiagram.png" alt="TimedTestActivityDiagram">
+</div>
+</div>
+<div class="exampleblock">
+<div class="content">
+<div class="paragraph">
+<p>Step 1. User keys in the command <code>test deck/DECK_NAME duration/DURATION_IN_SECONDS</code> (Eg. test deck/german duration/0)</p>
+</div>
+<div class="paragraph">
+<p>Step 2. If <code>DURATION_IN_SECONDS</code> is 0, untimed test will be initiated. Else, a timed test will be initiated.</p>
+</div>
+<div class="paragraph">
+<p>Step 3. A question will be loaded and user answers the question.</p>
+</div>
+<div class="paragraph">
+<p>Step 4. Answer will be evaluated and if it is correct, score will be updated.</p>
+</div>
+<div class="paragraph">
+<p>Step 5. For untimed test, repeat steps 3 and 4 until the end of deck is reached. For timed test, repeat steps 3 and 4 until either end of deck is reached or time runs out.</p>
+</div>
+<div class="paragraph">
+<p>Step 6. If end of deck is reached, a popup will be triggered with the user&#8217;s final score.</p>
+</div>
+<div class="paragraph">
+<p>Step 7. Upon closing that popup, users will be able to review their mistakes and reattempt all questions (but it will not contribute to their score).</p>
+</div>
+<div class="paragraph">
+<p>Step 8. When the user is done reviewing, he can type <code>exit</code> or click <code>Exit Session</code> to exit test mode and go back to the main Deck Display screen. Users can also use this command prematurely to exit test mode mid-test.</p>
+</div>
 </div>
 </div>
 </div>
 <div class="sect3">
-<h4 id="design-considerations-4"><a class="link" href="#design-considerations-4">3.7.2. Design Considerations</a></h4>
+<h4 id="design-considerations-3"><a class="link" href="#design-considerations-3">3.4.2. Design Considerations</a></h4>
 <div class="sect4">
-<h5 id="aspect-how-the-timed-untimed-test-mechanism-works"><a class="link" href="#aspect-how-the-timed-untimed-test-mechanism-works">Aspect: how the timed/untimed test mechanism works</a></h5>
+<h5 id="aspect-controlling-the-number-of-code-exam-code-instances"><a class="link" href="#aspect-controlling-the-number-of-code-exam-code-instances">Aspect: Controlling the number of <code>Exam</code> instances.</a></h5>
 <div class="ulist">
 <ul>
 <li>
-<p><strong>Alternative 1:</strong> Use forEach or while loops to iterate through the deck</p>
+<p><strong>Alternative 1:</strong> Just create <code>Exam</code> whenever a user calls for a new test.</p>
 <div class="ulist">
 <ul>
 <li>
-<p>Pros: Ensures that the entire deck will be iterated through</p>
+<p>Pros: Lesser code to write</p>
 </li>
 <li>
-<p>Cons: Limited control wihtin the loop</p>
+<p>Cons:</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Limited control on number of instances of an exam object</p>
+</li>
+<li>
+<p>Potentially may lead to bugs if not well managed</p>
+</li>
+<li>
+<p>Hard to simulate a test truly "ending" if an object can persist</p>
+</li>
+</ul>
+</div>
 </li>
 </ul>
 </div>
 </li>
 <li>
-<p><strong>Alternative 2: (Current Choice)</strong> Use a nextCard method that the GUI can trigger on click</p>
+<p><strong>Alternative 2: (Current Choice)</strong> Use a singleton static class that ensures only one instance of <code>Exam</code> exists at each point in time.</p>
 <div class="ulist">
 <ul>
 <li>
-<p>Pros: High amount of control as every individual card can be controlled.</p>
+<p>Pros:</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Extensive control over the <code>Exam</code> object by ensuring that only one instance exists</p>
 </li>
 <li>
-<p>Cons: More code for a relatively small function</p>
+<p>Exam can be "terminated" to ensure once a test ends, users are unable to re-access it.</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>Cons:</p>
+<div class="ulist">
+<ul>
+<li>
+<p>More complex design architecture that requires higher understanding of MVC pattern as well as Consumer Functional Interface</p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect4">
+<h5 id="aspect-management-of-standardexam-object"><a class="link" href="#aspect-management-of-standardexam-object">Aspect: Management of StandardExam Object</a></h5>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>Alternative 1:</strong> StandardExam class exists standalone</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Pros:</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Lesser code to write</p>
+</li>
+<li>
+<p>Lesser complexity in terms of polymorphism</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>Cons:</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Not open for extension.</p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p><strong>Alternative 2: (Current Choice)</strong> Use an <code>Exam</code> interface despite only one class inheriting from it</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Pros:</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Allows the project to be open for extension. Developers may potentially develop other kinds of Exam modes (eg. speed round whereby there&#8217;s a limited time <strong>per card</strong>)</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>Cons:</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Relatively redundant at the current version (<code>v1.4</code>)</p>
+</li>
+</ul>
+</div>
 </li>
 </ul>
 </div>
@@ -653,15 +717,15 @@ and passing user command input to the <code>Responder</code> class.</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="running-a-code-flashcard"><a class="link" href="#running-a-code-flashcard">3.8. Running a code flashcard</a></h3>
+<h3 id="running-a-code-flashcard"><a class="link" href="#running-a-code-flashcard">3.5. Running a code flashcard</a></h3>
 <div class="imageblock">
 <div class="content">
 <img src="images/JSCardActivityDiagram.png" alt="JSCardActivityDiagram">
 </div>
-<div class="title">Figure 8. Activity diagram for creating a code flashcard</div>
+<div class="title">Figure 6. Activity diagram for creating a code flashcard</div>
 </div>
 <div class="sect3">
-<h4 id="proposed-implementation-3"><a class="link" href="#proposed-implementation-3">3.8.1. Proposed Implementation</a></h4>
+<h4 id="proposed-implementation"><a class="link" href="#proposed-implementation">3.5.1. Proposed Implementation</a></h4>
 <div class="paragraph">
 <p>The code flashcard is a card that allows users to answer coding questions by running code directly.
 The  following use case illustrates how the card works.</p>
@@ -727,7 +791,7 @@ The  following use case illustrates how the card works.</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="proposed-configure-difficulty-of-test-set-in-code-test-code-mode"><a class="link" href="#proposed-configure-difficulty-of-test-set-in-code-test-code-mode">3.9. [Proposed] Configure difficulty of test set in <code>test</code> mode</a></h3>
+<h3 id="proposed-configure-difficulty-of-test-set-in-code-test-code-mode"><a class="link" href="#proposed-configure-difficulty-of-test-set-in-code-test-code-mode">3.6. [Proposed] Configure difficulty of test set in <code>test</code> mode</a></h3>
 <div class="paragraph">
 <p>Currently, the user is restricted to a test set of 60% <code>HIGH_PRIORITY</code> and 40% <code>LOW_PRIORITY</code> cards in the test set.</p>
 </div>
@@ -1207,7 +1271,8 @@ The  following use case illustrates how the card works.</p>
 </li>
 </ul>
 </div>
-<h3 id="use-case-creating-a-deck-of-cards" class="discrete">Use case: Creating a deck of cards</h3>
+<div class="sect2">
+<h3 id="use-case-creating-a-deck-of-cards"><a class="link" href="#use-case-creating-a-deck-of-cards">C.1. Use case: Creating a deck of cards</a></h3>
 <div class="paragraph">
 <p><strong>MSS</strong></p>
 </div>
@@ -1262,8 +1327,10 @@ The  following use case illustrates how the card works.</p>
 <p>User enters the choice of correct answer.</p>
 </li>
 <li>
-<p>System evaluates the answer.
-8  System shows the correctness of the answer.</p>
+<p>System evaluates the answer.</p>
+</li>
+<li>
+<p>System shows the correctness of the answer.</p>
 </li>
 <li>
 <p>System moves to next card.</p>
@@ -1370,8 +1437,10 @@ The  following use case illustrates how the card works.</p>
 <p>User enters the choice of correct answer.</p>
 </li>
 <li>
-<p>System evaluates the answer.
-8  System shows the correctness of the answer.</p>
+<p>System evaluates the answer.</p>
+</li>
+<li>
+<p>System shows the correctness of the answer.</p>
 </li>
 <li>
 <p>System moves to next card.</p>
@@ -1495,7 +1564,7 @@ The  following use case illustrates how the card works.</p>
 <p>1a1. System detects duplicated choices in choices provided by user.</p>
 </li>
 <li>
-<p>1a2. System tells User that there are duplicates in chocies provided.</p>
+<p>1a2. System tells User that there are duplicates in choices provided.</p>
 </li>
 <li>
 <p>1a3. System ends card creation.</p>
@@ -1507,6 +1576,7 @@ The  following use case illustrates how the card works.</p>
 </div>
 </li>
 </ul>
+</div>
 </div>
 </div>
 </div>
@@ -1566,4 +1636,4 @@ These instructions only provide a starting point for testers to work on; testers
 </table>
 </div>
 </div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-11-06 16:41:52 UTC</div></div></div></body></html>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-11-11 19:47:08 SGT</div></div></div></body></html>
