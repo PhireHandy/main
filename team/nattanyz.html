@@ -1,16 +1,19 @@
 <!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"><!--[if IE]><meta http-equiv="X-UA-Compatible" content="IE=edge"><![endif]--><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="generator" content="Asciidoctor 1.5.6.1"><title>Tan Yan Zhen, Natalie - Project Portfolio</title><link rel="stylesheet" href="../stylesheets/gh-pages.css">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.5.0/css/font-awesome.min.css">
 <link rel="stylesheet" href="../stylesheets/coderay-asciidoctor.css"></head><body class="article"><div id="seedu-header"><nav class="navbar navbar-lg navbar-light bg-lighter"><div class="container"><a class="navbar-brand" href="https://se-edu.github.io/"><img src="../images/SeEduLogo.png" alt="SE-EDU"></a><ul class="navbar-nav"><li class="nav-item"><a class="nav-link" href="https://se-edu.github.io/addressbook-level1">AB-1</a></li><li class="nav-item"><a class="nav-link" href="https://se-edu.github.io/addressbook-level2">AB-2</a></li><li class="nav-item"><a class="nav-link active" href="../index.html">AB-3</a></li><li class="nav-item"><a class="nav-link" href="https://se-edu.github.io/addressbook-level4">AB-4</a></li><li class="nav-item"><a class="nav-link" href="https://se-edu.github.io/collate">Collate</a></li><li class="nav-item"><a class="nav-link" href="https://se-edu.github.io/se-book">Book</a></li><li class="nav-item"><a class="nav-link" href="https://se-edu.github.io/learningresources">Resources</a></li></ul></div></nav></div><div id="site-header"><nav class="navbar navbar-light bg-light"><div class="container"><a class="navbar-brand" href="../index.html">Flash Card Pro</a><ul class="navbar-nav"><li class="nav-item"><a class="nav-link" href="../UserGuide.html">User Guide</a></li><li class="nav-item"><a class="nav-link" href="../DeveloperGuide.html">Developer Guide</a></li><li class="nav-item"><a class="nav-link active" href="../AboutUs.html">About Us</a></li><li class="nav-item"><a class="nav-link" href="../ContactUs.html">Contact Us</a></li><li class="navitem"><a class="nav-link" href="https://github.com/AY1920S1-CS2103-F09-2/main"><span class="fa fa-github fa-lg" aria-hidden="true"></span>&nbsp;View on GitHub</a></li></ul></div></nav></div><div id="header"><h1>Tan Yan Zhen, Natalie - Project Portfolio</h1></div><div id="content"><div class="sect1">
-<h2 id="project-addressbook-level-3"><a class="link" href="#project-addressbook-level-3">PROJECT: AddressBook - Level 3</a></h2>
+<h2 id="project-flashcard-pro"><a class="link" href="#project-flashcard-pro">PROJECT: FlashCard Pro</a></h2>
 <div class="sectionbody">
-<hr>
+
 </div>
 </div>
 <div class="sect1">
 <h2 id="overview"><a class="link" href="#overview">Overview</a></h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>AddressBook - Level 3 is a desktop address book application used for teaching Software Engineering principles. The user interacts with it using a CLI, and it has a GUI created with JavaFX. It is written in Java, and has about 10 kLoC.</p>
+<p>FlashCard Pro is an application designed for students who prefer to use a desktop app for managing flashcards. It is optimised for users who are comfortable with Command Line Interface-based interaction.</p>
+</div>
+<div class="paragraph">
+<p>FlashCard Pro has a GUI created with JavaFX. It is written in Java, and has about 10 kLoC.</p>
 </div>
 </div>
 </div>
@@ -20,26 +23,101 @@
 <div class="ulist">
 <ul>
 <li>
-<p><strong>Major enhancement</strong>: added <strong>the ability to undo/redo previous commands</strong></p>
+<p><strong>Major enhancement</strong>: added the <strong>ability for user to view their statistics</strong>.</p>
 <div class="ulist">
 <ul>
 <li>
-<p>What it does: allows the user to undo all previous commands one at a time. Preceding undo commands can be reversed by using the redo command.</p>
+<p>What it does:</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Allows the user to see their <strong>past login sessions</strong>, <strong>total duration spent in the app</strong>, and their <strong>test sessions involving each deck</strong>.</p>
 </li>
 <li>
-<p>Justification: This feature improves the product significantly because a user can make mistakes in commands and the app should provide a convenient way to rectify them.</p>
+<p>More detailed statistics are also provided, allowing the user to drill down into a granular view of their activity, e.g. login sessions by week.</p>
 </li>
 <li>
-<p>Highlights: This enhancement affects existing commands and commands to be added in future. It required an in-depth analysis of design alternatives. The implementation too was challenging as it required changes to existing commands.</p>
-</li>
-<li>
-<p>Credits: <em>{mention here if you reused any code/ideas from elsewhere or if a third-party library is heavily used in the feature so that a reader can make a more accurate judgement of how much effort went into the feature}</em></p>
+<p>The user can also see their <strong>statistics by deck</strong>, which is useful if they want to gauge how much time they&#8217;re spending reviewing each subject. The <strong>average score</strong> for test sessions conducted on the deck is also provided, giving the user feedback on their performance.</p>
 </li>
 </ul>
 </div>
 </li>
 <li>
-<p><strong>Minor enhancement</strong>: added a history command that allows the user to navigate to previous commands using up/down keys.</p>
+<p>Justification:</p>
+<div class="ulist">
+<ul>
+<li>
+<p>This feature improves the product by allowing the user to reflect on their activity in the app, and whether the time spent was productive.</p>
+</li>
+<li>
+<p>Users can also see their improvement over time and feel encouraged by it.</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>Highlights:</p>
+<div class="ulist">
+<ul>
+<li>
+<p>This enhancement required some degree of analysis of how the application handles various commands, in particular the startup and shutdown of the application, in order to time the duration of each login session.</p>
+</li>
+<li>
+<p>Additions to the  <code>Storage</code> component and learning to use Haliq&#8217;s JSON storage features were required to store and load the <code>SessionList</code> objects.</p>
+</li>
+<li>
+<p>My team&#8217;s decision to make <code>State</code> non-static influenced me to decouple <code>UserStats</code> from <code>State</code>. This required some degree of refactoring quite close to the deadline of the project.</p>
+</li>
+<li>
+<p>To get aggregate data from <code>LocalDateTime</code> and <code>Duration</code> objects, I implemented a number of utilities in the <code>DateTimeUtil</code> class (and some others). The process of writing and testing these utilities was quite enjoyable and increased my confidence in working with Java APIs.</p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p><strong>Major enhancement</strong>: contributions to the GUI of the app.</p>
+<div class="ulist">
+<ul>
+<li>
+<p>What I&#8217;ve done:</p>
+<div class="ulist">
+<ul>
+<li>
+<p>I was initially responsible for building and maintaining GUI of the app. The GUI I had envisioned was much simpler and had a custom layout&#8201;&#8212;&#8201;conceptualised in Figma, then built from scratch. It did not use the MVC pattern.</p>
+</li>
+<li>
+<p>However, it was for the better that our team eventually decided to move on to an MVC-based GUI. This allowed us to focus on building the happy path of the app, before working on integrating the GUI and CLI, then making various cosmetic improvements. This new version of the GUI was authored by Timothy (hence, it is no longer my main feature), but I have still made a number of improvements since.</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>Justification:</p>
+</li>
+<li>
+<p>Planned future enhancements:</p>
+</li>
+<li>
+<p>Highlights:</p>
+<div class="ulist">
+<ul>
+<li>
+<p>From my first baby steps in working with GUIs during the individual project, I can safely say that I have learnt a great deal since. In particular, I am now more familiar with the JavaFX library.</p>
+</li>
+<li>
+<p>I can now build a JavaFX GUI (albeit a simpler one) programmatically, without using SceneBuilder, as I have done in the earlier stages of the project.</p>
+</li>
+<li>
+<p>I can also author new components via SceneBuilder (such as <code>StatisticsWindow</code>) and make significant changes to existing components (such as <code>MainWindow</code> and the various displays). By referring to the API, I was able to overcome a number of challenges to achieve my desired behaviour (e.g. components being laid out with appropriate padding, preserving the size and scale of components when the window is resized).</p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
 </li>
 <li>
 <p><strong>Code contributed</strong>: [<a href="https://github.com">Functional code</a>] [<a href="https://github.com">Test code</a>] <em>{give links to collated code files}</em></p>
@@ -53,20 +131,7 @@
 <div class="ulist">
 <ul>
 <li>
-<p>Managed releases <code>v1.3</code> - <code>v1.5rc</code> (3 releases) on GitHub</p>
-</li>
-</ul>
-</div>
-</li>
-<li>
-<p>Enhancements to existing features:</p>
-<div class="ulist">
-<ul>
-<li>
-<p>Updated the GUI color scheme (Pull requests <a href="https://github.com">#33</a>, <a href="https://github.com">#34</a>)</p>
-</li>
-<li>
-<p>Wrote additional tests for existing features to increase coverage from 88% to 92% (Pull requests <a href="https://github.com">#36</a>, <a href="https://github.com">#38</a>)</p>
+<p>Wrote issues upon discovering bugs and assigned them to respective team members.</p>
 </li>
 </ul>
 </div>
@@ -76,7 +141,13 @@
 <div class="ulist">
 <ul>
 <li>
-<p>Did cosmetic tweaks to existing contents of the User Guide: <a href="https://github.com">#14</a></p>
+<p>I authored the Introduction section of the User Guide, as I was quite involved in the initial conceptualisation of the project.</p>
+</li>
+<li>
+<p>Subsequently, I made non-trivial improvements to the clarity of the writing throughout the User Guide. In particular, I abstracted out the What is a flashcard? and Interacting with flashcards sections from the Introduction.</p>
+</li>
+<li>
+<p>I also helped to clean up various sections of the User Guide, especially in the first draft, to make sure they abided by a consistent format.</p>
 </li>
 </ul>
 </div>
@@ -100,26 +171,10 @@
 </ul>
 </div>
 </li>
-<li>
-<p>Tools:</p>
-<div class="ulist">
-<ul>
-<li>
-<p>Integrated a third party library (Natty) to the project (<a href="https://github.com">#42</a>)</p>
-</li>
-<li>
-<p>Integrated a new Github plugin (CircleCI) to the team repo</p>
-</li>
 </ul>
 </div>
 </li>
 </ul>
-</div>
-</li>
-</ul>
-</div>
-<div class="paragraph">
-<p><em>{you can add/remove categories in the list above}</em></p>
 </div>
 </div>
 </div>
@@ -132,37 +187,107 @@
 </colgroup>
 <tbody>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><em>Given below are sections I contributed to the User Guide. They showcase my ability to write documentation targeting end-users.</em></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">_Given below are sections I contributed to the User Guide. They showcase my ability to write documentation targeting end-users. I have</p></td>
 </tr>
 </tbody>
 </table>
-<div class="sect2">
-<h3 id="delete-the-card-of-an-existing-deck-of-flashcards-code-delete-code"><a class="link" href="#delete-the-card-of-an-existing-deck-of-flashcards-code-delete-code">Delete the card of an existing deck of flashcards : <code>delete</code></a></h3>
-<div class="paragraph">
-<p>Deletes a card from an existing deck in FlashCard Pro.</p>
 </div>
-<div class="paragraph">
-<p>Format: <code>delete deck/DECK_NAME index/INDEX</code></p>
 </div>
+<div class="sect1">
+<h2 id="introduction"><a class="link" href="#introduction">Introduction</a></h2>
+<div class="sectionbody">
 <div class="paragraph">
-<p>Example:</p>
-</div>
-<div class="ulist">
-<ul>
-<li>
-<p><code>delete deck/german index/1</code><br></p>
-</li>
-</ul>
+<p>FlashCard Pro is an application designed for students who <strong>prefer to use a desktop app for managing flashcards</strong>. It is also useful for teachers who would like to provide resources, in the form of custom flashcard decks, to support their students’ learning.</p>
 </div>
 <div class="paragraph">
-<p>Deletes the first card of the deck <code>german</code>.</p>
-</div>
+<p>FlashCard Pro is optimised for users who are <strong>comfortable with Command Line Interface-based interaction</strong>, allowing them to work more efficiently than with traditional Graphical User Interface (GUI)-based flashcard apps, while still being able to use their flashcards in a familiar GUI format.</p>
 </div>
 </div>
 </div>
 <div class="sect1">
-<h2 id="contributions-to-the-developer-guide"><a class="link" href="#contributions-to-the-developer-guide">Contributions to the Developer Guide</a></h2>
+<h2 id="what-is-a-flashcard"><a class="link" href="#what-is-a-flashcard">What is a flashcard?</a></h2>
 <div class="sectionbody">
+<div class="paragraph">
+<p><strong>Flashcards</strong> are containers for information. Each card has a “front” and a “back”. One recommended use case is such: the user stores a question on the “front” of the card, and the answer on the “back”.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="interacting-with-flashcards"><a class="link" href="#interacting-with-flashcards">Interacting with flashcards</a></h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>After sets of flashcards (known as <strong>“decks”</strong>) have been created, the user can interact with the flashcards in various ways. For example, they may test themselves on the content of the decks via <strong>timed and untimed tests</strong>. For ordinary cards with a front and back, the user can gauge their own understanding of the material by pressing either the "I got it right!" or "I got it wrong :(" buttons on the back of the flashcard.</p>
+</div>
+<div class="paragraph">
+<p>Other types of flashcards support more advanced interactions. Cards with <strong>multiple choices</strong> for their answers will prompt the user to select an answer, and the app will automatically determine if the answer is correct.</p>
+</div>
+<div class="paragraph">
+<p>At the end of each test, FlashCard Pro will provide the user with a score. Comprehensive <strong>statistics on the user&#8217;s test sessions and login sessions</strong> are recorded, which can be accessed via the Statistics menu in FlashCard Pro. The user may use these statistics to assess the frequency of their usage and their performance over time. Statistics are also provided on each card in a deck, so that the user can identify specific cards they may have problems with [coming in v2.0].</p>
+</div>
+<div class="paragraph">
+<p>As with physical flashcards, the flashcards in FlashCard Pro can be shuffled, used in reverse, mixed between decks, etc [coming in v2.0]. Unlike physical flashcards, flashcards in FlashCard Pro are dynamic, offering a range of possibilities from traditional memorisation-type uses, to support for learning programming.</p>
+</div>
+<div class="paragraph">
+<p>With FlashCard Pro&#8217;s <strong>Java and JavaScript cards</strong>, teachers can define basic coding problems for their students. Based on the test cases provided by the teachers, FlashCard Pro will evaluate the output of the student’s solution, allowing students to gauge their own coding knowledge, and teachers to evaluate their students’ progress. Test decks can be passed easily from student to teacher, as they are stored in convenient, lightweight JSON files which can be <strong>imported or exported</strong> natively in FlashCard Pro.</p>
+</div>
+<div class="sect2">
+<h3 id="viewing-user-statistics-code-stats-code"><a class="link" href="#viewing-user-statistics-code-stats-code">Viewing user statistics : <code>stats</code></a></h3>
+<div class="paragraph">
+<p>Opens a new window to shows your <strong>usage statistics</strong>, such as time spent and list of login sessions over time. A <strong>quick summary of the decks</strong>, showing the number of cards, number of test sessions and average score, is also provided for reference.</p>
+</div>
+<div class="admonitionblock tip">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-tip" title="Tip"></i>
+</td>
+<td class="content">
+You can also open the statistics window by clicking <code>Statistics &gt; View my statistics</code> in the menu bar of the app.
+</td>
+</tr>
+</table>
+</div>
+<div class="admonitionblock tip">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-tip" title="Tip"></i>
+</td>
+<td class="content">
+Upon your first login, you will see that the list of login sessions is blank and the number of login sessions is 0. :) A login session refers to the duration between when you launch the app and when you close it. Try opening and closing the app several times!
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p><strong>Statistics on specific decks</strong>, such as the list of test sessions involving the deck and their results, can be accessed via <code>stats deck/deck_NAME</code>, or by double-clicking on the row representing the deck in the table titled "My statistics by deck".</p>
+</div>
+<div class="paragraph">
+<p><strong>Statistics on specific cards</strong> within a deck, which will allow you to review your understanding of individual concepts, are coming in v2.0.</p>
+</div>
+<div class="paragraph">
+<p>Format: <code>stats [deck/DECK_NAME]</code></p>
+</div>
+<div class="paragraph">
+<p>Examples:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>stats</code><br>
+Displays an overview of your statistics, grouped by your login sessions and statistics specific to each deck.</p>
+</li>
+<li>
+<p><code>stats deck/science_deck</code><br>
+Displays the overview of time spent reviewing the deck <code>science_deck</code>, as well as the list of test sessions involving the deck and their results.</p>
+</li>
+</ul>
+</div>
+<div class="exampleblock">
+<div class="content">
+<div class="paragraph">
+<p>== Contributions to the Developer Guide</p>
+</div>
 <table class="tableblock frame-all grid-all spread">
 <colgroup>
 <col style="width: 100%;">
@@ -173,14 +298,15 @@
 </tr>
 </tbody>
 </table>
+<div class="paragraph">
+<p>== PROJECT: PowerPointLabs</p>
 </div>
-</div>
-<div class="sect1">
-<h2 id="project-powerpointlabs"><a class="link" href="#project-powerpointlabs">PROJECT: PowerPointLabs</a></h2>
-<div class="sectionbody">
 <hr>
 <div class="paragraph">
 <p><em>{Optionally, you may include other projects in your portfolio.}</em></p>
 </div>
 </div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-11-06 16:41:52 UTC</div></div></div></body></html>
+</div>
+</div>
+</div>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-11-09 21:48:14 SGT</div></div></div></body></html>

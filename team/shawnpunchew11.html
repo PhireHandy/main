@@ -1,0 +1,692 @@
+<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"><!--[if IE]><meta http-equiv="X-UA-Compatible" content="IE=edge"><![endif]--><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="generator" content="Asciidoctor 1.5.6.1"><title>Shawn Chew - Project Portfolio</title><link rel="stylesheet" href="../stylesheets/gh-pages.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.5.0/css/font-awesome.min.css">
+<link rel="stylesheet" href="../stylesheets/coderay-asciidoctor.css"></head><body class="article"><div id="seedu-header"><nav class="navbar navbar-lg navbar-light bg-lighter"><div class="container"><a class="navbar-brand" href="https://se-edu.github.io/"><img src="../images/SeEduLogo.png" alt="SE-EDU"></a><ul class="navbar-nav"><li class="nav-item"><a class="nav-link" href="https://se-edu.github.io/addressbook-level1">AB-1</a></li><li class="nav-item"><a class="nav-link" href="https://se-edu.github.io/addressbook-level2">AB-2</a></li><li class="nav-item"><a class="nav-link active" href="../index.html">AB-3</a></li><li class="nav-item"><a class="nav-link" href="https://se-edu.github.io/addressbook-level4">AB-4</a></li><li class="nav-item"><a class="nav-link" href="https://se-edu.github.io/collate">Collate</a></li><li class="nav-item"><a class="nav-link" href="https://se-edu.github.io/se-book">Book</a></li><li class="nav-item"><a class="nav-link" href="https://se-edu.github.io/learningresources">Resources</a></li></ul></div></nav></div><div id="site-header"><nav class="navbar navbar-light bg-light"><div class="container"><a class="navbar-brand" href="../index.html">Flash Card Pro</a><ul class="navbar-nav"><li class="nav-item"><a class="nav-link" href="../UserGuide.html">User Guide</a></li><li class="nav-item"><a class="nav-link" href="../DeveloperGuide.html">Developer Guide</a></li><li class="nav-item"><a class="nav-link active" href="../AboutUs.html">About Us</a></li><li class="nav-item"><a class="nav-link" href="../ContactUs.html">Contact Us</a></li><li class="navitem"><a class="nav-link" href="https://github.com/AY1920S1-CS2103-F09-2/main"><span class="fa fa-github fa-lg" aria-hidden="true"></span>&nbsp;View on GitHub</a></li></ul></div></nav></div><div id="header"><h1>Shawn Chew - Project Portfolio</h1></div><div id="content"><div class="sect1">
+<h2 id="project-flashcard-pro"><a class="link" href="#project-flashcard-pro">PROJECT: FlashCard Pro</a></h2>
+<div class="sectionbody">
+
+</div>
+</div>
+<div class="sect1">
+<h2 id="overview"><a class="link" href="#overview">Overview</a></h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>FlashCard Pro is a flashcard software created primarily with students in mind. FlashCard Pro takes after traditional flashcard apps in which users are given decks of cards that they can test themselves on or simply use as reference while studying.</p>
+</div>
+<div class="paragraph">
+<p>Taking after reputable flashcard applications like Anki, FlashCard Pro provides a Command Line Interface (CLI) driven application where users can control the app via typing various commands.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="summary-of-contributions"><a class="link" href="#summary-of-contributions">Summary of contributions</a></h2>
+<div class="sectionbody">
+<div class="ulist">
+<ul>
+<li>
+<p><strong>Major enhancement</strong>: created a <strong>test function</strong> that users can use to test themselves using flashcards.</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Allows the user to create tests with or without a time limit.</p>
+</li>
+<li>
+<p>Supports the testing of all 4 types of cards, namely <code>Front-Back Cards</code>, <code>MultipleChoice Cards</code>, <code>Javascript Cards</code> and <code>Java Cards</code></p>
+</li>
+<li>
+<p>Allow users to test the cards in any order where they can skip to later questions and come back to skipped ones later on.</p>
+</li>
+<li>
+<p>Allows users to review cards at the end of the test and even repeat them to get the correct answer (though it will not contribute to their score).</p>
+</li>
+<li>
+<p>Results will be shown to the user at the end of the test.</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>Justification: This feature improves the product significantly by adding to its functionality because it makes FlashCard Pro more than just a database for FlashCards by having some interactivity with the user. Users will be able to do self-learning with this added functionality.</p>
+</li>
+<li>
+<p>Highlights:</p>
+<div class="ulist">
+<ul>
+<li>
+<p>This enhancement provides the user with greater functionality to improve his flashcard learning experience. Instead of having a database to access cards, the user is now able to test him/herself.</p>
+</li>
+<li>
+<p>The user is also able to obtain a full-feedback loop with regards to his learning. This begins with testing him/herself with questions, followed by getting a feedback score and lastly being able to review the mistakes made and re-attempt cards for further practice.</p>
+</li>
+<li>
+<p>In addition, this feature is challenging because it requires in-depth analysis and design of the overall application architecture. It involved some complex design decisions such as making ExamRunner a singleton class as well as overall understanding in FXML, Regex and Logic code to tie the implementations of GUI and CLI together.</p>
+</li>
+<li>
+<p>Significant changes were made from the initial design when we changed our program structure to suit a MVC design pattern. This required thorough understanding of good software architecture as well as the Consumer functional interface.</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p><strong>Code contributed</strong>: [<a href="https://nus-cs2103-ay1920s1.github.io/tp-dashboard/#search=shawnp&amp;sort=groupTitle&amp;sortWithin=title&amp;since=2019-09-06&amp;timeframe=commit&amp;mergegroup=false&amp;groupSelect=groupByAuthors&amp;breakdown=false&amp;tabOpen=true&amp;tabType=authorship&amp;tabAuthor=shawnpunchew11&amp;tabRepo=AY1920S1-CS2103-F09-2%2Fmain%5Bmaster%5D">Functional code</a>][<a href="https://github.com/AY1920S1-CS2103-F09-2/main/tree/master/src/test/java/dream/fcard/logic/exam">Test code</a>]</p>
+</li>
+<li>
+<p><strong>Other contributions</strong>:</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Testing:</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Alerted team about bugs found in issue tracker: <a href="https://github.com/AY1920S1-CS2103-F09-2/main/issues/326">#326</a></p>
+</li>
+<li>
+<p>Did product testing to ensure that the test mechanism was bug-free, along with other features and GUI, and various system integration tests.</p>
+</li>
+<li>
+<p>Spent a great deal of time trying to fix our CI environment because our project suddenly failed Travis</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>Enhancements to existing features:</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Wrote additional tests (Please refer to [test code] link above.)</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>Documentation:</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Did documentation in Developer Guide. (See <a href="#contributions-to-the-developer-guide">Contributions to the Developer Guide</a> below)</p>
+</li>
+<li>
+<p>Maintained the Command List Summary (See Section 7 of <a href="#contributions-to-the-user-guide">Contributions to the User Guide</a> below)</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>Community:</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Contributed to forum discussions (examples:  <a href="https://github.com/nus-cs2103-AY1920S1/forum/issues/167">#167</a>)</p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="contributions-to-the-user-guide"><a class="link" href="#contributions-to-the-user-guide">Contributions to the User Guide</a></h2>
+<div class="sectionbody">
+<table class="tableblock frame-all grid-all spread">
+<colgroup>
+<col style="width: 100%;">
+</colgroup>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><em>Given below are sections I contributed to the User Guide. They showcase my ability to write documentation targeting end-users.</em></p></td>
+</tr>
+</tbody>
+</table>
+<div class="sect2">
+<h3 id="start-test-with-flashcards-code-test-code"><a class="link" href="#start-test-with-flashcards-code-test-code">Start test with flashcards : <code>test</code></a></h3>
+<div class="imageblock" style="text-align: center">
+<div class="content">
+<img src="../images/StartTestCommand.png" alt="StartTestCommand" width="650">
+</div>
+</div>
+<div class="sidebarblock">
+<div class="content">
+<div class="paragraph">
+<p>Starts a test with a deck of flashcards, with the choice of a timed or un-timed test mode, with the duration specified by the user.</p>
+</div>
+<div class="paragraph">
+<p>Format: <code>test deck/DECK_NAME duration/DURATION_IN_SECONDS</code></p>
+</div>
+<div class="paragraph">
+<p>Examples:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>test deck/science_deck duration/0</code></p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>Starts a untimed test with the deck of cards, <code>science_deck</code></p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>test deck/science_deck duration/100</code><br></p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>Starts a timed test of 100 seconds with the deck of cards, <code>science_deck</code></p>
+</div>
+<div class="paragraph">
+<p>Do note that only the results of the <strong>first attempt</strong> of each question will be counted in each test. Repeat attempts are allowed for a better learning experience, but will not contribute towards score.</p>
+</div>
+</div>
+</div>
+<div class="admonitionblock tip">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-tip" title="Tip"></i>
+</td>
+<td class="content">
+Note that test creates the test deck by taking a subset of questions from the entire deck! So don&#8217;t expect the entire deck to be inside :)
+</td>
+</tr>
+</table>
+</div>
+<div class="sect3">
+<h4 id="get-next-card-code-next-code"><a class="link" href="#get-next-card-code-next-code">Get next card: <code>next</code></a></h4>
+<div class="paragraph">
+<p>Gets the next card in the test deck.</p>
+</div>
+<div class="paragraph">
+<p>If there are no more cards, will trigger a popup with test results.</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="get-previous-card-code-prev-code"><a class="link" href="#get-previous-card-code-prev-code">Get previous card: <code>prev</code></a></h4>
+<div class="paragraph">
+<p>Gets the previous card in the test deck.</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="quit-test-code-exit-code"><a class="link" href="#quit-test-code-exit-code">Quit test: <code>exit</code></a></h4>
+<div class="imageblock" style="text-align: center">
+<div class="content">
+<img src="../images/ExitCommand.png" alt="ExitCommand" width="650">
+</div>
+</div>
+<div class="paragraph">
+<p>Exits test mode.</p>
+</div>
+<div class="paragraph">
+<p>Triggers a popup with the results of the test.</p>
+</div>
+<div class="paragraph">
+<p>Popup will also automatically be triggered upon reaching the end of the deck.</p>
+</div>
+<div class="paragraph">
+<p>However, upon reaching the end of the deck, the user will be able to review and reattempt questions (though it will not count towards the user&#8217;s score)</p>
+</div>
+<div class="admonitionblock tip">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-tip" title="Tip"></i>
+</td>
+<td class="content">
+Do note that premature ending of a test will still count towards your User Statistics.
+</td>
+</tr>
+</table>
+</div>
+</div>
+<div class="sect3">
+<h4 id="front-back-cards-code-front-code-code-back-code-code-correct-code-code-wrong-code"><a class="link" href="#front-back-cards-code-front-code-code-back-code-code-correct-code-code-wrong-code">Front-Back Cards: <code>front</code>, <code>back</code>, <code>correct</code>, <code>wrong</code></a></h4>
+<div class="imageblock">
+<div class="content">
+<img src="../images/FrontBack.png" alt="FrontBack">
+</div>
+</div>
+<div class="exampleblock">
+<div class="content">
+<div class="ulist">
+<ul>
+<li>
+<p>Users should look at the question on the front of the card and think of their answer.</p>
+</li>
+<li>
+<p>Once they have their answer, they can type <code>back</code> to view the answer on the back on the card.</p>
+</li>
+<li>
+<p>Once on the card back, one can type <code>correct</code> or <code>wrong</code> to count their results, which will automatically take them to the next question.</p>
+</li>
+<li>
+<p>They can type <code>front</code> when they are on the card back to relook at the question.</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+<div class="sect3">
+<h4 id="multiple-choice-cards-code-index_of_correct_answer-code-code-front-code"><a class="link" href="#multiple-choice-cards-code-index_of_correct_answer-code-code-front-code">Multiple Choice Cards: <code>&lt;INDEX_OF_CORRECT_ANSWER&gt;</code>, <code>front</code></a></h4>
+<div class="imageblock">
+<div class="content">
+<img src="../images/MCQCard.png" alt="MCQCard">
+</div>
+</div>
+<div class="exampleblock">
+<div class="content">
+<div class="ulist">
+<ul>
+<li>
+<p>Upon loading the card, users will be presented with the question and several choices.</p>
+</li>
+<li>
+<p>Users will be able to key in their choice into the command bar, with the top most option as 1 and increasing downwards. Do note only numbers are accepted.</p>
+</li>
+<li>
+<p>Keying in the answer will automatically flip the card and evaluate the answer. Users can then use <code>front</code> to relook at the question or <code>next</code> to go to the next question.</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+<div class="sect3">
+<h4 id="java-javascript-cards-code-code-code"><a class="link" href="#java-javascript-cards-code-code-code">Java/Javascript Cards: <code>code</code></a></h4>
+<div class="imageblock">
+<div class="content">
+<img src="../images/JsJavaCard.png" alt="JsJavaCard">
+</div>
+</div>
+<div class="exampleblock">
+<div class="content">
+<div class="ulist">
+<ul>
+<li>
+<p>Upon loading the card, users will be presented with a coding question.</p>
+</li>
+<li>
+<p>They can then type <code>code</code> to launch the appropriate Java/Javascript coding playground to code their programs.</p>
+</li>
+<li>
+<p>Upon running their programs, if they pass all test cases, their results will automatically be counted.</p>
+</li>
+<li>
+<p>Users can then type <code>next</code> to go to the next question.</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="command-summary"><a class="link" href="#command-summary">Command Summary</a></h2>
+<div class="sectionbody">
+<div class="ulist">
+<ul>
+<li>
+<p><strong>help</strong> <code>help [command/COMMAND_NAME]</code><br>
+e.g. <code>help</code>
+e.g. <code>help command/view</code></p>
+</li>
+<li>
+<p><strong>import</strong> : <code>import filepath/FILE_NAME</code></p>
+</li>
+<li>
+<p><strong>export</strong> : <code>export deck/DECK_NAME FILE_NAME</code></p>
+</li>
+<li>
+<p><strong>view</strong> : <code>view [deck/DECK_NAME]</code><br>
+e.g. <code>view deck/science_deck</code></p>
+</li>
+<li>
+<p><strong>create</strong> : <code>create deck/DECK_NAME</code></p>
+</li>
+<li>
+<p><strong>add</strong> - only applicable for Front-Back Cards and Multiple Choice Cards</p>
+</li>
+</ul>
+</div>
+<div class="exampleblock">
+<div class="content">
+<div class="ulist">
+<ul>
+<li>
+<p><strong>add FrontBack:</strong> <code>add deck/DECK_NAME front/CARD_FRONT back/CARD_BACK [priority/HIGH_OR_LOW]</code><br></p>
+</li>
+<li>
+<p><strong>add MCQ:</strong> <code>add deck/DECK_NAME front/CARD_FRONT back/INDEX_OF_CORRECT_OPTION choice/CHOICE_A choice/CHOICE_B [priority/HIGH_OR_LOW]</code></p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>edit</strong> - only applicable for Front-Back Cards and Multiple Choice Cards</p>
+</li>
+<li>
+<p><code>edit deck/DECK_NAME index/CARD_INDEX [front/NEW_FRONT_TEXT] [back/NEW_BACK_TEXT] [choiceIndex/CHOICE_INDEX] [choice/CHOICE_TEXT]</code><br></p>
+</li>
+<li>
+<p>e.g. <code>edit deck/science_deck action/edit index/1 front/what is a cell back/a cell is a building block</code></p>
+</li>
+<li>
+<p><strong>undo</strong> : <code>undo</code></p>
+</li>
+<li>
+<p><strong>redo</strong> : <code>redo</code></p>
+</li>
+<li>
+<p><strong>test</strong> : <code>test deck/DECK_NAME duration/DURATION_IN_SECONDS</code><br>
+e.g. <code>test deck/science_deck duration/0</code><br>
+e.g. <code>test deck/science_deck duration/100</code></p>
+</li>
+</ul>
+</div>
+<div class="exampleblock">
+<div class="content">
+<div class="ulist">
+<ul>
+<li>
+<p><strong>While in TEST_MODE:</strong></p>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>next card</strong>: <code>next</code></p>
+</li>
+<li>
+<p><strong>previous card</strong>: <code>prev</code></p>
+</li>
+<li>
+<p><strong>exit test mode</strong>: <code>exit</code></p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p><strong>TEST_MODE: Front Back Cards:</strong></p>
+<div class="ulist">
+<ul>
+<li>
+<p>see back of card: <code>back</code></p>
+</li>
+<li>
+<p>correct answer: <code>correct</code></p>
+</li>
+<li>
+<p>wrong answer: <code>wrong</code></p>
+</li>
+<li>
+<p>see question: <code>front</code></p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p><strong>TEST_MODE: Multiple Choice Cards:</strong></p>
+<div class="ulist">
+<ul>
+<li>
+<p>indicate choice: <code>&lt;INDEX_OF_CORRECT_ANSWER&gt;</code> which must be a positive integer between 1 and the total number of choices</p>
+</li>
+<li>
+<p>see question: <code>front</code></p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p><strong>TEST_MODE: Java/Javascript Cards:</strong></p>
+<div class="ulist">
+<ul>
+<li>
+<p>open coding playground: <code>code</code></p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>stats</strong> : <code>stats [deck/DECK_NAME]</code><br>
+e.g. <code>stats deck/science_deck</code></p>
+</li>
+<li>
+<p><strong>quit</strong> : <code>quit</code></p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="contributions-to-the-developer-guide"><a class="link" href="#contributions-to-the-developer-guide">Contributions to the Developer Guide</a></h2>
+<div class="sectionbody">
+<table class="tableblock frame-all grid-all spread">
+<colgroup>
+<col style="width: 100%;">
+</colgroup>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><em>Given below are sections I contributed to the Developer Guide. They showcase my ability to write technical documentation and the technical depth of my contributions to the project.</em></p></td>
+</tr>
+</tbody>
+</table>
+<div class="sect2">
+<h3 id="test"><a class="link" href="#test">Test</a></h3>
+<div class="sect3">
+<h4 id="implementation"><a class="link" href="#implementation">Implementation</a></h4>
+<div class="paragraph">
+<p>The timed/un-timed test is a exam mechanism whereby users can enter a test mode that allows users to test themselves using the various flashcards. Users will then be notified of their results at the end of the test and will also have the chance to review their answers and reattempt questions.</p>
+</div>
+<div class="paragraph">
+<p>The overall test architecture is depicted in the class diagram below.</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="../images/TestClassDiagram.png" alt="TestClassDiagram">
+</div>
+</div>
+<div class="paragraph">
+<p>Tests are driven by the main <code>ExamRunner</code> class which ensures that only a single <code>Exam</code> object exists at any point in time.</p>
+</div>
+<div class="paragraph">
+<p><code>Exam</code> objects are where the bulk of the test logic resides. They each will also contain <strong>ONE</strong> <code>Results</code> object that keeps track of score.</p>
+</div>
+<div class="paragraph">
+<p>The sequence diagram of the three classes is as follows:</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="../images/TestSequenceDiagram.png" alt="TestSequenceDiagram">
+</div>
+</div>
+<div class="paragraph">
+<p>Given below is an example usage scenario and how the timed/untimed mechanism behaves at each step. The activity diagrams for Timed and Untimed Tests are also as follows:</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="../images/UntimedTestActivityDiagram.png" alt="UntimedTestActivityDiagram">
+</div>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="../images/TimedTestActivityDiagram.png" alt="TimedTestActivityDiagram">
+</div>
+</div>
+<div class="exampleblock">
+<div class="content">
+<div class="paragraph">
+<p>Step 1. User keys in the command <code>test deck/DECK_NAME duration/DURATION_IN_SECONDS</code> (Eg. test deck/german duration/0)</p>
+</div>
+<div class="paragraph">
+<p>Step 2. If <code>DURATION_IN_SECONDS</code> is 0, untimed test will be initiated. Else, a timed test will be initiated.</p>
+</div>
+<div class="paragraph">
+<p>Step 3. A question will be loaded and user answers the question.</p>
+</div>
+<div class="paragraph">
+<p>Step 4. Answer will be evaluated and if it is correct, score will be updated.</p>
+</div>
+<div class="paragraph">
+<p>Step 5. For untimed test, repeat steps 3 and 4 until the end of deck is reached. For timed test, repeat steps 3 and 4 until either end of deck is reached or time runs out.</p>
+</div>
+<div class="paragraph">
+<p>Step 6. If end of deck is reached, a popup will be triggered with the user&#8217;s final score.</p>
+</div>
+<div class="paragraph">
+<p>Step 7. Upon closing that popup, users will be able to review their mistakes and reattempt all questions (but it will not contribute to their score).</p>
+</div>
+<div class="paragraph">
+<p>Step 8. When the user is done reviewing, he can type <code>exit</code> or click <code>Exit Session</code> to exit test mode and go back to the main Deck Display screen. Users can also use this command prematurely to exit test mode mid-test.</p>
+</div>
+</div>
+</div>
+</div>
+<div class="sect3">
+<h4 id="design-considerations"><a class="link" href="#design-considerations">Design Considerations</a></h4>
+<div class="sect4">
+<h5 id="aspect-controlling-the-number-of-code-exam-code-instances"><a class="link" href="#aspect-controlling-the-number-of-code-exam-code-instances">Aspect: Controlling the number of <code>Exam</code> instances.</a></h5>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>Alternative 1:</strong> Just create <code>Exam</code> whenever a user calls for a new test.</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Pros: Lesser code to write</p>
+</li>
+<li>
+<p>Cons:</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Limited control on number of instances of an exam object</p>
+</li>
+<li>
+<p>Potentially may lead to bugs if not well managed</p>
+</li>
+<li>
+<p>Hard to simulate a test truly "ending" if an object can persist</p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p><strong>Alternative 2: (Current Choice)</strong> Use a singleton static class that ensures only one instance of <code>Exam</code> exists at each point in time.</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Pros:</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Extensive control over the <code>Exam</code> object by ensuring that only one instance exists</p>
+</li>
+<li>
+<p>Exam can be "terminated" to ensure once a test ends, users are unable to re-access it.</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>Cons:</p>
+<div class="ulist">
+<ul>
+<li>
+<p>More complex design architecture that requires higher understanding of MVC pattern as well as Consumer Functional Interface</p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect4">
+<h5 id="aspect-management-of-standardexam-object"><a class="link" href="#aspect-management-of-standardexam-object">Aspect: Management of StandardExam Object</a></h5>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>Alternative 1:</strong> StandardExam class exists standalone</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Pros:</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Lesser code to write</p>
+</li>
+<li>
+<p>Lesser complexity in terms of polymorphism</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>Cons:</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Not open for extension.</p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p><strong>Alternative 2: (Current Choice)</strong> Use an <code>Exam</code> interface despite only one class inheriting from it</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Pros:</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Allows the project to be open for extension. Developers may potentially develop other kinds of Exam modes (eg. speed round whereby there&#8217;s a limited time <strong>per card</strong>)</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>Cons:</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Relatively redundant at the current version (<code>v1.4</code>)</p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-11-11 19:27:52 SGT</div></div></div></body></html>
