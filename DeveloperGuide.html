@@ -1,9 +1,9 @@
-<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"><!--[if IE]><meta http-equiv="X-UA-Compatible" content="IE=edge"><![endif]--><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="generator" content="Asciidoctor 1.5.6.1"><title>AddressBook Level 3 - Developer Guide</title><link rel="stylesheet" href="stylesheets/gh-pages.css">
+<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"><!--[if IE]><meta http-equiv="X-UA-Compatible" content="IE=edge"><![endif]--><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="generator" content="Asciidoctor 1.5.6.1"><title>FlashCard Pro - Developer Guide</title><link rel="stylesheet" href="stylesheets/gh-pages.css">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.5.0/css/font-awesome.min.css">
-<link rel="stylesheet" href="stylesheets/coderay-asciidoctor.css"></head><body class="article"><div id="seedu-header"><nav class="navbar navbar-lg navbar-light bg-lighter"><div class="container"><a class="navbar-brand" href="https://se-edu.github.io/"><img src="images/SeEduLogo.png" alt="SE-EDU"></a><ul class="navbar-nav"><li class="nav-item"><a class="nav-link" href="https://se-edu.github.io/addressbook-level1">AB-1</a></li><li class="nav-item"><a class="nav-link" href="https://se-edu.github.io/addressbook-level2">AB-2</a></li><li class="nav-item"><a class="nav-link active" href="index.html">AB-3</a></li><li class="nav-item"><a class="nav-link" href="https://se-edu.github.io/addressbook-level4">AB-4</a></li><li class="nav-item"><a class="nav-link" href="https://se-edu.github.io/collate">Collate</a></li><li class="nav-item"><a class="nav-link" href="https://se-edu.github.io/se-book">Book</a></li><li class="nav-item"><a class="nav-link" href="https://se-edu.github.io/learningresources">Resources</a></li></ul></div></nav></div><div id="site-header"><nav class="navbar navbar-light bg-light"><div class="container"><a class="navbar-brand" href="index.html">AddressBook-Level3</a><ul class="navbar-nav"><li class="nav-item"><a class="nav-link" href="UserGuide.html">User Guide</a></li><li class="nav-item"><a class="nav-link active" href="DeveloperGuide.html">Developer Guide</a></li><li class="nav-item"><a class="nav-link" href="LearningOutcomes.html">LOs</a></li><li class="nav-item"><a class="nav-link" href="AboutUs.html">About Us</a></li><li class="nav-item"><a class="nav-link" href="ContactUs.html">Contact Us</a></li><li class="navitem"><a class="nav-link" href="https://github.com/se-edu/addressbook-level3"><span class="fa fa-github fa-lg" aria-hidden="true"></span>&nbsp;View on GitHub</a></li></ul></div></nav></div><div id="header"><h1>AddressBook Level 3 - Developer Guide</h1></div><div id="content"><div id="preamble">
+<link rel="stylesheet" href="stylesheets/coderay-asciidoctor.css"></head><body class="article"><div id="seedu-header"><nav class="navbar navbar-lg navbar-light bg-lighter"><div class="container"><a class="navbar-brand" href="https://se-edu.github.io/"><img src="images/SeEduLogo.png" alt="SE-EDU"></a><ul class="navbar-nav"><li class="nav-item"><a class="nav-link" href="https://se-edu.github.io/addressbook-level1">AB-1</a></li><li class="nav-item"><a class="nav-link" href="https://se-edu.github.io/addressbook-level2">AB-2</a></li><li class="nav-item"><a class="nav-link active" href="index.html">AB-3</a></li><li class="nav-item"><a class="nav-link" href="https://se-edu.github.io/addressbook-level4">AB-4</a></li><li class="nav-item"><a class="nav-link" href="https://se-edu.github.io/collate">Collate</a></li><li class="nav-item"><a class="nav-link" href="https://se-edu.github.io/se-book">Book</a></li><li class="nav-item"><a class="nav-link" href="https://se-edu.github.io/learningresources">Resources</a></li></ul></div></nav></div><div id="site-header"><nav class="navbar navbar-light bg-light"><div class="container"><a class="navbar-brand" href="index.html">Flash Card Pro</a><ul class="navbar-nav"><li class="nav-item"><a class="nav-link" href="UserGuide.html">User Guide</a></li><li class="nav-item"><a class="nav-link active" href="DeveloperGuide.html">Developer Guide</a></li><li class="nav-item"><a class="nav-link" href="AboutUs.html">About Us</a></li><li class="nav-item"><a class="nav-link" href="ContactUs.html">Contact Us</a></li><li class="navitem"><a class="nav-link" href="https://github.com/AY1920S1-CS2103-F09-2/main"><span class="fa fa-github fa-lg" aria-hidden="true"></span>&nbsp;View on GitHub</a></li></ul></div></nav></div><div id="header"><h1>FlashCard Pro - Developer Guide</h1></div><div id="content"><div id="preamble">
 <div class="sectionbody">
 <div class="paragraph">
-<p>By: <code>Team SE-EDU</code>      Since: <code>Jun 2016</code>      Licence: <code>MIT</code></p>
+<p>By: <code>Team F09-2</code>      Since: <code>Aug 2019</code>      Licence: <code>MIT</code></p>
 </div>
 </div>
 <div id="toc" class="toc">
@@ -13,19 +13,26 @@
 <li><a href="#design">2. Design</a>
 <ul class="sectlevel2">
 <li><a href="#Design-Architecture">2.1. Architecture</a></li>
-<li><a href="#Design-Ui">2.2. UI component</a></li>
+<li><a href="#Design-GUI">2.2. GUI component</a></li>
 <li><a href="#Design-Logic">2.3. Logic component</a></li>
 <li><a href="#Design-Model">2.4. Model component</a></li>
-<li><a href="#Design-Storage">2.5. Storage component</a></li>
-<li><a href="#Design-Commons">2.6. Common classes</a></li>
+<li><a href="#design-considerations">2.5. Design Considerations</a></li>
+<li><a href="#Design-Storage">2.6. Storage component</a></li>
+<li><a href="#Design-Util">2.7. Code Component</a></li>
+<li><a href="#regex-component">2.8. Regex Component</a></li>
+<li><a href="#Design-Commons">2.9. Common classes</a></li>
 </ul>
 </li>
-<li><a href="#implementation">3. Implementation</a>
+<li><a href="#implementation-2">3. Implementation</a>
 <ul class="sectlevel2">
-<li><a href="#proposed-undo-redo-feature">3.1. [Proposed] Undo/Redo feature</a></li>
-<li><a href="#proposed-data-encryption">3.2. [Proposed] Data Encryption</a></li>
-<li><a href="#logging">3.3. Logging</a></li>
-<li><a href="#Implementation-Configuration">3.4. Configuration</a></li>
+<li><a href="#logging">3.1. Logging</a></li>
+<li><a href="#Implementation-Configuration">3.2. Configuration</a></li>
+<li><a href="#ui">3.3. UI</a></li>
+<li><a href="#test">3.4. Test</a></li>
+<li><a href="#running-a-code-flashcard">3.5. Running a code flashcard</a></li>
+<li><a href="#undo-redo-commands">3.6. Undo/Redo Commands</a></li>
+<li><a href="#proposed-configure-difficulty-of-test-set-in-code-test-code-mode">3.7. [Proposed] Configure difficulty of test set in <code>test</code> mode</a></li>
+<li><a href="#saving-and-viewing-user-statistics">3.8. Saving and viewing user statistics</a></li>
 </ul>
 </li>
 <li><a href="#documentation">4. Documentation</a></li>
@@ -33,17 +40,14 @@
 <li><a href="#dev-ops">6. Dev Ops</a></li>
 <li><a href="#product-scope">Appendix A: Product Scope</a></li>
 <li><a href="#user-stories">Appendix B: User Stories</a></li>
-<li><a href="#use-cases">Appendix C: Use Cases</a></li>
-<li><a href="#non-functional-requirements">Appendix D: Non Functional Requirements</a></li>
-<li><a href="#glossary">Appendix E: Glossary</a></li>
-<li><a href="#product-survey">Appendix F: Product Survey</a></li>
-<li><a href="#instructions-for-manual-testing">Appendix G: Instructions for Manual Testing</a>
+<li><a href="#use-cases">Appendix C: Use Cases</a>
 <ul class="sectlevel2">
-<li><a href="#launch-and-shutdown">G.1. Launch and Shutdown</a></li>
-<li><a href="#deleting-a-person">G.2. Deleting a person</a></li>
-<li><a href="#saving-data">G.3. Saving data</a></li>
+<li><a href="#use-case-creating-a-deck-of-cards">C.1. Use case: Creating a deck of cards</a></li>
 </ul>
 </li>
+<li><a href="#non-functional-requirements">Appendix D: Non Functional Requirements</a></li>
+<li><a href="#glossary">Appendix E: Glossary</a></li>
+<li><a href="#instructions-for-manual-testing">Appendix F: Instructions for Manual Testing</a></li>
 </ul>
 </div>
 </div>
@@ -60,41 +64,6 @@
 <div class="sectionbody">
 <div class="sect2">
 <h3 id="Design-Architecture"><a class="link" href="#Design-Architecture">2.1. Architecture</a></h3>
-<div class="imageblock">
-<div class="content">
-<img src="images/ArchitectureDiagram.png" alt="ArchitectureDiagram">
-</div>
-<div class="title">Figure 1. Architecture Diagram</div>
-</div>
-<div class="paragraph">
-<p>The <strong><em>Architecture Diagram</em></strong> given above explains the high-level design of the App. Given below is a quick overview of each component.</p>
-</div>
-<div class="admonitionblock tip">
-<table>
-<tr>
-<td class="icon">
-<i class="fa icon-tip" title="Tip"></i>
-</td>
-<td class="content">
-The <code>.puml</code> files used to create diagrams in this document can be found in the <a href="https://github.com/se-edu/addressbook-level3/tree/master/docs/diagrams/">diagrams</a> folder.
-Refer to the <a href="UsingPlantUml.html">Using PlantUML guide</a> to learn how to create and edit diagrams.
-</td>
-</tr>
-</table>
-</div>
-<div class="paragraph">
-<p><code>Main</code> has two classes called <a href="https://github.com/se-edu/addressbook-level3/tree/master/src/main/java/seedu/address/Main.java"><code>Main</code></a> and <a href="https://github.com/se-edu/addressbook-level3/tree/master/src/main/java/seedu/address/MainApp.java"><code>MainApp</code></a>. It is responsible for,</p>
-</div>
-<div class="ulist">
-<ul>
-<li>
-<p>At app launch: Initializes the components in the correct sequence, and connects them up with each other.</p>
-</li>
-<li>
-<p>At shut down: Shuts down the components and invokes cleanup method where necessary.</p>
-</li>
-</ul>
-</div>
 <div class="paragraph">
 <p><a href="#Design-Commons"><strong><code>Commons</code></strong></a> represents a collection of classes used by multiple other components.
 The following class plays an important role at the architecture level:</p>
@@ -112,7 +81,7 @@ The following class plays an important role at the architecture level:</p>
 <div class="ulist">
 <ul>
 <li>
-<p><a href="#Design-Ui"><strong><code>UI</code></strong></a>: The UI of the App.</p>
+<p><a href="#Design-gui"><strong><code>GUI</code></strong></a>: The GUI of the App.</p>
 </li>
 <li>
 <p><a href="#Design-Logic"><strong><code>Logic</code></strong></a>: The command executor.</p>
@@ -123,183 +92,238 @@ The following class plays an important role at the architecture level:</p>
 <li>
 <p><a href="#Design-Storage"><strong><code>Storage</code></strong></a>: Reads data from, and writes data to, the hard disk.</p>
 </li>
-</ul>
-</div>
-<div class="paragraph">
-<p>Each of the four components</p>
-</div>
-<div class="ulist">
-<ul>
 <li>
-<p>Defines its <em>API</em> in an <code>interface</code> with the same name as the Component.</p>
-</li>
-<li>
-<p>Exposes its functionality using a <code>{Component Name}Manager</code> class.</p>
+<p><a href="#Design-Util"><strong><code>Utilities</code></strong></a>: Shared resources of the App.</p>
 </li>
 </ul>
-</div>
-<div class="paragraph">
-<p>For example, the <code>Logic</code> component (see the class diagram given below) defines it&#8217;s API in the <code>Logic.java</code> interface and exposes its functionality using the <code>LogicManager.java</code> class.</p>
-</div>
-<div class="imageblock">
-<div class="content">
-<img src="images/LogicClassDiagram.png" alt="LogicClassDiagram">
-</div>
-<div class="title">Figure 2. Class Diagram of the Logic Component</div>
-</div>
-<h4 id="how-the-architecture-components-interact-with-each-other" class="discrete">How the architecture components interact with each other</h4>
-<div class="paragraph">
-<p>The <em>Sequence Diagram</em> below shows how the components interact with each other for the scenario where the user issues the command <code>delete 1</code>.</p>
-</div>
-<div class="imageblock">
-<div class="content">
-<img src="images/ArchitectureSequenceDiagram.png" alt="ArchitectureSequenceDiagram">
-</div>
-<div class="title">Figure 3. Component interactions for <code>delete 1</code> command</div>
 </div>
 <div class="paragraph">
 <p>The sections below give more details of each component.</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="Design-Ui"><a class="link" href="#Design-Ui">2.2. UI component</a></h3>
+<h3 id="Design-GUI"><a class="link" href="#Design-GUI">2.2. GUI component</a></h3>
 <div class="imageblock">
 <div class="content">
-<img src="images/UiClassDiagram.png" alt="UiClassDiagram">
+<img src="images/UiClassDiagram_FlashCardPro.png" alt="UiClassDiagram FlashCardPro">
 </div>
-<div class="title">Figure 4. Structure of the UI Component</div>
-</div>
-<div class="paragraph">
-<p><strong>API</strong> : <a href="https://github.com/se-edu/addressbook-level3/tree/master/src/main/java/seedu/address/ui/Ui.java"><code>Ui.java</code></a></p>
+<div class="title">Figure 1. Structure of the UI Component</div>
 </div>
 <div class="paragraph">
-<p>The UI consists of a <code>MainWindow</code> that is made up of parts e.g.<code>CommandBox</code>, <code>ResultDisplay</code>, <code>PersonListPanel</code>, <code>StatusBarFooter</code> etc. All these, including the <code>MainWindow</code>, inherit from the abstract <code>UiPart</code> class.</p>
-</div>
-<div class="paragraph">
-<p>The <code>UI</code> component uses JavaFx UI framework. The layout of these UI parts are defined in matching <code>.fxml</code> files that are in the <code>src/main/resources/view</code> folder. For example, the layout of the <a href="https://github.com/se-edu/addressbook-level3/tree/master/src/main/java/seedu/address/ui/MainWindow.java"><code>MainWindow</code></a> is specified in <a href="https://github.com/se-edu/addressbook-level3/tree/master/src/main/resources/view/MainWindow.fxml"><code>MainWindow.fxml</code></a></p>
-</div>
-<div class="paragraph">
-<p>The <code>UI</code> component,</p>
-</div>
-<div class="ulist">
-<ul>
-<li>
-<p>Executes user commands using the <code>Logic</code> component.</p>
-</li>
-<li>
-<p>Listens for changes to <code>Model</code> data so that the UI can be updated with the modified data.</p>
-</li>
-</ul>
+<p><strong>API</strong> : <a href="https://github.com/AY1920S1-CS2103-F09-2/main/src/main/java/seedu/address/ui/Ui.java"><code>Ui.java</code></a></p>
 </div>
 </div>
 <div class="sect2">
 <h3 id="Design-Logic"><a class="link" href="#Design-Logic">2.3. Logic component</a></h3>
 <div id="fig-LogicClassDiagram" class="imageblock">
 <div class="content">
-<img src="images/LogicClassDiagram.png" alt="LogicClassDiagram">
+<img src="images/Logic_Class_Diagram.PNG" alt="Logic Class Diagram">
 </div>
-<div class="title">Figure 5. Structure of the Logic Component</div>
+<div class="title">Figure 2. Structure of the Logic Package</div>
 </div>
 <div class="paragraph">
 <p><strong>API</strong> :
-<a href="https://github.com/se-edu/addressbook-level3/tree/master/src/main/java/seedu/address/logic/Logic.java"><code>Logic.java</code></a></p>
+link:https://github.com/AY1920S1-CS2103-F09-2/main/src/main/java/dream/fcard/logic [<code>Logic Package</code>]</p>
+</div>
+<div class="paragraph">
+<p>The Logic package manages the internal logic of the application.<br></p>
+</div>
+<div class="paragraph">
+<p>When the User passes in their commands from the Command Line, it is passed to the <code>Responder</code> class via the method <code>takeInput()</code>.
+This then passes the input String to the Responses enumerations which will parse the String into the appropriate command.
+While parsing, <code>Responses</code> will consider 2 criteria:</p>
 </div>
 <div class="olist arabic">
 <ol class="arabic">
 <li>
-<p><code>Logic</code> uses the <code>AddressBookParser</code> class to parse the user command.</p>
+<p>Only the <code>Responses</code> that exist in the <code>ResponseGroup</code> matching the <code>State.currState</code> <code>StateEnum</code> will be considered.</p>
 </li>
 <li>
-<p>This results in a <code>Command</code> object which is executed by the <code>LogicManager</code>.</p>
-</li>
-<li>
-<p>The command execution can affect the <code>Model</code> (e.g. adding a person).</p>
-</li>
-<li>
-<p>The result of the command execution is encapsulated as a <code>CommandResult</code> object which is passed back to the <code>Ui</code>.</p>
-</li>
-<li>
-<p>In addition, the <code>CommandResult</code> object can also instruct the <code>Ui</code> to perform certain actions, such as displaying help to the user.</p>
+<p>Only <code>Responses</code> with a regex that matches the input String will be considered.<br></p>
 </li>
 </ol>
 </div>
 <div class="paragraph">
-<p>Given below is the Sequence Diagram for interactions within the <code>Logic</code> component for the <code>execute("delete 1")</code> API call.</p>
+<p>As such, depending on the <code>StateEnum</code> (a.k.a. the current 'mode' of the application), only some <code>Responses</code> will be
+considered. For simplicity&#8217;s sake, the <code>Responses</code> that exist for each application 'mode' can be said to exist in a
+specific bucket (when the application is in <code>TEST</code> mode, the <code>Responses</code> that exist in the Test bucket are <code>TEST_NEXT</code>,
+<code>TEST_PREV</code> and <code>TEST_EXIT</code>).<br></p>
 </div>
-<div class="imageblock">
-<div class="content">
-<img src="images/DeleteSequenceDiagram.png" alt="DeleteSequenceDiagram">
+<div class="paragraph">
+<p>When the right command is found, the specific <code>Responses</code> enumeration will execute its own <code>ResponseFunc</code>, which is the
+implementation of the specific command (eg a <code>help</code> command will print out the appropriate help message for the user).<br></p>
 </div>
-<div class="title">Figure 6. Interactions Inside the Logic Component for the <code>delete 1</code> Command</div>
-</div>
-<div class="admonitionblock note">
-<table>
-<tr>
-<td class="icon">
-<i class="fa icon-note" title="Note"></i>
-</td>
-<td class="content">
-The lifeline for <code>DeleteCommandParser</code> should end at the destroy marker (X) but due to a limitation of PlantUML, the lifeline reaches the end of diagram.
-</td>
-</tr>
-</table>
+<div class="paragraph">
+<p>To assist with the running of certain commands, the <code>HelpCommand</code> and <code>CreateCommand</code> classes are used to abstract the logic
+further.</p>
 </div>
 </div>
 <div class="sect2">
 <h3 id="Design-Model"><a class="link" href="#Design-Model">2.4. Model component</a></h3>
 <div class="imageblock">
 <div class="content">
-<img src="images/ModelClassDiagram.png" alt="ModelClassDiagram">
+<img src="images/ModelClassDiagram_FlashCardPro.png" alt="ModelClassDiagram FlashCardPro">
 </div>
-<div class="title">Figure 7. Structure of the Model Component</div>
-</div>
-<div class="paragraph">
-<p><strong>API</strong> : <a href="https://github.com/se-edu/addressbook-level3/tree/master/src/main/java/seedu/address/model/Model.java"><code>Model.java</code></a></p>
+<div class="title">Figure 3. Structure of the Model Component</div>
 </div>
 <div class="paragraph">
-<p>The <code>Model</code>,</p>
+<p><strong>API</strong> : <a href="https://github.com/AY1920S1-CS2103-F09-2/main/src/main/java/dream/fcard/model"><code>Model</code></a></p>
+</div>
+<div class="paragraph">
+<p><code>FlashCard</code>:</p>
 </div>
 <div class="ulist">
 <ul>
 <li>
-<p>stores a <code>UserPref</code> object that represents the user&#8217;s preferences.</p>
-</li>
-<li>
-<p>stores the Address Book data.</p>
-</li>
-<li>
-<p>exposes an unmodifiable <code>ObservableList&lt;Person&gt;</code> that can be 'observed' e.g. the UI can be bound to this list so that the UI automatically updates when the data in the list change.</p>
-</li>
-<li>
-<p>does not depend on any of the other three components.</p>
+<p>There are 3 types of cards used by our App, the <code>JavascriptCard</code>, <code>FrontBackCard</code> and <code>MultipleChoiceCard</code>.</p>
 </li>
 </ul>
 </div>
-<div class="admonitionblock note">
-<table>
+<div class="imageblock">
+<div class="content">
+<img src="images/cards_class_diagram.png" alt="cards class diagram">
+</div>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>JavascriptCard</code> and <code>FrontBackCard</code> implements from <code>FlashCard</code>, an interface class.</p>
+</li>
+<li>
+<p><code>MultipleChoiceCard</code> inherits from <code>FrontBackCard</code>.</p>
+</li>
+<li>
+<p>The interface class <code>FlashCard</code> also implements <code>JsonInterface</code> class to allow loading and saving to Json format.</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>Refer to the activity diagram below to see the process of creating a <code>MultipleChoiceCard</code>:</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/MultipleChoiceCardCreation.png" alt="MultipleChoiceCardCreation">
+</div>
+</div>
+<div class="paragraph">
+<p>For the <code>MultipleChoiceCard</code>, the choices provided by the user must be unique, i.e. there cannot be any duplicate in the choices provided.
+If a duplicate choice is detected, then the creation of the <code>MultipleChoiceCard</code> will not be successful.</p>
+</div>
+<div class="paragraph">
+<div class="title">FlashCard Priority</div>
+<p>Each FlashCard has an associated priority level, which the user can indicate his/her value of the importance of the card.</p>
+</div>
+<div class="paragraph">
+<p>The priority levels are described below:</p>
+</div>
+<table class="tableblock frame-all grid-all" style="width: 59%;">
+<colgroup>
+<col style="width: 31.4285%;">
+<col style="width: 32.8571%;">
+<col style="width: 35.7144%;">
+</colgroup>
+<thead>
 <tr>
-<td class="icon">
-<i class="fa icon-note" title="Note"></i>
-</td>
-<td class="content">
-As a more OOP model, we can store a <code>Tag</code> list in <code>Address Book</code>, which <code>Person</code> can reference. This would allow <code>Address Book</code> to only require one <code>Tag</code> object per unique <code>Tag</code>, instead of each <code>Person</code> needing their own <code>Tag</code> object. An example of how such a model may look like is given below.<br>
-<br>
-<span class="image"><img src="images/BetterModelClassDiagram.png" alt="BetterModelClassDiagram"></span>
-</td>
+<th class="tableblock halign-left valign-top">Priority</th>
+<th class="tableblock halign-left valign-top">Value</th>
+<th class="tableblock halign-left valign-top">Intended Action</th>
 </tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">HIGH_PRIORITY</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">10</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Valued as important by user, should be tested more often</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">LOW_PRIORITY</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">1</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Valued, but less important by user, should be tested less often</p></td>
+</tr>
+</tbody>
 </table>
+<div class="paragraph">
+<p>The sequence diagram below shows how the <code>ExamRunner</code> component can use the <code>createSubsetForTest()</code> method in the <code>Deck</code> and make use of the priorities associated with the <code>FlashCards</code> to create a test that emphasises the <code>FlashCards</code> that the user deems as important.</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/PriorityFlashCardTestSetSequenceDiagram.png" alt="PriorityFlashCardTestSetSequenceDiagram">
+</div>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Step 1: Constructor of <code>ExamRunner</code> is called.</p>
+</li>
+<li>
+<p>Step 2: In the constructor of <code>ExamRunner</code>, a method call is made to <code>Deck</code> to create a subset of cards for test.</p>
+</li>
+<li>
+<p>Step 3: If there are less than 10 cards in <code>Deck</code>, return all the cards.</p>
+</li>
+<li>
+<p>Step 4 - 10: Return a set of cards with both <code>HIGH_PRIORITY</code> and <code>LOW_PRIORITY</code> cards, which the proportion is weighted at 60% to 40% ratio respectively.</p>
+</li>
+<li>
+<p>Step 11: <code>Deck</code> returns the test set to <code>ExamRunner</code>.</p>
+</li>
+</ul>
 </div>
 </div>
 <div class="sect2">
-<h3 id="Design-Storage"><a class="link" href="#Design-Storage">2.5. Storage component</a></h3>
+<h3 id="design-considerations"><a class="link" href="#design-considerations">2.5. Design Considerations</a></h3>
+<div class="sect3">
+<h4 id="aspect-how-to-store-and-select-the-code-high_priority-code-and-code-low_priority-code-cards"><a class="link" href="#aspect-how-to-store-and-select-the-code-high_priority-code-and-code-low_priority-code-cards">2.5.1. Aspect: how to store and select the <code>HIGH_PRIORITY</code> and <code>LOW_PRIORITY</code> cards</a></h4>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>Alternative 1:</strong> Use a priority queue to store the cards</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Pros: Allows the user to test the cards according to <code>HIGH_PRIORITY</code> cards first, effectively choosing only <code>HIGH_PRIORITY</code> cards first, then <code>LOW_PRIORITY</code> cards.</p>
+</li>
+<li>
+<p>Cons: Certain <code>LOW_PRIORITY</code> cards may not be tested if the test set size is smaller than the number of <code>HIGH_PRIORITY</code> cards</p>
+</li>
+<li>
+<p>Cons: FlashCard Pro cannot have the flexibility of letting the user select the number of <code>LOW_PRIORITY</code> cards in the test set.</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p><strong>Alternative 2: (Current Choice)</strong> Maintain two lists of cards, <code>HIGH_PRIORITY</code> and <code>LOW_PRIORITY</code> cards</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Pros: Can control the ratio of <code>HIGH_PRIORITY</code> and <code>LOW_PRIORITY</code> cards in the test set created</p>
+</li>
+<li>
+<p>Pros: Have the flexibility to randomize the card order and choose a random set each time</p>
+</li>
+<li>
+<p>Cons: FlashCard Pro cannot have the flexibility of letting users assign more than 2 priority levels</p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="Design-Storage"><a class="link" href="#Design-Storage">2.6. Storage component</a></h3>
 <div class="imageblock">
 <div class="content">
 <img src="images/StorageClassDiagram.png" alt="StorageClassDiagram">
 </div>
-<div class="title">Figure 8. Structure of the Storage Component</div>
+<div class="title">Figure 4. Structure of the Storage Component</div>
 </div>
 <div class="paragraph">
-<p><strong>API</strong> : <a href="https://github.com/se-edu/addressbook-level3/tree/master/src/main/java/seedu/address/storage/Storage.java"><code>Storage.java</code></a></p>
+<p><strong>API</strong> : <a href="https://github.com/AY1920S1-CS2103-F09-2/main/src/main/java/dream/fcard/logic/storage/StorageManager.java"><code>StorageManager.java</code></a>
+<strong>API</strong> : <a href="https://github.com/AY1920S1-CS2103-F09-2/main/src/main/java/dream/fcard/util/json/JsonParser.java"><code>JsonParser.java</code></a>
+<strong>API</strong> : <a href="https://github.com/AY1920S1-CS2103-F09-2/main/src/main/java/dream/fcard/util/FileReadWrite.java"><code>FileReadWrite.java</code></a></p>
 </div>
 <div class="paragraph">
 <p>The <code>Storage</code> component,</p>
@@ -307,257 +331,178 @@ As a more OOP model, we can store a <code>Tag</code> list in <code>Address Book<
 <div class="ulist">
 <ul>
 <li>
-<p>can save <code>UserPref</code> objects in json format and read it back.</p>
+<p>interface to save deck by calling <code>FileReadWrite</code></p>
 </li>
 <li>
-<p>can save the Address Book data in json format and read it back.</p>
+<p>interface to load deck by calling <code>FileReadWrite</code>, send string to <code>JsonParser</code> and creating deck objects from <code>JsonValue</code></p>
 </li>
 </ul>
 </div>
+<div class="paragraph">
+<p>The <code>JsonParser</code> component,</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>takes any string of JSON format and returns a <code>JsonValue</code></p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>The <code>FileReadWrite</code> component,</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>resolves root directory for app save data</p>
+</li>
+<li>
+<p>interface for user to provide their custom root directory</p>
+</li>
+<li>
+<p>writes file and creates path directories if none</p>
+</li>
+</ul>
+</div>
+<div class="sect3">
+<h4 id="implementation"><a class="link" href="#implementation">2.6.1. Implementation</a></h4>
+<div class="paragraph">
+<p>The parsing is done by <code>JsonParser</code>.
+It takes a string and attempts to read it as one of a <code>JsonValueTypes</code> and create its corresponding object wrapped in <code>JsonValue</code>.
+Since Objects and Arrays can recursively contain a json value, their contents are also read, created and wrapped.</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>JsonParser#parseJsonInput()</code>&#8201;&#8212;&#8201;constructs the <code>JsonValue</code> object from a string input</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>Given below is the overview activity diagram of parsing a json string input.</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/jsonParserProcessDynamicValue.png" alt="jsonParserProcessDynamicValue">
+</div>
+</div>
+<div class="paragraph">
+<p>It will first be tested to see if its an integer and if it fails it will be tested for a double.
+Consequently, boolean, string, json object, json array.</p>
+</div>
+<div class="paragraph">
+<p>Json object values are themselves json values thus the activity diagram is called recursively
+Likewise for json array values.</p>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+If all parsing types fail, there must be an error with the string input, thus a JsonFormatException is thrown.
+</td>
+</tr>
+</table>
+</div>
+</div>
+<div class="sect3">
+<h4 id="design-considerations-2"><a class="link" href="#design-considerations-2">2.6.2. Design Considerations</a></h4>
+<div class="paragraph">
+<p>The JsonParser is designed to be a utility class with a pure function without any mutation of state.
+Thus it should be self contained within a single function call.</p>
+</div>
+</div>
 </div>
 <div class="sect2">
-<h3 id="Design-Commons"><a class="link" href="#Design-Commons">2.6. Common classes</a></h3>
+<h3 id="Design-Util"><a class="link" href="#Design-Util">2.7. Code Component</a></h3>
+<div class="imageblock">
+<div class="content">
+<img src="images/CodeClassDiagram.png" alt="CodeClassDiagram">
+</div>
+<div class="title">Figure 5. Structure of the Code component within Utilities</div>
+</div>
 <div class="paragraph">
-<p>Classes used by multiple components are in the <code>seedu.addressbook.commons</code> package.</p>
+<p>The <code>Code</code> component supports code-running flashcards in Java and Javascript. Cards will take in user input
+via the JavaScript card (Java card to be implemented soon) and</p>
+</div>
+<div class="paragraph">
+<p>the <code>JavascriptRunner</code> class</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>can evaluate JS code from a file using the <code>FileImporter</code> class</p>
+</li>
+<li>
+<p>can evaluate JS code as an input string</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>the <code>JavaRunner</code> class</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Read/write to the <code>Solution.java</code> file during runtime after user has typed
+Java code into the file</p>
+</li>
+<li>
+<p>Compile and run <code>Solution.java</code></p>
+</li>
+<li>
+<p>the Java code written in each card is stored in the card itself, but this <code>Solution.java</code> will be overwritten
+and used to run the code in each card.</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>To be implemented: An in-app Flashcard Pro compiler and debugger for JS and Java as a playground for the user</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="regex-component"><a class="link" href="#regex-component">2.8. Regex Component</a></h3>
+<div class="paragraph">
+<p>Having that we are using the regex approach to parsing, some common parsing and regex creation methods
+are stored in the following class:</p>
+</div>
+<div class="paragraph">
+<p><strong>API</strong> : <a href="https://github.com/AY1920S1-CS2103-F09-2/main/src/main/java/dream/fcard/util/RegexUtil.java"><code>RegexUtil.java</code></a></p>
+</div>
+<div class="paragraph">
+<p>RegexUtil#commandFormatRegex` creates a regex that starts with the <code>command</code> argument and lookaheads
+for the elements of <code>args</code>. Thus a regex for the input <code>create front/asd back/dsa</code> can be created with
+<code>commandFormatRegex("create", new String[]{"front/", "back/"});</code>.</p>
+</div>
+<div class="paragraph">
+<p><code>RegexUtil#parseCommandFormat</code> is an algorithm that parses user input and returns the resulting values
+from the input. Following the previous example, parsing the input will create an arraylist of two arraylists.
+The first arraylist contains one element <code>"asd"</code> and the second arraylist contains one element <code>"dsa"</code>;
+parallel to the arguments of the input.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="Design-Commons"><a class="link" href="#Design-Commons">2.9. Common classes</a></h3>
+<div class="paragraph">
+<p>Classes used by multiple components are in the <code>dream.fcard.datastructures</code> package and root of <code>dream.fcard.util</code></p>
 </div>
 </div>
 </div>
 </div>
 <div class="sect1">
-<h2 id="implementation"><a class="link" href="#implementation">3. Implementation</a></h2>
+<h2 id="implementation-2"><a class="link" href="#implementation-2">3. Implementation</a></h2>
 <div class="sectionbody">
-<div class="paragraph">
-<p>This section describes some noteworthy details on how certain features are implemented.</p>
-</div>
 <div class="sect2">
-<h3 id="proposed-undo-redo-feature"><a class="link" href="#proposed-undo-redo-feature">3.1. [Proposed] Undo/Redo feature</a></h3>
-<div class="sect3">
-<h4 id="proposed-implementation"><a class="link" href="#proposed-implementation">3.1.1. Proposed Implementation</a></h4>
-<div class="paragraph">
-<p>The undo/redo mechanism is facilitated by <code>VersionedAddressBook</code>.
-It extends <code>AddressBook</code> with an undo/redo history, stored internally as an <code>addressBookStateList</code> and <code>currentStatePointer</code>.
-Additionally, it implements the following operations:</p>
-</div>
-<div class="ulist">
-<ul>
-<li>
-<p><code>VersionedAddressBook#commit()</code>&#8201;&#8212;&#8201;Saves the current address book state in its history.</p>
-</li>
-<li>
-<p><code>VersionedAddressBook#undo()</code>&#8201;&#8212;&#8201;Restores the previous address book state from its history.</p>
-</li>
-<li>
-<p><code>VersionedAddressBook#redo()</code>&#8201;&#8212;&#8201;Restores a previously undone address book state from its history.</p>
-</li>
-</ul>
-</div>
-<div class="paragraph">
-<p>These operations are exposed in the <code>Model</code> interface as <code>Model#commitAddressBook()</code>, <code>Model#undoAddressBook()</code> and <code>Model#redoAddressBook()</code> respectively.</p>
-</div>
-<div class="paragraph">
-<p>Given below is an example usage scenario and how the undo/redo mechanism behaves at each step.</p>
-</div>
-<div class="paragraph">
-<p>Step 1. The user launches the application for the first time. The <code>VersionedAddressBook</code> will be initialized with the initial address book state, and the <code>currentStatePointer</code> pointing to that single address book state.</p>
-</div>
-<div class="imageblock">
-<div class="content">
-<img src="images/UndoRedoState0.png" alt="UndoRedoState0">
-</div>
-</div>
-<div class="paragraph">
-<p>Step 2. The user executes <code>delete 5</code> command to delete the 5th person in the address book. The <code>delete</code> command calls <code>Model#commitAddressBook()</code>, causing the modified state of the address book after the <code>delete 5</code> command executes to be saved in the <code>addressBookStateList</code>, and the <code>currentStatePointer</code> is shifted to the newly inserted address book state.</p>
-</div>
-<div class="imageblock">
-<div class="content">
-<img src="images/UndoRedoState1.png" alt="UndoRedoState1">
-</div>
-</div>
-<div class="paragraph">
-<p>Step 3. The user executes <code>add n/David &#8230;&#8203;</code> to add a new person. The <code>add</code> command also calls <code>Model#commitAddressBook()</code>, causing another modified address book state to be saved into the <code>addressBookStateList</code>.</p>
-</div>
-<div class="imageblock">
-<div class="content">
-<img src="images/UndoRedoState2.png" alt="UndoRedoState2">
-</div>
-</div>
-<div class="admonitionblock note">
-<table>
-<tr>
-<td class="icon">
-<i class="fa icon-note" title="Note"></i>
-</td>
-<td class="content">
-If a command fails its execution, it will not call <code>Model#commitAddressBook()</code>, so the address book state will not be saved into the <code>addressBookStateList</code>.
-</td>
-</tr>
-</table>
-</div>
-<div class="paragraph">
-<p>Step 4. The user now decides that adding the person was a mistake, and decides to undo that action by executing the <code>undo</code> command. The <code>undo</code> command will call <code>Model#undoAddressBook()</code>, which will shift the <code>currentStatePointer</code> once to the left, pointing it to the previous address book state, and restores the address book to that state.</p>
-</div>
-<div class="imageblock">
-<div class="content">
-<img src="images/UndoRedoState3.png" alt="UndoRedoState3">
-</div>
-</div>
-<div class="admonitionblock note">
-<table>
-<tr>
-<td class="icon">
-<i class="fa icon-note" title="Note"></i>
-</td>
-<td class="content">
-If the <code>currentStatePointer</code> is at index 0, pointing to the initial address book state, then there are no previous address book states to restore. The <code>undo</code> command uses <code>Model#canUndoAddressBook()</code> to check if this is the case. If so, it will return an error to the user rather than attempting to perform the undo.
-</td>
-</tr>
-</table>
-</div>
-<div class="paragraph">
-<p>The following sequence diagram shows how the undo operation works:</p>
-</div>
-<div class="imageblock">
-<div class="content">
-<img src="images/UndoSequenceDiagram.png" alt="UndoSequenceDiagram">
-</div>
-</div>
-<div class="admonitionblock note">
-<table>
-<tr>
-<td class="icon">
-<i class="fa icon-note" title="Note"></i>
-</td>
-<td class="content">
-The lifeline for <code>UndoCommand</code> should end at the destroy marker (X) but due to a limitation of PlantUML, the lifeline reaches the end of diagram.
-</td>
-</tr>
-</table>
-</div>
-<div class="paragraph">
-<p>The <code>redo</code> command does the opposite&#8201;&#8212;&#8201;it calls <code>Model#redoAddressBook()</code>, which shifts the <code>currentStatePointer</code> once to the right, pointing to the previously undone state, and restores the address book to that state.</p>
-</div>
-<div class="admonitionblock note">
-<table>
-<tr>
-<td class="icon">
-<i class="fa icon-note" title="Note"></i>
-</td>
-<td class="content">
-If the <code>currentStatePointer</code> is at index <code>addressBookStateList.size() - 1</code>, pointing to the latest address book state, then there are no undone address book states to restore. The <code>redo</code> command uses <code>Model#canRedoAddressBook()</code> to check if this is the case. If so, it will return an error to the user rather than attempting to perform the redo.
-</td>
-</tr>
-</table>
-</div>
-<div class="paragraph">
-<p>Step 5. The user then decides to execute the command <code>list</code>. Commands that do not modify the address book, such as <code>list</code>, will usually not call <code>Model#commitAddressBook()</code>, <code>Model#undoAddressBook()</code> or <code>Model#redoAddressBook()</code>. Thus, the <code>addressBookStateList</code> remains unchanged.</p>
-</div>
-<div class="imageblock">
-<div class="content">
-<img src="images/UndoRedoState4.png" alt="UndoRedoState4">
-</div>
-</div>
-<div class="paragraph">
-<p>Step 6. The user executes <code>clear</code>, which calls <code>Model#commitAddressBook()</code>. Since the <code>currentStatePointer</code> is not pointing at the end of the <code>addressBookStateList</code>, all address book states after the <code>currentStatePointer</code> will be purged. We designed it this way because it no longer makes sense to redo the <code>add n/David &#8230;&#8203;</code> command. This is the behavior that most modern desktop applications follow.</p>
-</div>
-<div class="imageblock">
-<div class="content">
-<img src="images/UndoRedoState5.png" alt="UndoRedoState5">
-</div>
-</div>
-<div class="paragraph">
-<p>The following activity diagram summarizes what happens when a user executes a new command:</p>
-</div>
-<div class="imageblock">
-<div class="content">
-<img src="images/CommitActivityDiagram.png" alt="CommitActivityDiagram">
-</div>
-</div>
-</div>
-<div class="sect3">
-<h4 id="design-considerations"><a class="link" href="#design-considerations">3.1.2. Design Considerations</a></h4>
-<div class="sect4">
-<h5 id="aspect-how-undo-redo-executes"><a class="link" href="#aspect-how-undo-redo-executes">Aspect: How undo &amp; redo executes</a></h5>
-<div class="ulist">
-<ul>
-<li>
-<p><strong>Alternative 1 (current choice):</strong> Saves the entire address book.</p>
-<div class="ulist">
-<ul>
-<li>
-<p>Pros: Easy to implement.</p>
-</li>
-<li>
-<p>Cons: May have performance issues in terms of memory usage.</p>
-</li>
-</ul>
-</div>
-</li>
-<li>
-<p><strong>Alternative 2:</strong> Individual command knows how to undo/redo by itself.</p>
-<div class="ulist">
-<ul>
-<li>
-<p>Pros: Will use less memory (e.g. for <code>delete</code>, just save the person being deleted).</p>
-</li>
-<li>
-<p>Cons: We must ensure that the implementation of each individual command are correct.</p>
-</li>
-</ul>
-</div>
-</li>
-</ul>
-</div>
-</div>
-<div class="sect4">
-<h5 id="aspect-data-structure-to-support-the-undo-redo-commands"><a class="link" href="#aspect-data-structure-to-support-the-undo-redo-commands">Aspect: Data structure to support the undo/redo commands</a></h5>
-<div class="ulist">
-<ul>
-<li>
-<p><strong>Alternative 1 (current choice):</strong> Use a list to store the history of address book states.</p>
-<div class="ulist">
-<ul>
-<li>
-<p>Pros: Easy for new Computer Science student undergraduates to understand, who are likely to be the new incoming developers of our project.</p>
-</li>
-<li>
-<p>Cons: Logic is duplicated twice. For example, when a new command is executed, we must remember to update both <code>HistoryManager</code> and <code>VersionedAddressBook</code>.</p>
-</li>
-</ul>
-</div>
-</li>
-<li>
-<p><strong>Alternative 2:</strong> Use <code>HistoryManager</code> for undo/redo</p>
-<div class="ulist">
-<ul>
-<li>
-<p>Pros: We do not need to maintain a separate list, and just reuse what is already in the codebase.</p>
-</li>
-<li>
-<p>Cons: Requires dealing with commands that have already been undone: We must remember to skip these commands. Violates Single Responsibility Principle and Separation of Concerns as <code>HistoryManager</code> now needs to do two different things.</p>
-</li>
-</ul>
-</div>
-</li>
-</ul>
-</div>
-</div>
-</div>
-</div>
-<div class="sect2">
-<h3 id="proposed-data-encryption"><a class="link" href="#proposed-data-encryption">3.2. [Proposed] Data Encryption</a></h3>
-<div class="paragraph">
-<p><em>{Explain here how the data encryption feature will be implemented}</em></p>
-</div>
-</div>
-<div class="sect2">
-<h3 id="logging"><a class="link" href="#logging">3.3. Logging</a></h3>
+<h3 id="logging"><a class="link" href="#logging">3.1. Logging</a></h3>
 <div class="paragraph">
 <p>We are using <code>java.util.logging</code> package for logging. The <code>LogsCenter</code> class is used to manage the logging levels and logging destinations.</p>
 </div>
 <div class="ulist">
 <ul>
 <li>
-<p>The logging level can be controlled using the <code>logLevel</code> setting in the configuration file (See <a href="#Implementation-Configuration">Section 3.4, &#8220;Configuration&#8221;</a>)</p>
+<p>The logging level can be controlled using the <code>logLevel</code> setting in the configuration file (See <a href="#Implementation-Configuration">Section 3.2, &#8220;Configuration&#8221;</a>)</p>
 </li>
 <li>
 <p>The <code>Logger</code> for a class can be obtained using <code>LogsCenter.getLogger(Class)</code> which will log messages according to the specified logging level</p>
@@ -588,9 +533,687 @@ If the <code>currentStatePointer</code> is at index <code>addressBookStateList.s
 </div>
 </div>
 <div class="sect2">
-<h3 id="Implementation-Configuration"><a class="link" href="#Implementation-Configuration">3.4. Configuration</a></h3>
+<h3 id="Implementation-Configuration"><a class="link" href="#Implementation-Configuration">3.2. Configuration</a></h3>
 <div class="paragraph">
 <p>Certain properties of the application can be controlled (e.g user prefs file location, logging level) through the configuration file (default: <code>config.json</code>).</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="ui"><a class="link" href="#ui">3.3. UI</a></h3>
+<div class="paragraph">
+<p>The GUI of the application is started up by the <code>UiManager</code> class, when the application is initialised.
+The <code>GUI</code> class handles operations on the GUI, such as rendering nodes to the application window,
+and passing user command input to the <code>Responder</code> class.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="test"><a class="link" href="#test">3.4. Test</a></h3>
+<div class="sect3">
+<h4 id="implementation-3"><a class="link" href="#implementation-3">3.4.1. Implementation</a></h4>
+<div class="paragraph">
+<p>The timed/un-timed test is a exam mechanism whereby users can enter a test mode that allows users to test themselves using the various flashcards. Users will then be notified of their results at the end of the test and will also have the chance to review their answers and reattempt questions.</p>
+</div>
+<div class="paragraph">
+<p>The overall test architecture is depicted in the class diagram below.</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/TestClassDiagram.png" alt="TestClassDiagram">
+</div>
+</div>
+<div class="paragraph">
+<p>Tests are driven by the main <code>ExamRunner</code> class which ensures that only a single <code>Exam</code> object exists at any point in time.</p>
+</div>
+<div class="paragraph">
+<p><code>Exam</code> objects are where the bulk of the test logic resides. <code>Exam</code> objects are used to control what card the user is currently attempting via the <code>getCurrentCard()</code> method, used to control the AnchorPanes that show up on the GUI and also to keep track of score through the <code>Result</code> object within.</p>
+</div>
+<div class="paragraph">
+<p><code>Exam</code> objects have a <strong>composition</strong> relationship with <code>Result</code> objects, whereby a <code>Result</code> object cannot exist without an <code>Exam</code> object.</p>
+</div>
+<div class="paragraph">
+<p>The sequence diagram of the three classes is as follows:</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/TestSequenceDiagram.png" alt="TestSequenceDiagram">
+</div>
+</div>
+<div class="paragraph">
+<p>When a user first chooses to start the test, he will call on the <code>createExam()</code> within <code>ExamRunner</code>, which will create an Exam object with the duration specified by the user.</p>
+</div>
+<div class="paragraph">
+<p>Creating an <code>Exam</code> object automatically creates a <code>Result</code> object in the constructor. The <code>Exam</code> object is then able to interact with it via the <code>getResult()</code> method.</p>
+</div>
+<div class="paragraph">
+<p>Responses and Controllers will then be able to get the current instance of <code>Exam</code> via the <code>getCurrentExam()</code> method in <code>ExamRunner</code></p>
+</div>
+<div class="paragraph">
+<p>Given below is an example usage scenario and how the timed/untimed mechanism behaves at each step. The activity diagrams for Timed and Untimed Tests are also as follows:</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/UntimedTestActivityDiagram.png" alt="UntimedTestActivityDiagram">
+</div>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/TimedTestActivityDiagram.png" alt="TimedTestActivityDiagram">
+</div>
+</div>
+<div class="exampleblock">
+<div class="content">
+<div class="paragraph">
+<p>Step 1. User keys in the command <code>test deck/DECK_NAME duration/DURATION_IN_SECONDS</code> (Eg. test deck/german duration/0)</p>
+</div>
+<div class="paragraph">
+<p>Step 2. If <code>DURATION_IN_SECONDS</code> is 0, untimed test will be initiated. Else, a timed test will be initiated.</p>
+</div>
+<div class="paragraph">
+<p>Step 3. A question will be loaded and user answers the question.</p>
+</div>
+<div class="paragraph">
+<p>Step 4. Answer will be evaluated and if it is correct, score will be updated.</p>
+</div>
+<div class="paragraph">
+<p>Step 5. For untimed test, repeat steps 3 and 4 until the end of deck is reached. For timed test, repeat steps 3 and 4 until either end of deck is reached or time runs out.</p>
+</div>
+<div class="paragraph">
+<p>Step 6. If end of deck is reached, a popup will be triggered with the user&#8217;s final score.</p>
+</div>
+<div class="paragraph">
+<p>Step 7. Upon closing that popup, users will be able to review their mistakes and reattempt all questions (but it will not contribute to their score).</p>
+</div>
+<div class="paragraph">
+<p>Step 8. When the user is done reviewing, he can type <code>exit</code> or click <code>Exit Session</code> to exit test mode and go back to the main Deck Display screen. Users can also use this command prematurely to exit test mode mid-test.</p>
+</div>
+</div>
+</div>
+</div>
+<div class="sect3">
+<h4 id="managing-the-cli-and-gui"><a class="link" href="#managing-the-cli-and-gui">3.4.2. Managing the CLI and GUI</a></h4>
+<div class="paragraph">
+<p>CLI is largely driven by the <code>Responses</code> class which can be found above. However, the test mechanism differs slightly as it relies on a greater amount of <code>States</code> in order to control which commands can be used at what time.</p>
+</div>
+<div class="paragraph">
+<p>For example, a <code>correct</code> command cannot be used on a MCQCard.</p>
+</div>
+<div class="paragraph">
+<p>Commands are checked if they belong to a certain <code>ResponseGroup</code> for a <code>State</code>. Only commands that are registered within that state&#8217;s <code>ResponseGroup</code> will be executed.</p>
+</div>
+<div class="paragraph">
+<p>GUI is also controlled by <code>States</code> but does not go through the <code>ResponseGroup</code> class. Instead, it relies on EventHandlers triggered by button clicks. Ideally, one should make GUI go through <code>Responses</code> as well to streamline both the GUI and CLI together.</p>
+</div>
+<div class="paragraph">
+<p>This design choice is reflected on further below.</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="design-considerations-3"><a class="link" href="#design-considerations-3">3.4.3. Design Considerations</a></h4>
+<div class="sect4">
+<h5 id="aspect-controlling-the-number-of-code-exam-code-instances"><a class="link" href="#aspect-controlling-the-number-of-code-exam-code-instances">Aspect: Controlling the number of <code>Exam</code> instances.</a></h5>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>Alternative 1:</strong> Just create <code>Exam</code> whenever a user calls for a new test.</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Pros: Lesser code to write</p>
+</li>
+<li>
+<p>Cons:</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Limited control on number of instances of an exam object</p>
+</li>
+<li>
+<p>Potentially may lead to bugs if not well managed</p>
+</li>
+<li>
+<p>Hard to simulate a test truly "ending" if an object can persist</p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p><strong>Alternative 2: (Current Choice)</strong> Use a singleton static class that ensures only one instance of <code>Exam</code> exists at each point in time.</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Pros:</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Extensive control over the <code>Exam</code> object by ensuring that only one instance exists</p>
+</li>
+<li>
+<p>Exam can be "terminated" to ensure once a test ends, users are unable to re-access it.</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>Cons:</p>
+<div class="ulist">
+<ul>
+<li>
+<p>More complex design architecture that requires higher understanding of MVC pattern as well as Consumer Functional Interface</p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect4">
+<h5 id="aspect-management-of-standardexam-object"><a class="link" href="#aspect-management-of-standardexam-object">Aspect: Management of StandardExam Object</a></h5>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>Alternative 1:</strong> StandardExam class exists standalone</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Pros:</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Lesser code to write</p>
+</li>
+<li>
+<p>Lesser complexity in terms of polymorphism</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>Cons:</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Not open for extension.</p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p><strong>Alternative 2: (Current Choice)</strong> Use an <code>Exam</code> interface despite only one class inheriting from it</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Pros:</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Allows the project to be open for extension. Developers may potentially develop other kinds of Exam modes (eg. speed round whereby there&#8217;s a limited time <strong>per card</strong>)</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>Cons:</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Relatively redundant at the current version (<code>v1.4</code>)</p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect4">
+<h5 id="aspect-streamlining-of-gui-and-cli"><a class="link" href="#aspect-streamlining-of-gui-and-cli">Aspect: Streamlining of GUI and CLI</a></h5>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>Alternative 1:</strong> Have both GUI and CLI managed by the <code>Response</code> class</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Pros:</p>
+<div class="ulist">
+<ul>
+<li>
+<p>More streamlined</p>
+</li>
+<li>
+<p>Lesser chance of performance glitches since both interfaces rely on the same logic.</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>Cons:</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Limited customization if different behaviours want to be implemented in the GUI and CLI (though unlikely).</p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p><strong>Alternative 2: (Current Choice)</strong> Individual logics for both GUI and CLI:</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Pros:</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Greater customization.</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>Cons:</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Slightly more "spaghetti code"</p>
+</li>
+<li>
+<p>Limited expansion as having many different types of cards will result in many different <code>ResponseGroups</code></p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>While FlashCard Pro went with the "inferior" design choice for <code>v1.4</code>, there is definitely room for expansion by using an external state controller like Redux (see below).</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="sect3">
+<h4 id="future-extensions"><a class="link" href="#future-extensions">3.4.4. Future Extensions</a></h4>
+<div class="sect4">
+<h5 id="relationship-between-gui-and-cli"><a class="link" href="#relationship-between-gui-and-cli">Relationship between GUI and CLI</a></h5>
+<div class="ulist">
+<ul>
+<li>
+<p>Currently GUI and CLI are not implemented ideally because CLI is dependent on the <code>Responses</code> class while GUI relies on button handlers.</p>
+</li>
+<li>
+<p>Ideally, GUI and CLI should both rely on the <code>Responses</code> class which will streamline the back-end logic.</p>
+</li>
+<li>
+<p>However, due to time constraints and the late discovery of the bug, <code>v1.4</code> was made with the GUI and CLI not streamlined.</p>
+</li>
+<li>
+<p>Future enhancements could either streamline the GUI and CLI both rely on <code>Responses</code> class or port over to an external state manager like Redux for better performance.</p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect4">
+<h5 id="exam-interface"><a class="link" href="#exam-interface">Exam Interface</a></h5>
+<div class="ulist">
+<ul>
+<li>
+<p>The Exam interface exists such that the project remains open for extension with various different test modes.</p>
+</li>
+<li>
+<p>One example would be a speed round (whereby specific time limits are set for <strong>each card</strong>).</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="running-a-code-flashcard"><a class="link" href="#running-a-code-flashcard">3.5. Running a code flashcard</a></h3>
+<div class="imageblock">
+<div class="content">
+<img src="images/JSCardActivityDiagram.png" alt="JSCardActivityDiagram">
+</div>
+<div class="title">Figure 6. Activity diagram for creating a code flashcard</div>
+</div>
+<div class="sect3">
+<h4 id="proposed-implementation"><a class="link" href="#proposed-implementation">3.5.1. Proposed Implementation</a></h4>
+<div class="paragraph">
+<p>The code flashcard is a card that allows users to answer coding questions by running code directly.
+The  following use case illustrates how the card works.</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>System: FlashCard Pro</p>
+</li>
+<li>
+<p>Actor: User</p>
+</li>
+<li>
+<p>Use case: Create a code flashcard</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>MSS:</p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>The user initialises the card for the appropriate language (i.e. Java or JS)</p>
+</li>
+<li>
+<p>The user enters starter code if necessary (e.g boilerplate code, helper methods)</p>
+</li>
+<li>
+<p>The user enters test cases (specifying inputs and corresponding expected outputs).</p>
+</li>
+<li>
+<p>FlashCard Pro saves the newly created card.</p>
+</li>
+</ol>
+</div>
+<div class="paragraph">
+<p>Use case ends.</p>
+</div>
+<div class="paragraph">
+<p>*Extensions:</p>
+</div>
+<div class="olist arabic">
+<ol class="arabic" start="3">
+<li>
+<p>a) The user enters 0 test cases.</p>
+<div class="olist loweralpha">
+<ol class="loweralpha" type="a">
+<li>
+<p>1) FlashCard Pro prompts for at least 1 test case.</p>
+</li>
+<li>
+<p>2) The user enters a test case.</p>
+</li>
+</ol>
+</div>
+</li>
+</ol>
+</div>
+<div class="paragraph">
+<p>Use case resumes from step 4.</p>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="undo-redo-commands"><a class="link" href="#undo-redo-commands">3.6. Undo/Redo Commands</a></h3>
+<div class="paragraph">
+<p>Undo and Redo are commands meant to reverse any alterations to the <code>ArrayList</code> of Decks in State. As such, any mistake
+can be easily recovered from.<br></p>
+</div>
+<div class="paragraph">
+<p>Please refer to the following Use case for an example of the uses of Undo/Redo.</p>
+</div>
+<div class="sect3">
+<h4 id="use-case-for-undo-redo"><a class="link" href="#use-case-for-undo-redo">3.6.1. Use case for Undo/Redo</a></h4>
+<div class="ulist">
+<ul>
+<li>
+<p>System: FlashCard Pro</p>
+</li>
+<li>
+<p>Actor: User</p>
+</li>
+<li>
+<p>Use case: Accidentally deleting the wrong deck and recovering it.</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>MSS:</p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>The user creates 2 decks: Deck1 and Deck2.</p>
+</li>
+<li>
+<p>The user wishes to delete Deck1, but accidentally deletes Deck2.</p>
+</li>
+<li>
+<p>In order to recover Deck2, the user types in the command <code>undo</code> into the CLI.</p>
+</li>
+<li>
+<p>Deck2 is recovered.</p>
+</li>
+</ol>
+</div>
+<div class="paragraph">
+<p>Use case ends.</p>
+</div>
+<div class="paragraph">
+<p>*Extensions:</p>
+</div>
+<div class="olist arabic">
+<ol class="arabic" start="4">
+<li>
+<p>a) The user decides that they prefer Deck2 to be deleted.</p>
+<div class="olist loweralpha">
+<ol class="loweralpha" type="a">
+<li>
+<p>) The user types 'redo' into the CLI.</p>
+</li>
+<li>
+<p>) Deck2 is deleted again.</p>
+</li>
+</ol>
+</div>
+</li>
+</ol>
+</div>
+<div class="paragraph">
+<p>Use case ends.</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="general-activity-diagram-of-undo-redo"><a class="link" href="#general-activity-diagram-of-undo-redo">3.6.2. General Activity Diagram of Undo/Redo</a></h4>
+<div class="sect4">
+<h5 id="strong-before-an-undo-redo-command-is-called-strong"><a class="link" href="#strong-before-an-undo-redo-command-is-called-strong"><strong>Before an Undo/Redo command is called:</strong></a></h5>
+<div class="imageblock">
+<div class="content">
+<img src="images/DeckAlteringCommandsActivityDiagram.PNG" alt="DeckAlteringCommandsActivityDiagram">
+</div>
+<div class="title">Figure 7. Activity diagram for deck altering commands</div>
+</div>
+<div class="paragraph">
+<p>Whenever the <code>State&#8217;s `decks</code> are altered, <code>State.addCurrDecksToDeckHistory()</code> is called. This adds a deep copy of the
+current <code>State.decks</code> to <code>State.deckHistory</code>. Also, <code>State.resetUndoHistory()</code> which re-initialises <code>State.undoHistory</code>.
+Then, the changes to State are carried out.</p>
+</div>
+</div>
+<div class="sect4">
+<h5 id="strong-when-an-undo-redo-command-is-called-strong"><a class="link" href="#strong-when-an-undo-redo-command-is-called-strong"><strong>When an Undo/Redo command is called:</strong></a></h5>
+<div class="imageblock">
+<div class="content">
+<img src="images/UndoRedoActivityDiagram.PNG" alt="UndoRedoActivityDiagram">
+</div>
+<div class="title">Figure 8. Activity diagram for Undo/Redo</div>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+The Undo and Redo commands are implemented in similar ways. As such, I will be explaining both commands simultaneously.
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p>When an Undo/Redo command is parsed by Responder and Responses, it calls the appropriate method in <code>State</code> (for undo:
+<code>State.undoDeckChanges()</code>, for redo: <code>State.redoDeckChanges()</code>). This then sets <code>State.deck</code> to the topmost ArrayList
+of Decks from the appropriate Stack (for undo: <code>State.deckHistory</code>, for redo: <code>State.undoHistory</code>).<br></p>
+</div>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="proposed-configure-difficulty-of-test-set-in-code-test-code-mode"><a class="link" href="#proposed-configure-difficulty-of-test-set-in-code-test-code-mode">3.7. [Proposed] Configure difficulty of test set in <code>test</code> mode</a></h3>
+<div class="paragraph">
+<p>Currently, the user is restricted to a test set of 60% <code>HIGH_PRIORITY</code> and 40% <code>LOW_PRIORITY</code> cards in the test set.</p>
+</div>
+<div class="paragraph">
+<p>In V2.0, the user should be able to configure the proportion of <code>HIGH_PRIORITY</code> and <code>LOW_PRIORITY</code> cards in the test set to pitch the level of difficulty of the test.</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/ConfigurePriorityFlashCardTestSetSequenceDiagram.png" alt="ConfigurePriorityFlashCardTestSetSequenceDiagram">
+</div>
+</div>
+<div class="paragraph">
+<p>The ExamRunner will be expanded to allow the user to take in the ratio of <code>HIGH_PRIORITY</code>.</p>
+</div>
+<div class="paragraph">
+<p>Then, the computation of the number of <code>HIGH_PRIORITY</code> and <code>LOW_PRIORITY</code> cards will be done according to the ratio provided by the user.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="saving-and-viewing-user-statistics"><a class="link" href="#saving-and-viewing-user-statistics">3.8. Saving and viewing user statistics</a></h3>
+<div class="ulist">
+<ul>
+<li>
+<p>The Statistics feature revolves around the storage and interpretation of the user&#8217;s <strong>sessions</strong>, be it <em>login</em> sessions or <em>test</em> sessions.</p>
+</li>
+<li>
+<p>Therefore, the <code>Session</code> class is the main building block of all Statistics-related classes. They are stored in <code>SessionList</code> objects.</p>
+</li>
+<li>
+<p>Due to design considerations, the <code>UserStats</code> and <code>DeckStats</code> objects are intended to be singletons, created upon application startup and modified, but never duplicated or deleted.</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Thus, they are accessible via the static methods <code>getUserStats()</code> and <code>getDeckStats()</code> accessible via the <code>StatsHolder</code> class.</p>
+</li>
+<li>
+<p>This method of implementation is similar to what my teammates have used to store <code>State</code>.</p>
+</li>
+<li>
+<p>Initially, the <code>UserStats</code> and <code>DeckStats</code> objects were intended to be stored within <code>State</code> as well. However, the addition of undo/redo functionality complicated matters. Thus, the statistics objects have been decoupled from <code>State</code>.</p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>The structure of Statistics-related classes is depicted in the class diagram below.</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/nattanyz/class%20diagram.png" alt="class diagram">
+</div>
+</div>
+<div class="paragraph">
+<p>Or, simplified:</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/nattanyz/class%20diagram%20simplified.png" alt="class diagram simplified">
+</div>
+</div>
+<div class="paragraph">
+<p>The following sequence diagram depicts the starting, ending and saving of the user&#8217;s <code>Session</code> when they open and close the app.</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/nattanyz/sequence%20diagram.png" alt="sequence diagram">
+</div>
+</div>
+<div class="sect3">
+<h4 id="challenges-in-implementation"><a class="link" href="#challenges-in-implementation">3.8.1. Challenges in implementation</a></h4>
+<div class="ulist">
+<ul>
+<li>
+<p>Because of the custom <code>StorageManager</code> class used to load and save JSON objects, the implementation of loading and saving statistics is somewhat tightly coupled with <code>StorageManager</code>.</p>
+<div class="ulist">
+<ul>
+<li>
+<p>It is insufficient to simply override the <code>toJson()</code> method to ensure that the statistics objects would be stored correctly. Instead, the underlying structure of the statistics objects must be known and exposed during the implementation of e.g. the <code>loadDeckStats()</code> and <code>saveDeckStats()</code> methods in <code>StorageManager</code>.</p>
+</li>
+<li>
+<p>Perhaps in v2.0, refactoring of <code>StorageManager</code> could allow for a higher level of abstraction of storage-related methods and reduced coupling between <code>StorageManager</code> and the unrelated Statistics classes.</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>As our application is quite significantly different than AB3, we used an MSS-focused approach to development: i.e. we focused on making sure that the user&#8217;s "happy path" could be completed via the GUI, before linking up the app&#8217;s behaviour with the CLI commands. This resulted in insufficient clarity and tight coupling of the <code>Responses</code> class with other classes.</p>
+<div class="ulist">
+<ul>
+<li>
+<p>The logic of parsing CLI input, handling incorrect commands, determining if the application is in an appropriate <code>State</code> etc., along with the actual handling of the command, is all bundled within <code>Responses</code> at present.</p>
+</li>
+<li>
+<p>In v2.0, we could focus on removing duplicated code between the CLI and GUI implementations.</p>
+</li>
+<li>
+<p>In v2.0, we could also work towards abstracting out the app&#8217;s desired response to a command in <code>Command</code> classes, allowing for a <code>Parser</code> to handle CLI calls and a <code>Dispatcher</code> to handle all <code>Command</code> s, whether they originate from the CLI or GUI.</p>
+</li>
+<li>
+<p>By abstracting out the handling of each command into separate classes, each team member can check the logic of how each <code>Command</code> interacts with their component with ease and avoid duplicated code. e.g. A <code>startTestSessionCommand</code> could initialise the <code>ExamRunner</code>, update <code>Statistics</code>, and so on.</p>
+</li>
+<li>
+<p>Because of the current less-than-ideal implementation of the app&#8217;s behaviour, in order to support creating/renaming/deleting decks along with undo/redo, code pertaining to <code>DeckStats</code> needed to be inserted at many disparate places in the code, e.g. within a button action in the <code>EditDeckDisplay</code> controller and in <code>Responses</code>.</p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect3">
+<h4 id="proposed-extension-statistics-for-individual-cards-in-a-deck"><a class="link" href="#proposed-extension-statistics-for-individual-cards-in-a-deck">3.8.2. Proposed extension: Statistics for individual cards in a deck</a></h4>
+<div class="ulist">
+<ul>
+<li>
+<p>Statistics for specific cards in a deck could be stored within the <code>Session</code> object representing the user&#8217;s test session on a deck.</p>
+<div class="ulist">
+<ul>
+<li>
+<p>In this way, summary statistics e.g. how many times the card was reviewed in the past week or whether the user attempted the card correctly on average, can be generated with ease.</p>
+</li>
+<li>
+<p>There is no need to store duplicated data about when each card is accessed.</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>One challenge for the implementation of card-specific statistics is the tight coupling of <code>Responses</code> with other classes, as mentioned above.</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Because individual cards are prone to change, e.g. when the user edits the front or back of the card, not to mention the decks themselves can also be renamed or deleted, it is important that the implementation of <code>DeckStats</code> is fully cleaned up before work on <code>CardStats</code> can begin.</p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
 </div>
 </div>
 </div>
@@ -628,7 +1251,13 @@ If the <code>currentStatePointer</code> is at index <code>addressBookStateList.s
 <div class="ulist">
 <ul>
 <li>
-<p>has a need to manage a significant number of contacts</p>
+<p>wishes to learn new materials by retrieval learning and self-testing</p>
+</li>
+<li>
+<p>is an independent learner</p>
+</li>
+<li>
+<p>contents of learning are largely textual</p>
 </li>
 <li>
 <p>prefer desktop apps over other types</p>
@@ -645,7 +1274,7 @@ If the <code>currentStatePointer</code> is at index <code>addressBookStateList.s
 </ul>
 </div>
 <div class="paragraph">
-<p><strong>Value proposition</strong>: manage contacts faster than a typical mouse/GUI driven app</p>
+<p><strong>Value proposition</strong>: allow effective reinforcement learning of textual content by answering using CLI input to a question prompt from a GUI</p>
 </div>
 </div>
 </div>
@@ -673,39 +1302,123 @@ If the <code>currentStatePointer</code> is at index <code>addressBookStateList.s
 <tbody>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>* * *</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">new user</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">see usage instructions</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">refer to instructions when I forget how to use the App</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">user</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">add a new deck</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">create a new topic collection of flash cards to test myself</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>* * *</code></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">user</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">add a new person</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">add a new card to a deck</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">include a new question into the topic of the deck to test myself</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>* * *</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">user</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">save my deck of flash cards into my local drive</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">I can share it with my friends</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>* * *</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">user</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">load my deck of flash cards into the app</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">I can reuse the deck of cards created</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>* * *</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">user that takes flash card tests</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">select an option out of four that best matches the front of a flash card</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">I can check that I have understood the concept the flash card aims to impart</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>* * *</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">learner who wants to track his/her progress</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">view the questions I have not done well in</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">improve my understanding on these concepts tested</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>* * *</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">learner who wants to prioritise some test questions over others</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">set which questions are more important</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">be exposed to these important questions more in the tests</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>* * *</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">beginner user</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">access a help page</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">i can learn about the features at a glance</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>* *</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">student with subjects of different language mediums</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">add flashcards of differing languages</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">I can customise my flashcards to the subject I am interested to do</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>* *</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">user creating flash cards</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">save collections of thematically similar flash cards</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">I can share my cards easily to other users</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>* * *</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">user</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">view the list of flashcards in a deck</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">remember the material at the back of the flashcard</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>* * *</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">user</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">edit the front and/or back of the flashcard in a deck</p></td>
 <td class="tableblock halign-left valign-top"></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>* * *</code></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">user</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">delete a person</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">remove entries that I no longer need</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">delete a flashcard from a deck</p></td>
+<td class="tableblock halign-left valign-top"></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>* * *</code></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">user</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">find a person by name</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">locate details of persons without having to go through the entire list</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">view the decks of flashcards in my library</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">I know what are the decks available for my usage</p></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>* *</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>* * *</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">intermediate learner</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">vary the amount of difficult questions in a test</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">expose myself to a test with varying difficult each time I test myself</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>* * *</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">expert learner with MCQ flashcard test</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">remove the choices given by the MCQ choices and enter the answers via CLI</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">test my understanding of the concept without a MCQ choice prompt</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>* * *</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">learner attempting MCQ questions</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">have randomised choices each time I try the test</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">I will not copy the choice from the previous test</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>* * *</code></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">user</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">hide <a href="#private-contact-detail">private contact details</a> by default</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">minimize chance of someone else seeing them by accident</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">restore my library state of my previous session</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">continue using FlashCard Pro without much time wasted</p></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>*</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">user with many persons in the address book</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">sort persons by name</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">locate a person easily</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>* * *</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">user attempting a test</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">view my score after the test</p></td>
+<td class="tableblock halign-left valign-top"></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>* * *</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">user who attempted a test</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">track my progress across mutliple test</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">monitor my attempts and correctness</p></td>
 </tr>
 </tbody>
 </table>
@@ -718,25 +1431,19 @@ If the <code>currentStatePointer</code> is at index <code>addressBookStateList.s
 <h2 id="use-cases"><a class="link" href="#use-cases">Appendix C: Use Cases</a></h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>(For all use cases below, the <strong>System</strong> is the <code>AddressBook</code> and the <strong>Actor</strong> is the <code>user</code>, unless specified otherwise)</p>
+<p>(For all use cases below, the <strong>System</strong> is the <code>FlashCard Pro</code> and the <strong>Actor</strong> is the <code>learner</code>, unless specified otherwise)</p>
 </div>
-<h3 id="use-case-delete-person" class="discrete">Use case: Delete person</h3>
+<h3 id="use-case-create-a-deck-of-cards" class="discrete">Use case: Create a deck of cards</h3>
 <div class="paragraph">
 <p><strong>MSS</strong></p>
 </div>
 <div class="olist arabic">
 <ol class="arabic">
 <li>
-<p>User requests to list persons</p>
+<p>Learner creates a new empty deck and specifies the name of the deck of cards.</p>
 </li>
 <li>
-<p>AddressBook shows a list of persons</p>
-</li>
-<li>
-<p>User requests to delete a specific person in the list</p>
-</li>
-<li>
-<p>AddressBook deletes the person</p>
+<p>Learner adds individual cards to the deck and specifies the content of the front and back of the cards.</p>
 <div class="paragraph">
 <p>Use case ends.</p>
 </div>
@@ -749,19 +1456,139 @@ If the <code>currentStatePointer</code> is at index <code>addressBookStateList.s
 <div class="ulist none">
 <ul class="none">
 <li>
-<p>2a. The list is empty.</p>
+<p>1a. FlashCard Pro detects deck name provided by learner is identical to an existing deck of cards in the library.</p>
+<div class="ulist">
+<ul>
+<li>
+<p>1a1. FlashCard Pro informs the learner that deck creation is unsuccessful.</p>
+</li>
+<li>
+<p>1a2. Learner creates a new deck with another unique deck name.</p>
+</li>
+<li>
+<p>Steps 1a1-1a2 are repeated until the data entered are correct.</p>
+</li>
+<li>
+<p>Use case resumes from step 2.</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>2a. FlashCard Pro detects no front and/or back content specified by the learner.</p>
+<div class="ulist">
+<ul>
+<li>
+<p>2a1. FlashCard Pro informs the learner that card creation is unsuccessful.</p>
+</li>
+<li>
+<p>2a2. Learner creates a new card with the correct front and/or back content.</p>
+</li>
+<li>
+<p>Steps 2a1-2a2 are repeated until the format of the command entered is correct.</p>
+<div class="paragraph">
+<p>(Was wondering if FlashCard Pro should create the deck, but with a numbering like untitled_1, untitled_2 etc)</p>
+</div>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+<h3 id="use-case-start-a-untimed-test" class="discrete">Use case: Start a untimed test</h3>
+<div class="paragraph">
+<p><strong>MSS</strong></p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Learner starts untimed test with a deck of cards by specifying deck name.</p>
+</li>
+<li>
+<p>FlashCard Pro begins test.</p>
+</li>
+<li>
+<p>FlashCard Pro flashes text on the front of a flash card to learner.</p>
+</li>
+<li>
+<p>FlashCard Pro waits for learner&#8217;s answer.</p>
+</li>
+<li>
+<p>Learner enters answer.</p>
+</li>
+<li>
+<p>FlashCard Pro matches answer with text on back of flash card.</p>
+</li>
+<li>
+<p>FlashCard Pro informs learner about correctness of the learner&#8217;s answer.</p>
+</li>
+<li>
+<p>FlashCard Pro displays the correct answer, the text on the back of the flash card.</p>
+<div class="paragraph">
+<p>Steps 3-8 are repeated until all the flash cards in the deck are completed.</p>
+</div>
 <div class="paragraph">
 <p>Use case ends.</p>
 </div>
 </li>
+</ol>
+</div>
+<h3 id="use-case-import-an-existing-deck-of-cards-from-a-json-file" class="discrete">Use case: Import an existing deck of cards from a JSON file</h3>
+<div class="paragraph">
+<p><strong>MSS</strong></p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
 <li>
-<p>3a. The given index is invalid.</p>
+<p>Learner specifies the filepath of the deck of cards to import, in a JSON file format.</p>
+</li>
+<li>
+<p>FlashCard Pro loads the file in the filepath.</p>
+</li>
+<li>
+<p>FlashCard Pro parses the fields in the JSON file.</p>
+</li>
+<li>
+<p>FlashCard Pro constructs the deck of cards.</p>
+</li>
+<li>
+<p>FlashCard Pro stores the deck of cards in the library.</p>
+<div class="paragraph">
+<p>Use case ends.</p>
+</div>
+</li>
+</ol>
+</div>
+<div class="paragraph">
+<p><strong>Extensions</strong></p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>2a. FlashCard Pro detects filepath is invalid.</p>
+<div class="ulist">
+<ul>
+<li>
+<p>2a1. FlashCard Pro informs the learner that import of deck of cards is unsuccessful.</p>
+<div class="paragraph">
+<p>Use case ends.</p>
+</div>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
 <div class="ulist none">
 <ul class="none">
 <li>
-<p>3a1. AddressBook shows an error message.</p>
+<p>2b. FlashCard Pro detects that filepath does not lead to a JSON file.</p>
+<div class="ulist">
+<ul>
+<li>
+<p>2b1. FlashCard Pro informs the learner that import of deck of cards is unsuccessful.</p>
 <div class="paragraph">
-<p>Use case resumes at step 2.</p>
+<p>Use case ends.</p>
 </div>
 </li>
 </ul>
@@ -769,8 +1596,393 @@ If the <code>currentStatePointer</code> is at index <code>addressBookStateList.s
 </li>
 </ul>
 </div>
+<h3 id="use-case-running-a-test-using-front-back-cards" class="discrete">Use case: Running a test using Front Back Cards</h3>
 <div class="paragraph">
-<p><em>{More to be added}</em></p>
+<p><strong>MSS</strong></p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>User enters command to start test with a deck of card and supplies deck name.</p>
+</li>
+<li>
+<p>System obtains the deck of cards.</p>
+</li>
+<li>
+<p>System starts test session.</p>
+</li>
+<li>
+<p>System shows front of card to user, waits for answer.</p>
+</li>
+<li>
+<p>User enters the answer.</p>
+</li>
+<li>
+<p>System evaluates the answer.</p>
+</li>
+<li>
+<p>System reports the correctness of the answer.</p>
+</li>
+<li>
+<p>System moves to next card.</p>
+<div class="paragraph">
+<p>Step 4-8 repeated until there are no cards in the deck remaining.</p>
+</div>
+<div class="paragraph">
+<p>Use case ends.</p>
+</div>
+</li>
+</ol>
+</div>
+<div class="paragraph">
+<p><strong>Extensions</strong></p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>1a. System does not find a deck with the deck name specified by the user</p>
+<div class="ulist">
+<ul>
+<li>
+<p>1a1. System tells user that there is no deck with specified name.</p>
+</li>
+<li>
+<p>1a2. System exits test creation.</p>
+<div class="paragraph">
+<p>Use case ends.</p>
+</div>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+<div class="ulist none">
+<ul class="none">
+<li>
+<p>1b. System has no decks in library.</p>
+<div class="ulist">
+<ul>
+<li>
+<p>1b1. System tells user that there are no decks in the library.</p>
+</li>
+<li>
+<p>1b2. System exits test creation.</p>
+<div class="paragraph">
+<p>Use case ends.</p>
+</div>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+<div class="sect2">
+<h3 id="use-case-creating-a-deck-of-cards"><a class="link" href="#use-case-creating-a-deck-of-cards">C.1. Use case: Creating a deck of cards</a></h3>
+<div class="paragraph">
+<p><strong>MSS</strong></p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>User enters command to create a deck.</p>
+</li>
+<li>
+<p>System creates a new deck.</p>
+</li>
+<li>
+<p>User enters command to create a new card in the deck.</p>
+</li>
+<li>
+<p>System creates a card.</p>
+</li>
+<li>
+<p>System stores the card in the deck.</p>
+<div class="paragraph">
+<p>Steps 2-5 repeats as long as the user wants to add a card.</p>
+</div>
+<div class="paragraph">
+<p>Use case ends.</p>
+</div>
+</li>
+</ol>
+</div>
+<h3 id="use-case-untimed-test-with-a-deck-of-multiple-choice-cards" class="discrete">Use case: Untimed Test with a deck of Multiple Choice Cards</h3>
+<div class="paragraph">
+<p><strong>MSS</strong></p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>User enters command to start test on a deck.
+(System creates a test subset)</p>
+</li>
+<li>
+<p>System gets the deck the user wants to test on.</p>
+</li>
+<li>
+<p>System starts test session.</p>
+</li>
+<li>
+<p>System randomises the choice ordering.</p>
+</li>
+<li>
+<p>System displays the front of card and choices.</p>
+</li>
+<li>
+<p>User enters the choice of correct answer.</p>
+</li>
+<li>
+<p>System evaluates the answer.</p>
+</li>
+<li>
+<p>System shows the correctness of the answer.</p>
+</li>
+<li>
+<p>System moves to next card.</p>
+<div class="paragraph">
+<p>Steps 4-9 are repeated until there are no more cards in the test set.</p>
+</div>
+<div class="paragraph">
+<p>Use case ends.</p>
+</div>
+</li>
+</ol>
+</div>
+<div class="paragraph">
+<p><strong>Extensions</strong></p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>1a. System does not find a deck with the deck name specified by the user</p>
+<div class="ulist">
+<ul>
+<li>
+<p>1a1. System tells user that there is no deck with specified name.</p>
+</li>
+<li>
+<p>1a2. System exits test creation.</p>
+<div class="paragraph">
+<p>Use case ends.</p>
+</div>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+<div class="ulist none">
+<ul class="none">
+<li>
+<p>1b. System has no decks in library.</p>
+<div class="ulist">
+<ul>
+<li>
+<p>1b1. System tells user that there are no decks in the library.</p>
+</li>
+<li>
+<p>1b2. System exits test creation.</p>
+<div class="paragraph">
+<p>Use case ends.</p>
+</div>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+<div class="ulist none">
+<ul class="none">
+<li>
+<p>6a. User enters an invalid choice.</p>
+<div class="ulist">
+<ul>
+<li>
+<p>6a1. System checks if choice is valid.</p>
+</li>
+<li>
+<p>6a2. System tells User that choice entered is invalid.</p>
+</li>
+<li>
+<p>6a3. System requests User to enter another choice.</p>
+<div class="paragraph">
+<p>Steps 6a1-6a3 repeats until the User enters a valid choice.</p>
+</div>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+<h3 id="use-case-timed-test-with-a-deck-of-multiple-choice-cards" class="discrete">Use case: Timed Test with a deck of Multiple Choice Cards</h3>
+<div class="paragraph">
+<p><strong>MSS</strong></p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>User enters command to start test on a deck.</p>
+<div class="paragraph">
+<p>(System creates a test subset)</p>
+</div>
+</li>
+<li>
+<p>System gets the deck the user wants to test on.</p>
+</li>
+<li>
+<p>System starts test session.</p>
+</li>
+<li>
+<p>System randomises the choice ordering.</p>
+</li>
+<li>
+<p>System displays the front of card and choices.</p>
+</li>
+<li>
+<p>User enters the choice of correct answer.</p>
+</li>
+<li>
+<p>System evaluates the answer.</p>
+</li>
+<li>
+<p>System shows the correctness of the answer.</p>
+</li>
+<li>
+<p>System moves to next card.</p>
+<div class="paragraph">
+<p>Steps 4-9 are repeated until there are no more cards in the test set.</p>
+</div>
+<div class="paragraph">
+<p>Use case ends.</p>
+</div>
+</li>
+</ol>
+</div>
+<div class="paragraph">
+<p><strong>Extensions</strong></p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>1a. System does not find a deck with the deck name specified by the user</p>
+<div class="ulist">
+<ul>
+<li>
+<p>1a1. System tells user that there is no deck with specified name.</p>
+</li>
+<li>
+<p>1a2. System exits test creation.</p>
+<div class="paragraph">
+<p>Use case ends.</p>
+</div>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+<div class="ulist none">
+<ul class="none">
+<li>
+<p>1b. System has no decks in library.</p>
+<div class="ulist">
+<ul>
+<li>
+<p>1b1. System tells user that there are no decks in the library.</p>
+</li>
+<li>
+<p>1b2. System exits test creation.</p>
+<div class="paragraph">
+<p>Use case ends.</p>
+</div>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+<div class="ulist none">
+<ul class="none">
+<li>
+<p>6a. User enters an invalid choice.</p>
+<div class="ulist">
+<ul>
+<li>
+<p>6a1. System checks if choice is valid.</p>
+</li>
+<li>
+<p>6a2. System tells User that choice entered is invalid.</p>
+<div class="paragraph">
+<p>Steps 6a1-6a3 repeats 3 times.</p>
+</div>
+</li>
+<li>
+<p>6a4. User enters invalid choice for 4th time.</p>
+</li>
+<li>
+<p>6a5. System receives invalid choice for 4th time.</p>
+</li>
+<li>
+<p>6a6. System terminates test.</p>
+</li>
+<li>
+<p>6a7. System tells User that test has terminated due to incorrect inputs.</p>
+<div class="paragraph">
+<p>Use case ends.</p>
+</div>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+<h3 id="use-case-creating-a-multiple-choice-card" class="discrete">Use case: Creating a Multiple Choice Card</h3>
+<div class="paragraph">
+<p><strong>MSS</strong></p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>User enters command to create a MCQ Card to a deck.</p>
+</li>
+<li>
+<p>System starts MCQ Card creation.</p>
+</li>
+<li>
+<p>System stores MCQ card in deck.</p>
+<div class="paragraph">
+<p>Use case ends.</p>
+</div>
+</li>
+</ol>
+</div>
+<div class="paragraph">
+<p><strong>Extension</strong></p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>1a. User enters duplicated choices.</p>
+<div class="ulist">
+<ul>
+<li>
+<p>1a1. System detects duplicated choices in choices provided by user.</p>
+</li>
+<li>
+<p>1a2. System tells User that there are duplicates in choices provided.</p>
+</li>
+<li>
+<p>1a3. System ends card creation.</p>
+<div class="paragraph">
+<p>Use case ends.</p>
+</div>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
 </div>
 </div>
 </div>
@@ -788,6 +2000,9 @@ If the <code>currentStatePointer</code> is at index <code>addressBookStateList.s
 <li>
 <p>A user with above average typing speed for regular English text (i.e. not code, not system admin commands) should be able to accomplish most of the tasks faster using commands than using the mouse.</p>
 </li>
+<li>
+<p>Should handle text input of english alphabets.</p>
+</li>
 </ol>
 </div>
 <div class="paragraph">
@@ -804,56 +2019,85 @@ If the <code>currentStatePointer</code> is at index <code>addressBookStateList.s
 <dd>
 <p>Windows, Linux, Unix, OS-X</p>
 </dd>
-<dt class="hdlist1"><a id="private-contact-detail"></a> Private contact detail</dt>
-<dd>
-<p>A contact detail that is not meant to be shared with others</p>
-</dd>
 </dl>
 </div>
 </div>
 </div>
 <div class="sect1">
-<h2 id="product-survey"><a class="link" href="#product-survey">Appendix F: Product Survey</a></h2>
-<div class="sectionbody">
-<div class="paragraph">
-<p><strong>Product Name</strong></p>
-</div>
-<div class="paragraph">
-<p>Author: &#8230;&#8203;</p>
-</div>
-<div class="paragraph">
-<p>Pros:</p>
-</div>
-<div class="ulist">
-<ul>
-<li>
-<p>&#8230;&#8203;</p>
-</li>
-<li>
-<p>&#8230;&#8203;</p>
-</li>
-</ul>
-</div>
-<div class="paragraph">
-<p>Cons:</p>
-</div>
-<div class="ulist">
-<ul>
-<li>
-<p>&#8230;&#8203;</p>
-</li>
-<li>
-<p>&#8230;&#8203;</p>
-</li>
-</ul>
-</div>
-</div>
-</div>
-<div class="sect1">
-<h2 id="instructions-for-manual-testing"><a class="link" href="#instructions-for-manual-testing">Appendix G: Instructions for Manual Testing</a></h2>
+<h2 id="instructions-for-manual-testing"><a class="link" href="#instructions-for-manual-testing">Appendix F: Instructions for Manual Testing</a></h2>
 <div class="sectionbody">
 <div class="paragraph">
 <p>Given below are instructions to test the app manually.</p>
+</div>
+<div class="paragraph">
+<p>To create an empty deck with name <code>German</code>:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>create deck/German</code></p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>To add a Front Back card with default priority level of <code>low</code> to the deck <code>German</code>:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>add deck/German front/hello back/moin moin</code></p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>To add a Front and Back card with priority level of <code>high</code> to the deck <code>German</code>:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>add deck/German priority/high front/Good morning back/guten morgen</code></p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>To edit a Front and Back card&#8217;s front text, with the card as the only card in the <code>German</code> deck:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>edit deck/German index/1 front/Good bye</code></p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>To add an Multiple Choice card with priority level of <code>high</code> 3 options and the second option is the correct answer:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>add deck/German priority/high front/Good morning back/2 choice/klair choice/guten morgen choice/moin</code></p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>To delete the first card from the <code>German</code> deck:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>delete deck/German index/1</code></p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>To delete the deck <code>German</code>:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>delete deck/German</code></p>
+</li>
+</ul>
 </div>
 <div class="admonitionblock note">
 <table>
@@ -867,95 +2111,5 @@ These instructions only provide a starting point for testers to work on; testers
 </tr>
 </table>
 </div>
-<div class="sect2">
-<h3 id="launch-and-shutdown"><a class="link" href="#launch-and-shutdown">G.1. Launch and Shutdown</a></h3>
-<div class="olist arabic">
-<ol class="arabic">
-<li>
-<p>Initial launch</p>
-<div class="olist loweralpha">
-<ol class="loweralpha" type="a">
-<li>
-<p>Download the jar file and copy into an empty folder</p>
-</li>
-<li>
-<p>Double-click the jar file<br>
-Expected: Shows the GUI with a set of sample contacts. The window size may not be optimum.</p>
-</li>
-</ol>
 </div>
-</li>
-<li>
-<p>Saving window preferences</p>
-<div class="olist loweralpha">
-<ol class="loweralpha" type="a">
-<li>
-<p>Resize the window to an optimum size. Move the window to a different location. Close the window.</p>
-</li>
-<li>
-<p>Re-launch the app by double-clicking the jar file.<br>
-Expected: The most recent window size and location is retained.</p>
-</li>
-</ol>
-</div>
-</li>
-</ol>
-</div>
-<div class="paragraph">
-<p><em>{ more test cases &#8230;&#8203; }</em></p>
-</div>
-</div>
-<div class="sect2">
-<h3 id="deleting-a-person"><a class="link" href="#deleting-a-person">G.2. Deleting a person</a></h3>
-<div class="olist arabic">
-<ol class="arabic">
-<li>
-<p>Deleting a person while all persons are listed</p>
-<div class="olist loweralpha">
-<ol class="loweralpha" type="a">
-<li>
-<p>Prerequisites: List all persons using the <code>list</code> command. Multiple persons in the list.</p>
-</li>
-<li>
-<p>Test case: <code>delete 1</code><br>
-Expected: First contact is deleted from the list. Details of the deleted contact shown in the status message. Timestamp in the status bar is updated.</p>
-</li>
-<li>
-<p>Test case: <code>delete 0</code><br>
-Expected: No person is deleted. Error details shown in the status message. Status bar remains the same.</p>
-</li>
-<li>
-<p>Other incorrect delete commands to try: <code>delete</code>, <code>delete x</code> (where x is larger than the list size) <em>{give more}</em><br>
-Expected: Similar to previous.</p>
-</li>
-</ol>
-</div>
-</li>
-</ol>
-</div>
-<div class="paragraph">
-<p><em>{ more test cases &#8230;&#8203; }</em></p>
-</div>
-</div>
-<div class="sect2">
-<h3 id="saving-data"><a class="link" href="#saving-data">G.3. Saving data</a></h3>
-<div class="olist arabic">
-<ol class="arabic">
-<li>
-<p>Dealing with missing/corrupted data files</p>
-<div class="olist loweralpha">
-<ol class="loweralpha" type="a">
-<li>
-<p><em>{explain how to simulate a missing/corrupted file and the expected behavior}</em></p>
-</li>
-</ol>
-</div>
-</li>
-</ol>
-</div>
-<div class="paragraph">
-<p><em>{ more test cases &#8230;&#8203; }</em></p>
-</div>
-</div>
-</div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-09-12 16:38:18 UTC</div></div></div></body></html>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-11-11 23:54:50 SGT</div></div></div></body></html>
